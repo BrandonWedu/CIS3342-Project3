@@ -31,5 +31,11 @@ namespace RetailClassLibrary
             get { return this.password; }
             set { this.password = value; }
         }
+
+        //Return a Deep Copy
+        public LoginData DeepCopy()
+        {
+            return new LoginData(username, password);
+        }
     }
 }
