@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,15 +16,17 @@ namespace RetailClassLibrary
         private Address workAddress;
         private string workPhoneNumber;
         private string workEmail;
+        private Company company;
 
         //Constructor
-        public Agent(int agentID, LoginData loginData, string agentUsername, string agentPassword, Address workAddress, string workPhoneNumber, string workEmail, string firstName, string lastName, Address address, string phoneNumber, string email) : base(firstName, lastName, address, phoneNumber, email)
+        public Agent(int agentID, LoginData loginData, string agentUsername, string agentPassword, Address workAddress, string workPhoneNumber, string workEmail, Company company, string firstName, string lastName, Address address, string phoneNumber, string email) : base(firstName, lastName, address, phoneNumber, email)
         {
             this.agentID = agentID;
             this.loginData = loginData;
             this.workAddress = workAddress;
             this.workPhoneNumber = workPhoneNumber;
             this.workEmail = workEmail;
+            this.company = company;
         }
 
         //Get Set
@@ -51,6 +54,11 @@ namespace RetailClassLibrary
         {
             get { return workEmail; }
             set { workEmail = value; }
+        }
+        public Company Company
+        {
+            get { return company.DeepCopy(); }
+            set { company = value.DeepCopy(); }
         }
     }
 }
