@@ -47,7 +47,7 @@ namespace RetailClassLibrary
         }
 
         //Return a deep copy of the object
-        public Address DeepCopy()
+        internal Address DeepCopy()
         {
             return new Address(street, city, state, zipCode);
         }

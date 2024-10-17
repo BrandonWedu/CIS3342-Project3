@@ -67,5 +67,11 @@ namespace RetailClassLibrary
             get { return description; }
             set { description = value; }
         }
+
+        //Return Deep Copy
+        internal HomeImage DeepCopy()
+        {
+            return new HomeImage(imageID, url, type, description);
+        }
     }
 }

@@ -33,7 +33,7 @@ namespace RetailClassLibrary
         }
 
         //Return a Deep Copy
-        public LoginData DeepCopy()
+        internal LoginData DeepCopy()
         {
             return new LoginData(username, password);
         }

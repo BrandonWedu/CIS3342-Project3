@@ -55,7 +55,7 @@ namespace RetailClassLibrary
         }
 
         //Return Deep Copy
-        public Company DeepCopy()
+        internal Company DeepCopy()
         {
             return new Company(companyID, name, address.DeepCopy(), phoneNumber, email);
         }
