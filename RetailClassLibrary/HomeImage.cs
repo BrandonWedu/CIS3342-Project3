@@ -6,28 +6,7 @@ using System.Threading.Tasks;
 
 namespace RetailClassLibrary
 {
-    //Enum for types of rooms
-    public enum RoomType
-    {
-        LivingRoom,
-        Kitchen,
-        DiningRoom,
-        Bedroom,
-        Bathroom,
-        HomeOffice,
-        Laundry,
-        Garage,
-        Basement,
-        Attic,
-        Pantry,
-        Playroom,
-        Mudroom,
-        Library,
-        Sunroom,
-        Workshop,
-        Storage
-    }
-
+    //Enum for room types in Room.cs
     //Contains data for a home image
     public class HomeImage
     {

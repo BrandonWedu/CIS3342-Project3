@@ -39,12 +39,14 @@ namespace RetailClassLibrary
     internal class TempatureControl
     {
         //Fields 
+        private int tempatureControlID;
         private HeatingTypes heating;
         private CoolingTypes cooling;
 
         //Constructor
-        public TempatureControl(HeatingTypes heating, CoolingTypes cooling)
+        public TempatureControl(int tempatureControlID, HeatingTypes heating, CoolingTypes cooling)
         {
+            this.tempatureControlID = tempatureControlID;
             this.heating = heating;
             this.cooling = cooling;
         }
@@ -59,6 +61,12 @@ namespace RetailClassLibrary
         {
             get { return cooling; }
             set { cooling = value; }
+        }
+
+        //return DeepCopy
+        internal TempatureControl DeepCopy()
+        {
+            return new TempatureControl(tempatureControlID, heating, cooling);
         }
     }
 }
