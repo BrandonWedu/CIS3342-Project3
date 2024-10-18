@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace RetailClassLibrary
 {
     //Contains data for an Address
-    public class Address
+    public class Address : ICloneable<Address>
     {
         //Fields
         private string street;
@@ -42,14 +42,13 @@ namespace RetailClassLibrary
         }
         public string ZipCode
         {
-            get { return ZipCode; }
+            get { return zipCode; }
             set { this.zipCode = value; }
         }
 
-        //Return a deep copy of the object
-        internal Address DeepCopy()
+        public Address DeepCopy()
         {
-            return new Address(street, city, state, zipCode);
+            return new Address(Street, City, State, ZipCode);
         }
     }
 }

@@ -23,15 +23,22 @@ namespace RetailClassLibrary
         StormwaterManagement
     }
     //Contains data for Utility
-    internal class Utility
+    internal class Utility : ICloneable<Utility>
     {
         //Fields
-        private int utilityID;
+        private int? utilityID;
         private UtilityTypes type;
         private string information;
 
-        //Constructor
-        public Utility(int utilityID, UtilityTypes type, string information) 
+        //Constructor without id
+        public Utility(UtilityTypes type, string information) 
+        {
+            utilityID = null;
+            this.type = type;
+            this.information = information;
+        }
+        //Constructor with id
+        public Utility(int? utilityID, UtilityTypes type, string information) 
         {
             this.utilityID = utilityID;
             this.type = type;
@@ -39,7 +46,7 @@ namespace RetailClassLibrary
         }
 
         //Get Set
-        public int UtilityID
+        public int? UtilityID
         {
             get { return utilityID; }
             set { utilityID = value; }
@@ -56,7 +63,7 @@ namespace RetailClassLibrary
         }
 
         //Return Deep Copy
-        internal Utility DeepCopy()
+        public Utility DeepCopy()
         {
             return new Utility(utilityID, type, information);
         }

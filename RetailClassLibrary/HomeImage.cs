@@ -8,16 +8,24 @@ namespace RetailClassLibrary
 {
     //Enum for room types in Room.cs
     //Contains data for a home image
-    public class HomeImage
+    public class HomeImage : ICloneable<HomeImage>
     {
         //Fields
-        private int imageID;
+        private int? imageID;
         private string url;
         private RoomType type;
         private string description;
 
-        //Constructor
-        public HomeImage (int imageID, string url, RoomType type, string description)
+        //Constructor without id
+        public HomeImage (string url, RoomType type, string description)
+        {
+            this.imageID = null;
+            this.url = url;
+            this.type = type;
+            this.description = description;
+        }
+        //Constructor with id
+        public HomeImage (int? imageID, string url, RoomType type, string description)
         {
             this.imageID = imageID;
             this.url = url;
@@ -26,7 +34,7 @@ namespace RetailClassLibrary
         }
 
         //Get Set
-        public int ImageID
+        public int? ImageID
         {
             get { return imageID; }
             set { imageID = value; }
@@ -48,7 +56,7 @@ namespace RetailClassLibrary
         }
 
         //Return Deep Copy
-        internal HomeImage DeepCopy()
+        public HomeImage DeepCopy()
         {
             return new HomeImage(imageID, url, type, description);
         }

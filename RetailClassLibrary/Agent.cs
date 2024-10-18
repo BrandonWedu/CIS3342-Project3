@@ -8,18 +8,29 @@ using System.Threading.Tasks;
 namespace RetailClassLibrary
 {
     //Contains Agent data and extends User
-    internal class Agent : User
+    internal class Agent : User, ICloneable<Agent>
     {
         //Fields
-        private int agentID;
+        private int? agentID;
         private LoginData loginData;
         private Address workAddress;
         private string workPhoneNumber;
         private string workEmail;
         private Company company;
 
-        //Constructor
-        public Agent(int agentID, LoginData loginData, string agentUsername, string agentPassword, Address workAddress, string workPhoneNumber, string workEmail, Company company, string firstName, string lastName, Address address, string phoneNumber, string email) : base(firstName, lastName, address, phoneNumber, email)
+        //Constructor without id
+        public Agent(LoginData loginData, Address workAddress, string workPhoneNumber, string workEmail, Company company, string firstName, string lastName, Address address, string phoneNumber, string email) : base(firstName, lastName, address, phoneNumber, email)
+        {
+            agentID = null;
+            this.loginData = loginData;
+            this.workAddress = workAddress;
+            this.workPhoneNumber = workPhoneNumber;
+            this.workEmail = workEmail;
+            this.company = company;
+        }
+
+        //Constructor with id
+        public Agent(int? agentID, LoginData loginData, Address workAddress, string workPhoneNumber, string workEmail, Company company, string firstName, string lastName, Address address, string phoneNumber, string email) : base(firstName, lastName, address, phoneNumber, email)
         {
             this.agentID = agentID;
             this.loginData = loginData;
@@ -30,7 +41,7 @@ namespace RetailClassLibrary
         }
 
         //Get Set
-        public int AgentID
+        public int? AgentID
         {
             get { return agentID; }
             set { agentID = value; }
@@ -59,6 +70,11 @@ namespace RetailClassLibrary
         {
             get { return company.DeepCopy(); }
             set { company = value.DeepCopy(); }
+        }
+
+        public Agent DeepCopy()
+        {
+            return new Agent(agentID, loginData.DeepCopy(), workAddress.DeepCopy(), workPhoneNumber, workEmail, company.DeepCopy(), firstName, lastName, address.DeepCopy(), phoneNumber,email);
         }
     }
 }

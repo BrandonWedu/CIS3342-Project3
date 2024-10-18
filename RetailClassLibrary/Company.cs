@@ -8,17 +8,26 @@ using System.Web;
 namespace RetailClassLibrary
 {
     //Contains Company Information
-    internal class Company
+    internal class Company : ICloneable<Company>
     {
         //Fields
-        private int companyID;
+        private int? companyID;
         private string name;
         private Address address;
         private string phoneNumber;
         private string email;
 
-        //Constructor
-        public Company(int companyID, string name, Address address, string phoneNumber, string email)
+        //Constructor without id
+        public Company(string name, Address address, string phoneNumber, string email)
+        {
+            this.companyID = null;
+            this.name = name;
+            this.address = address;
+            this.phoneNumber = phoneNumber;
+            this.email = email;
+        }
+        //Constructor with id
+        public Company(int? companyID, string name, Address address, string phoneNumber, string email)
         {
             this.companyID = companyID;
             this.name = name;
@@ -28,7 +37,7 @@ namespace RetailClassLibrary
         }
 
         //Get Set
-        public int CompanyID
+        public int? CompanyID
         {
             get { return companyID; }
             set { companyID = value; }
@@ -55,7 +64,7 @@ namespace RetailClassLibrary
         }
 
         //Return Deep Copy
-        internal Company DeepCopy()
+        public Company DeepCopy()
         {
             return new Company(companyID, name, address.DeepCopy(), phoneNumber, email);
         }

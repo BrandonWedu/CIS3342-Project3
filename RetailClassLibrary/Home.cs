@@ -38,11 +38,11 @@ namespace RetailClassLibrary
         private string description;
         private DateTime dateListed;
         private SaleStatus saleStatus;
-        private List<HomeImage> images;
-        private List<amenity> amenities;
+        private HomeImages images;
+        private HomeAmenities amenities;
         private TempatureControl tempatureControl;
-        private List<Room> rooms;
-        private List<Utility> utilities;
+        private HomeRooms rooms;
+        private HomeUtilities utilities;
 
         //Constructor
 

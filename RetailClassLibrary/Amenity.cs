@@ -30,15 +30,22 @@ namespace RetailClassLibrary
     }
 
     //Contains data for and Amenity
-    internal class Amenity
+    internal class Amenity : ICloneable<Amenity>
     {
         //Fields
-        private int amenityID;
+        private int? amenityID;
         private AmenityType type;
         private string description;
 
-        //Constructor
-        public Amenity (int amenityID, AmenityType type, string description)
+        //Constructor without id
+        public Amenity (AmenityType type, string description)
+        {
+            this.amenityID = null;
+            this.type = type;
+            this.description = description;
+        }
+        //Constructor with id
+        public Amenity (int? amenityID, AmenityType type, string description)
         {
             this.amenityID = amenityID;
             this.type = type;
@@ -46,7 +53,7 @@ namespace RetailClassLibrary
         }
 
         //Get Set
-        public int AmenityID
+        public int? AmenityID
         {
             get { return amenityID; }
             set { amenityID = value; }
@@ -63,7 +70,7 @@ namespace RetailClassLibrary
         }
 
         //Return Deep Copy
-        internal Amenity DeepCopy()
+        public Amenity DeepCopy()
         {
             return new Amenity(AmenityID, type, description);
         }

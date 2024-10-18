@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace RetailClassLibrary
 {
     //Holds User Login information
-    public class LoginData
+    public class LoginData : ICloneable<LoginData>
     {
         //Fields
         private string username;
@@ -33,7 +33,7 @@ namespace RetailClassLibrary
         }
 
         //Return a Deep Copy
-        internal LoginData DeepCopy()
+        public LoginData DeepCopy()
         {
             return new LoginData(username, password);
         }

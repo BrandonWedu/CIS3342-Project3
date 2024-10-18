@@ -29,24 +29,33 @@ namespace RetailClassLibrary
     }
 
     //Contains Room Data
-    internal class Room
+    internal class Room : ICloneable<Room>
     {
         //Fields
-        private int roomID;
+        private int? roomID;
         private RoomType type;
         private int height;
         private int width;
 
-        //Constructor
+        //Constructor without id
         public Room(RoomType type, int height, int width)
         {
+            roomID = null;
+            this.type = type;
+            this .height = height;
+            this .width = width;
+        }
+        //Constructor with id
+        public Room(int? roomID, RoomType type, int height, int width)
+        {
+            this.roomID = roomID;
             this.type = type;
             this .height = height;
             this .width = width;
         }
 
         //Get Set
-        public int RoomID
+        public int? RoomID
         {
             get { return roomID; }
             set { roomID = value; }
