@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RetailClassLibrary
 {
+    //Contains data for a Contingency
     public class Contingency : ICloneable<Contingency>
     {
         //Fields
