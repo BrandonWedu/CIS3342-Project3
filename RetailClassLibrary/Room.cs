@@ -29,7 +29,7 @@ namespace RetailClassLibrary
     }
 
     //Contains Room Data
-    internal class Room : ICloneable<Room>
+    public class Room : ICloneable<Room>
     {
         //Fields
         private int? roomID;

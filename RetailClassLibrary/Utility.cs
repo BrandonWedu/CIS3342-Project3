@@ -23,7 +23,7 @@ namespace RetailClassLibrary
         StormwaterManagement
     }
     //Contains data for Utility
-    internal class Utility : ICloneable<Utility>
+    public class Utility : ICloneable<Utility>
     {
         //Fields
         private int? utilityID;

@@ -30,7 +30,7 @@ namespace RetailClassLibrary
     }
 
     //Contains data for and Amenity
-    internal class Amenity : ICloneable<Amenity>
+    public class Amenity : ICloneable<Amenity>
     {
         //Fields
         private int? amenityID;

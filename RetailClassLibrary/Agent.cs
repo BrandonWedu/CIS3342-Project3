@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace RetailClassLibrary
 {
     //Contains Agent data and extends User
-    internal class Agent : User, ICloneable<Agent>
+    public class Agent : User, ICloneable<Agent>
     {
         //Fields
         private int? agentID;

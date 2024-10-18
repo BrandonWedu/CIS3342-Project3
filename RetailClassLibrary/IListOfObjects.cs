@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace RetailClassLibrary
 {
-    internal interface IListOfObjects<T>
+    public interface IListOfObjects<T>
     {
         //Add a new object to the list
         void Add(T obj);
         //remove an item from teh list at index
         void RemoveAtIndex(int index);
         //DeepCopy of a list
-        List<T> ListDeepCopy(List<T> list);
+        List<T> ListDeepCopy();
     }
 }

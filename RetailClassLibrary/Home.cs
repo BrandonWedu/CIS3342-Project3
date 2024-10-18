@@ -49,6 +49,9 @@ namespace RetailClassLibrary
         //Get Set
 
         //Calculate homesize
-
+        private void CalculateHomeSize()
+        {
+            homeSize = 0;
+        }
     }
 }

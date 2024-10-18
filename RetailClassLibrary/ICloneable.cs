@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RetailClassLibrary
 {
-    internal interface ICloneable<T>
+    public interface ICloneable<T>
     {
         //Return a deep copy of the object T
         T DeepCopy();

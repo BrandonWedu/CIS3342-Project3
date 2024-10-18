@@ -8,7 +8,7 @@ using System.Web;
 namespace RetailClassLibrary
 {
     //Contains Company Information
-    internal class Company : ICloneable<Company>
+    public class Company : ICloneable<Company>
     {
         //Fields
         private int? companyID;

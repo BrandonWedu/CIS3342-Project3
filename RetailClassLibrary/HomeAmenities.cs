@@ -7,17 +7,23 @@ using System.Threading.Tasks;
 namespace RetailClassLibrary
 {
     //Contains a list of Amenitiy
-    internal class HomeAmenities
+    public class HomeAmenities : ListOfObjects<Amenity>, ICloneable<HomeAmenities>
     {
-        //Fields
+        //Constructor with no list
+        public HomeAmenities() { }
+        //Constructor with list 
+        public HomeAmenities(List<Amenity> list)
+        {
+            foreach (Amenity amenity in list)
+            {
+                Add(amenity);
+            }
+        }
 
-        //Constructor without list
-
-        //Constructor with list
-
-        //Get Set
-
-        //Implemented Interfaces
-
+        //Implement Interface
+        public HomeAmenities DeepCopy()
+        {
+            return new HomeAmenities(ListDeepCopy());
+        }
     }
 }
