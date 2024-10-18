@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace RetailClassLibrary
 {
-    public class HomeImages : ListOfObjects<HomeImage>, ICloneable<HomeImages>
+    //Contains a list of Image
+    public class HomeImages : ListOfObjects<Image>, ICloneable<HomeImages>
     {
         //Constructor with no list
         public HomeImages() { }
         //Constructor with list
-        public HomeImages(List<HomeImage> list)
+        public HomeImages(List<Image> list)
         {
-            foreach (HomeImage item in list)
+            foreach (Image item in list)
                 {
                     Add(item);
                 }

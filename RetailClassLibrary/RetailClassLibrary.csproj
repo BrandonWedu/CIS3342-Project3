@@ -49,8 +49,9 @@
     <Compile Include="Company.cs" />
     <Compile Include="Home.cs" />
     <Compile Include="HomeAmenities.cs" />
-    <Compile Include="HomeImage.cs" />
+    <Compile Include="Image.cs" />
     <Compile Include="HomeImages.cs" />
+    <Compile Include="HomeRooms.cs" />
     <Compile Include="ICloneable.cs" />
     <Compile Include="IListOfObjects.cs" />
     <Compile Include="ListOfObjects.cs" />
