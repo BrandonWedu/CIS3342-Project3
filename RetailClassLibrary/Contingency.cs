@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RetailClassLibrary
 {
-    internal class Contingency : ICloneable<Contingency>
+    public class Contingency : ICloneable<Contingency>
     {
         //Fields
         private int? contengencyID;
