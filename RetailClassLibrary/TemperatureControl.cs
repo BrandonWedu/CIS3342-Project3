@@ -36,24 +36,24 @@ namespace RetailClassLibrary
     }
 
     //Holds all data for heating and cooling
-    internal class TempatureControl : ICloneable<TempatureControl>
+    public class TemperatureControl : ICloneable<TemperatureControl>
     {
         //Fields 
-        private int? tempatureControlID;
+        private int? temperatureControlID;
         private HeatingTypes heating;
         private CoolingTypes cooling;
 
         //Constructor without id
-        public TempatureControl(HeatingTypes heating, CoolingTypes cooling)
+        public TemperatureControl(HeatingTypes heating, CoolingTypes cooling)
         {
-            tempatureControlID = null;
+            temperatureControlID = null;
             this.heating = heating;
             this.cooling = cooling;
         }
         //Constructor with id
-        public TempatureControl(int? tempatureControlID, HeatingTypes heating, CoolingTypes cooling)
+        public TemperatureControl(int? temperatureControlID, HeatingTypes heating, CoolingTypes cooling)
         {
-            this.tempatureControlID = tempatureControlID;
+            this.temperatureControlID = temperatureControlID;
             this.heating = heating;
             this.cooling = cooling;
         }
@@ -61,8 +61,8 @@ namespace RetailClassLibrary
         //Get Set
         public int? TempatureControlID
         {
-            get { return tempatureControlID; }
-            set { tempatureControlID = value; }
+            get { return temperatureControlID; }
+            set { temperatureControlID = value; }
         }
         public HeatingTypes Heating
         {
@@ -76,9 +76,9 @@ namespace RetailClassLibrary
         }
 
         //return DeepCopy
-        public TempatureControl DeepCopy()
+        public TemperatureControl DeepCopy()
         {
-            return new TempatureControl(tempatureControlID, heating, cooling);
+            return new TemperatureControl(temperatureControlID, heating, cooling);
         }
     }
 }

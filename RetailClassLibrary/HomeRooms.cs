@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace RetailClassLibrary
 {
     //Contains a list of Room
-    internal class HomeRooms : ListOfObjects<Room>, ICloneable<HomeRooms>
+    public class HomeRooms : ListOfObjects<Room>, ICloneable<HomeRooms>
     {
         //Constructor with no list
         public HomeRooms() { }
