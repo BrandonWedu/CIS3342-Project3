@@ -17,9 +17,10 @@ namespace RetailClassLibrary
         }
 
         //Account Registration
-        public static bool AccountRegistration()
+        public static bool AccountRegistration(Agent agent)
         {
-            //Run sql to make a new user
+            //make a new account
+            return WriteAgent.CreateNewAgent(agent);     
         }
     }
 }

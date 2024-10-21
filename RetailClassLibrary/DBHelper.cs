@@ -10,13 +10,24 @@ namespace RetailClassLibrary
 {
     internal static class DBHelper
     {
-        internal static SqlParameter InputParameter(string parameter, object value, SqlDbType type, int size)
+        internal static SqlParameter InputParameter<T>(string parameter, T value, SqlDbType type, int size)
         {
-            SqlParameter inputParameter = new SqlParameter(parameter, value);
+            SqlParameter inputParameter = new SqlParameter();
+            inputParameter.ParameterName = parameter;
+            inputParameter.Value = value;
             inputParameter.Direction = ParameterDirection.Input;
             inputParameter.SqlDbType = type;
             inputParameter.Size = size;
             return inputParameter;
+        }
+        internal static SqlParameter OutputParameter(string parameter, SqlDbType type, int size)
+        {
+            SqlParameter outputParameter = new SqlParameter();
+            outputParameter.ParameterName = parameter;
+            outputParameter.Direction = ParameterDirection.Output;
+            outputParameter.SqlDbType = type;
+            outputParameter.Size = size;
+            return outputParameter;
         }
     }
 }
