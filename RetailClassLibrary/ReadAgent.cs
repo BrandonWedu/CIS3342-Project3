@@ -33,5 +33,22 @@ namespace RetailClassLibrary
             // return (false, -1) if login unsucessful
             return ((Convert.ToInt32(statusCode) == 0), (int)outputParam.Value);
         }
+
+        //Generate Agent Object by ID
+        internal static (bool, Agent) GetAgentByID(int agentID) 
+        {
+            DBConnect dbConnect = new DBConnect();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.CommandText = "GetAgentByID";
+
+            //add parameter
+            sqlCommand.Parameters.Add(DBHelper.InputParameter<int>("@agentID", agentID, SqlDbType.Int, 8));
+
+            //Create Agent
+            return new Agent(
+                
+            );
+        }
     }
 }

@@ -20,8 +20,16 @@ namespace RetailClassLibrary
         //Account Registration
         public static bool AccountRegistration(Agent agent)
         {
-            //make a new account
+            //returns based on creation sucess 
             return WriteAgent.CreateNewAgent(agent);     
+        }
+
+        //Get Agent by ID
+        public static (bool, Agent) GetAgentByID(int agentID)
+        {
+            // return (true, agent) if successful
+            // return (false, null) if unsucessful
+            return ReadAgent.GetAgentByID(agentID);
         }
     }
 }
