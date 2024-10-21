@@ -43,8 +43,10 @@ namespace RetailClassLibrary
             {
                 //set agent id
                 agent.AgentID = (int)outputParam.Value;
+                //Return true if creation is sucessful
                 return true;
             }
+            //return false if creation is unsucessful
             return false;
         }
     }
