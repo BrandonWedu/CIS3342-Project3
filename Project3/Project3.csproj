@@ -67,10 +67,90 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AccountRegistration.aspx" />
+    <Content Include="HomeAdd.aspx" />
+    <Content Include="HomeEdit.aspx" />
+    <Content Include="Index.aspx" />
+    <Content Include="AccountLogin.aspx" />
+    <Content Include="OfferCreate.aspx" />
+    <Content Include="OfferView.aspx" />
+    <Content Include="HomeSearch.aspx" />
+    <Content Include="ShowingSchedule.aspx" />
+    <Content Include="ShowingView.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountRegistration.aspx.cs">
+      <DependentUpon>AccountRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountRegistration.aspx.designer.cs">
+      <DependentUpon>AccountRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomeAdd.aspx.cs">
+      <DependentUpon>HomeAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeAdd.aspx.designer.cs">
+      <DependentUpon>HomeAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomeEdit.aspx.cs">
+      <DependentUpon>HomeEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeEdit.aspx.designer.cs">
+      <DependentUpon>HomeEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AccountLogin.aspx.cs">
+      <DependentUpon>AccountLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountLogin.aspx.designer.cs">
+      <DependentUpon>AccountLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OfferCreate.aspx.cs">
+      <DependentUpon>OfferCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OfferCreate.aspx.designer.cs">
+      <DependentUpon>OfferCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OfferView.aspx.cs">
+      <DependentUpon>OfferView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OfferView.aspx.designer.cs">
+      <DependentUpon>OfferView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HomeSearch.aspx.cs">
+      <DependentUpon>HomeSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeSearch.aspx.designer.cs">
+      <DependentUpon>HomeSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowingSchedule.aspx.cs">
+      <DependentUpon>ShowingSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowingSchedule.aspx.designer.cs">
+      <DependentUpon>ShowingSchedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowingView.aspx.cs">
+      <DependentUpon>ShowingView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowingView.aspx.designer.cs">
+      <DependentUpon>ShowingView.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -80,6 +160,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{ae43af09-6deb-4a63-ae87-7934014ed581}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
