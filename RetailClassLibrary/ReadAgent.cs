@@ -45,10 +45,33 @@ namespace RetailClassLibrary
             //add parameter
             sqlCommand.Parameters.Add(DBHelper.InputParameter<int>("@agentID", agentID, SqlDbType.Int, 8));
 
-            //Create Agent
-            return new Agent(
-                
-            );
+            //run sql
+            DataSet dataSet = dbConnect.GetDataSet(sqlCommand);
+            if (dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count > 0)
+            {
+                DataRow row = dataSet.Tables[0].Rows[0];
+                return
+                (
+                    true,
+                    new Agent
+                    (
+                        (int)row["AgentID"],
+                        new LoginData((string)row["AgentUsername"], (string)row["AgentPassword"]),
+                        Serializer.DeserializeData<Address>((byte[])row["WorkAddress"]),
+                        (string)row["WorkPhoneNumber"],
+                        (string)row["WorkEmail"],
+                        new Company( (int?)row["CompanyID"], (string)row["CompanyName"], Serializer.DeserializeData<Address>((byte[])row["CompanyAddress"]), (string)row["CompanyPhoneNumber"], (string)row["CompanyEmail"]),
+                        (string)row["FirstName"],
+                        (string)row["LastName"],
+                        Serializer.DeserializeData<Address>((byte[])row["PersonalAddress"]),
+                        (string)row["PersonalPhoneNumber"],
+                        (string)row["PersonalEmail"]
+                    )
+                ); 
+            } else
+            {
+                return (false, null);
+            }
         }
     }
 }
