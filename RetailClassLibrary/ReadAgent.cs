@@ -11,7 +11,7 @@ namespace RetailClassLibrary
 {
     internal static class ReadAgent 
     {
-        public static (bool, int) Login(string username, string password)
+        public static int Login(string username, string password)
         {
             DBConnect dbConnect = new DBConnect();
             SqlCommand sqlCommand = new SqlCommand();
@@ -27,11 +27,11 @@ namespace RetailClassLibrary
             sqlCommand.Parameters.Add(outputParam);
 
             //Excecute scalar function
-            object statusCode = dbConnect.ExecuteScalarFunction(sqlCommand);
+            object statusCode = dbConnect.GetDataSet(sqlCommand);
             
-            // return (true, agentID) if login successful
-            // return (false, -1) if login unsucessful
-            return ((Convert.ToInt32(statusCode) == 0), (int)outputParam.Value);
+            // agentID if login successful
+            // -1 if login unsucessful
+            return (int)outputParam.Value;
         }
 
         //Generate Agent Object by ID

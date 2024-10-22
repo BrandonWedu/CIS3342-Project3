@@ -10,10 +10,9 @@ namespace RetailClassLibrary
     public static class RetailHelper
     {
         // Login
-        public static (bool, int) Login(string username, string password)
+        public static int Login(string username, string password)
         {
-            // return (true, agentID) if login successful
-            // return (false, -1) if login unsucessful
+            //Returns -1 if login unsuccessful
             return ReadAgent.Login(username, password);
         }
 
