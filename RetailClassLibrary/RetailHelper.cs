@@ -24,7 +24,7 @@ namespace RetailClassLibrary
         }
 
         //Get Agent by ID
-        public static (bool, Agent) GetAgentByID(int agentID)
+        public static Agent GetAgentByID(int agentID)
         {
             // return (true, agent) if successful
             // return (false, null) if unsucessful

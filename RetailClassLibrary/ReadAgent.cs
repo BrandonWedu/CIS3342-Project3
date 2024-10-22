@@ -35,7 +35,7 @@ namespace RetailClassLibrary
         }
 
         //Generate Agent Object by ID
-        internal static (bool, Agent) GetAgentByID(int agentID) 
+        internal static Agent GetAgentByID(int agentID) 
         {
             DBConnect dbConnect = new DBConnect();
             SqlCommand sqlCommand = new SqlCommand();
@@ -51,8 +51,6 @@ namespace RetailClassLibrary
             {
                 DataRow row = dataSet.Tables[0].Rows[0];
                 return
-                (
-                    true,
                     new Agent
                     (
                         (int)row["AgentID"],
@@ -60,17 +58,17 @@ namespace RetailClassLibrary
                         Serializer.DeserializeData<Address>((byte[])row["WorkAddress"]),
                         (string)row["WorkPhoneNumber"],
                         (string)row["WorkEmail"],
-                        new Company( (int?)row["CompanyID"], (string)row["CompanyName"], Serializer.DeserializeData<Address>((byte[])row["CompanyAddress"]), (string)row["CompanyPhoneNumber"], (string)row["CompanyEmail"]),
+                        new Company((int?)row["CompanyID"], (string)row["CompanyName"], Serializer.DeserializeData<Address>((byte[])row["CompanyAddress"]), (string)row["CompanyPhoneNumber"], (string)row["CompanyEmail"]),
                         (string)row["FirstName"],
                         (string)row["LastName"],
                         Serializer.DeserializeData<Address>((byte[])row["PersonalAddress"]),
                         (string)row["PersonalPhoneNumber"],
                         (string)row["PersonalEmail"]
-                    )
-                ); 
+                    );
             } else
             {
-                return (false, null);
+                //return null if id does not exist
+                return null;
             }
         }
     }

@@ -10,6 +10,7 @@ namespace Project3
 {
     public partial class Login : System.Web.UI.Page
     {
+        Agent agent;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -19,6 +20,11 @@ namespace Project3
         {
             int login = RetailHelper.Login(txtUsername.Text, txtPassword.Text);
             lblSucess.Text = (login > -1).ToString() + login.ToString();
+            if (login > -1)
+            {
+                agent = RetailHelper.GetAgentByID(login);
+                lblSucess.Text += agent.FirstName;
+            }
         }
     }
 }
