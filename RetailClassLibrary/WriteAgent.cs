@@ -39,7 +39,8 @@ namespace RetailClassLibrary
             SqlParameter outputParam = DBHelper.OutputParameter("@agentID", SqlDbType.Int, 8);
             sqlCommand.Parameters.Add(outputParam);
             //Excecute sql
-            if (dbConnect.DoUpdate(sqlCommand) == 0)
+            dbConnect.DoUpdate(sqlCommand);
+            if ((int)outputParam.Value > -1)
             {
                 //set agent id
                 agent.AgentID = (int)outputParam.Value;
@@ -47,7 +48,7 @@ namespace RetailClassLibrary
                 return true;
             }
             //return false if creation is unsucessful
-            return false;
+            return false; 
         }
     }
 }
