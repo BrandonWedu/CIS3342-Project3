@@ -17,6 +17,11 @@ namespace RetailClassLibrary
         private string phoneNumber;
         private string email;
 
+        //Constructor with only company ID
+        public Company(int? companyID)
+        {
+            this.companyID = companyID;
+        }
         //Constructor without id
         public Company(string name, Address address, string phoneNumber, string email)
         {
@@ -66,6 +71,10 @@ namespace RetailClassLibrary
         //Return Deep Copy
         public Company DeepCopy()
         {
+            if (name == null)
+            {
+                return new Company(companyID);
+            }
             return new Company(companyID, name, address.DeepCopy(), phoneNumber, email);
         }
     }

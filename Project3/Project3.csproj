@@ -162,6 +162,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RetailClassLibrary\RetailClassLibrary.csproj">
+      <Project>{89df9997-8c6e-488b-991d-cffa087c5d74}</Project>
+      <Name>RetailClassLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utilities\Utilities.csproj">
       <Project>{ae43af09-6deb-4a63-ae87-7934014ed581}</Project>
       <Name>Utilities</Name>

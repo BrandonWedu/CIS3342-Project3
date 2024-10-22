@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace RetailClassLibrary
 {
     //Contains data for an Address
+    [Serializable]
     public class Address : ICloneable<Address>
     {
         //Fields
