@@ -34,8 +34,7 @@ namespace RetailClassLibrary
         //Create a new Home
         public static bool CreateNewHome(Home home)
         {
-            int homeID = WriteHome.CreateNewHome(home);
-            if(homeID > -1)
+            if(WriteHome.CreateNewHome(home))
             {
                 //add all the other data to home based on id
 

@@ -24,7 +24,7 @@ namespace RetailClassLibrary
                 throw new Exception("Comapny ID NULL");
             }
             //add parameters
-            sqlCommand.Parameters.Add(DBHelper.InputParameter<int?>("@companyID", agent.Company.CompanyID, SqlDbType.Int, 8));
+            sqlCommand.Parameters.Add(DBHelper.InputParameter<int>("@companyID", (int)agent.Company.CompanyID, SqlDbType.Int, 8));
             sqlCommand.Parameters.Add(DBHelper.InputParameter<string>("@username", agent.LoginData.Username, SqlDbType.VarChar, 50));
             sqlCommand.Parameters.Add(DBHelper.InputParameter<string>("@password", agent.LoginData.Password, SqlDbType.VarChar, 50));
             sqlCommand.Parameters.Add(DBHelper.InputParameter<string>("@firstName", agent.FirstName, SqlDbType.VarChar, 50));

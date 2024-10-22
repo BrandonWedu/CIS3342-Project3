@@ -20,6 +20,15 @@ namespace RetailClassLibrary
             inputParameter.Size = size;
             return inputParameter;
         }
+        internal static SqlParameter InputParameter<T>(string parameter, T value, SqlDbType type)
+        {
+            SqlParameter inputParameter = new SqlParameter();
+            inputParameter.ParameterName = parameter;
+            inputParameter.Value = value;
+            inputParameter.Direction = ParameterDirection.Input;
+            inputParameter.SqlDbType = type;
+            return inputParameter;
+        }
         internal static SqlParameter OutputParameter(string parameter, SqlDbType type, int size)
         {
             SqlParameter outputParameter = new SqlParameter();
