@@ -40,7 +40,7 @@ namespace RetailClassLibrary
         private Address address;
         private PropertyType propertyType;
         private int homeSize;
-        private DateTime dateConstructed;
+        private int yearConstructed;
         private GarageType garageType;
         private string description;
         private DateTime dateListed;
@@ -52,12 +52,12 @@ namespace RetailClassLibrary
         private HomeUtilities utilities;
 
         //Constructor without id
-        public Home(Agent agent, Address address, PropertyType type, DateTime dateConstructed, GarageType garageType, string description, DateTime dateListed, SaleStatus saleStatus, HomeImages images, HomeAmenities amenities, TemperatureControl temperatureControl, HomeRooms rooms, HomeUtilities utilities) {
+        public Home(Agent agent, Address address, PropertyType type, int yearConstructed, GarageType garageType, string description, DateTime dateListed, SaleStatus saleStatus, HomeImages images, HomeAmenities amenities, TemperatureControl temperatureControl, HomeRooms rooms, HomeUtilities utilities) {
             this.homeID = null;
             this.agent = agent.DeepCopy();
             this.address = address.DeepCopy();
             this.propertyType = type;
-            this.dateConstructed = new DateTime(dateConstructed.Ticks);
+            this.yearConstructed = yearConstructed;
             this.garageType = garageType;
             this.description = description;
             this.dateListed = new DateTime(dateListed.Ticks);
@@ -70,12 +70,12 @@ namespace RetailClassLibrary
             CalculateHomeSize();
         }
         //Constructor with id
-        public Home(int? houseID, Agent agent, Address address, PropertyType type, DateTime dateConstructed, GarageType garageType, string description, DateTime dateListed, SaleStatus saleStatus, HomeImages images, HomeAmenities amenities, TemperatureControl temperatureControl, HomeRooms rooms, HomeUtilities utilities) {
+        public Home(int? houseID, Agent agent, Address address, PropertyType type, int yearConstructed, GarageType garageType, string description, DateTime dateListed, SaleStatus saleStatus, HomeImages images, HomeAmenities amenities, TemperatureControl temperatureControl, HomeRooms rooms, HomeUtilities utilities) {
             this.homeID = houseID;
             this.agent = agent.DeepCopy();
             this.address = address.DeepCopy();
             this.propertyType = type;
-            this.dateConstructed = new DateTime(dateConstructed.Ticks);
+            this.yearConstructed = yearConstructed;
             this.garageType = garageType;
             this.description = description;
             this.dateListed = new DateTime(dateListed.Ticks);
@@ -104,7 +104,7 @@ namespace RetailClassLibrary
             get { return address.DeepCopy(); }
             set { address = value.DeepCopy(); }
         }
-        public PropertyType Type
+        public PropertyType PropertyType
         {
             get { return propertyType; }
             set { propertyType = value; }
@@ -114,10 +114,15 @@ namespace RetailClassLibrary
             get { return HomeSize; }
             set { homeSize = value; }
         } 
-        public DateTime DateConstructed
+        public int YearConstructed
         {
-            get { return new DateTime(dateConstructed.Ticks); }
-            set { dateConstructed = new DateTime(value.Ticks); }
+            get { return yearConstructed; }
+            set { yearConstructed = value; }
+        }
+        public GarageType GarageType
+        {
+            get { return garageType; }
+            set {  garageType = value; }
         }
         public string Description
         {
@@ -178,7 +183,7 @@ namespace RetailClassLibrary
 
         public Home DeepCopy()
         {
-            return new Home(homeID, agent, address, propertyType, dateConstructed, garageType, description, dateListed, saleStatus, images, amenities, temperatureControl, rooms, utilities);
+            return new Home(HomeID, Agent, Address, PropertyType, YearConstructed, GarageType, Description, DateListed, SaleStatus, Images, Amenities, TemperatureControl, Rooms, Utilities);
         }
     }
 }

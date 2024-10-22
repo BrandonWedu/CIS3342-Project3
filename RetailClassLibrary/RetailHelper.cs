@@ -30,5 +30,18 @@ namespace RetailClassLibrary
             // return (false, null) if unsucessful
             return ReadAgent.GetAgentByID(agentID);
         }
+
+        //Create a new Home
+        public static bool CreateNewHome(Home home)
+        {
+            int homeID = WriteHome.CreateNewHome(home);
+            if(homeID > -1)
+            {
+                //add all the other data to home based on id
+
+                return true;
+            }
+            return false;
+        }
     }
 }
