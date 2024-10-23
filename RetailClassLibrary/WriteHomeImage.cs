@@ -18,10 +18,10 @@ namespace RetailClassLibrary
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.CommandText = "CreateNewHomeImage";
 
-            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<int>("@homeID", (int)home.HomeID, SqlDbType.Int, 8));
-            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@imageURL", image.Url, SqlDbType.VarChar, 50));
-            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@imageLocation", image.Url, SqlDbType.VarChar, 50));
-            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@imageDescription", image.Url, SqlDbType.VarChar, 0));
+            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<int>("@homeID", (int)homeID, SqlDbType.Int, 8));
+            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@imageURL", homeImage.Url, SqlDbType.VarChar, 50));
+            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@imageLocation", homeImage.Url, SqlDbType.VarChar, 50));
+            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@imageDescription", homeImage.Url, SqlDbType.VarChar, 0));
 
             SqlParameter outputParam = DBParameterHelper.OutputParameter("@imageID", SqlDbType.Int, 8);
             sqlCommand.Parameters.Add(outputParam);

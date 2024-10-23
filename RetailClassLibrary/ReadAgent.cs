@@ -19,11 +19,11 @@ namespace RetailClassLibrary
             sqlCommand.CommandText = "AgentLogin";
 
             //add parameters
-            sqlCommand.Parameters.Add(DBHelper.InputParameter<string>("@username", username, SqlDbType.VarChar, 50));
-            sqlCommand.Parameters.Add(DBHelper.InputParameter<string>("@password", password, SqlDbType.VarChar, 50));
+            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@username", username, SqlDbType.VarChar, 50));
+            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@password", password, SqlDbType.VarChar, 50));
 
             //add Output Param
-            SqlParameter outputParam = DBHelper.OutputParameter("@agentID", SqlDbType.Int, 8);
+            SqlParameter outputParam = DBParameterHelper.OutputParameter("@agentID", SqlDbType.Int, 8);
             sqlCommand.Parameters.Add(outputParam);
 
             //Excecute scalar function
@@ -43,7 +43,7 @@ namespace RetailClassLibrary
             sqlCommand.CommandText = "GetAgentByID";
 
             //add parameter
-            sqlCommand.Parameters.Add(DBHelper.InputParameter<int>("@agentID", agentID, SqlDbType.Int, 8));
+            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<int>("@agentID", agentID, SqlDbType.Int, 8));
 
             //run sql
             DataSet dataSet = dbConnect.GetDataSet(sqlCommand);
