@@ -18,6 +18,7 @@
         </header>
         <div>
             <asp:Label ID="loginTest" runat="server"></asp:Label>
+            <asp:Button ID="btnAddHome" Text="Add Home" runat="server" OnClick="btnAddHome_Click" />
         </div>
     </form>
 </body>

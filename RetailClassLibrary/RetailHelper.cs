@@ -40,7 +40,19 @@ namespace RetailClassLibrary
                 //add all the other data to home based on id
                 foreach (Image image in home.Images.List) 
                 {
-                    
+                    int imageID = WriteHomeImage.CreateNew(homeID, image);
+                    if (imageID > -1)
+                    {
+                        image.ImageID = imageID;
+                    }
+                }
+                foreach (Room room in home.Rooms.List) 
+                {
+                    int roomID = WriteRoom.CreateNew(homeID, room);
+                    if (roomID > -1)
+                    {
+                        room.RoomID = roomID;
+                    }
                 }
                 return true;
             }

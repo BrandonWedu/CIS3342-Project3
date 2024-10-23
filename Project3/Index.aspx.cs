@@ -28,7 +28,16 @@ namespace Project3
 
         protected void btnSignUp_Click(object sender, EventArgs e)
         {
+            Response.Redirect("AccountRegistration.aspx");
+        }
 
+        protected void btnAddHome_Click(object sender, EventArgs e)
+        {
+            if (agent != null)
+            {
+                Session["agent"] = agent;
+                Response.Redirect("HomeAdd.aspx");
+            }
         }
     }
 }

@@ -18,6 +18,5 @@ namespace Project3
                 agent = (Agent)Session["agent"];
             }
         }
-
     }
 }
