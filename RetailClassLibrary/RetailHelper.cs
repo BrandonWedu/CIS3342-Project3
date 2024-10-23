@@ -54,6 +54,27 @@ namespace RetailClassLibrary
                         room.RoomID = roomID;
                     }
                 }
+                foreach (Utility utility in home.Utilities.List) 
+                {
+                    int utilityID = WriteUtility.CreateNew(homeID, utility);
+                    if (utilityID > -1)
+                    {
+                        utility.UtilityID = utilityID;
+                    }
+                }
+                foreach (Amenity amenity in home.Amenities.List) 
+                {
+                    int amenityID = WriteAmenity.CreateNew(homeID, amenity);
+                    if (amenityID > -1)
+                    {
+                        amenity.AmenityID = amenityID;
+                    }
+                }
+                int tempatureControlID = WriteTempatureControl.CreateNew(homeID, home.TemperatureControl);
+                if (tempatureControlID > -1)
+                {
+                    home.TemperatureControl.TempatureControlID = tempatureControlID;
+                }
                 return true;
             }
             return false;
