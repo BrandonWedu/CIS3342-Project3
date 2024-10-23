@@ -17,27 +17,31 @@ namespace RetailClassLibrary
         }
 
         //Account Registration
-        public static bool AccountRegistration(Agent agent)
+        public static int AccountRegistration(Agent agent)
         {
-            //returns based on creation sucess 
-            return WriteAgent.CreateNewAgent(agent);     
+            //Returns -1 if login unsuccessful
+            return WriteAgent.CreateNew(agent);     
         }
 
         //Get Agent by ID
         public static Agent GetAgentByID(int agentID)
         {
-            // return (true, agent) if successful
-            // return (false, null) if unsucessful
+            //Returns null if login unsuccessful
             return ReadAgent.GetAgentByID(agentID);
         }
 
         //Create a new Home
         public static bool CreateNewHome(Home home)
         {
-            if(WriteHome.CreateNewHome(home))
+            int homeID = WriteHome.CreateNew(home);
+            if(homeID > -1)
             {
+                home.HomeID = homeID;
                 //add all the other data to home based on id
-
+                foreach (Image image in home.Images.List) 
+                {
+                    
+                }
                 return true;
             }
             return false;
