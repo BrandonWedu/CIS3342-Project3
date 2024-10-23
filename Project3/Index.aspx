@@ -11,12 +11,13 @@
         <header>
             <ul>
                 <li>
-                    <asp:Button ID="AccountLoginPage" Text="Login" OnClick="btnAccountLogin_Click" runat="server" />
-                    <asp:Button ID="AccountRegistrationPage" Text="AccountRegistration" OnClick="btnAccountRegistration_Click" runat="server" />
+                    <asp:Button ID="btnLogin" Text="Login" runat="server" OnClick="btnLogin_Click" />
+                    <asp:Button ID="btnSignUp" Text="Sign Up" runat="server" OnClick="btnSignUp_Click" />
                 </li>
             </ul>
         </header>
         <div>
+            <asp:Label ID="loginTest" runat="server"></asp:Label>
         </div>
     </form>
 </body>
