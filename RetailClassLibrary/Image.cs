@@ -16,6 +16,14 @@ namespace RetailClassLibrary
         private RoomType type;
         private string description;
 
+        public Image (RoomType type, string description)
+        {
+            this.imageID = null;
+            this.url = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-fff");
+            this.type = type;
+            this.description = description;
+        }
+
         //Constructor without id
         public Image (string url, RoomType type, string description)
         {

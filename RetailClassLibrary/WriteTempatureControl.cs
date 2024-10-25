@@ -25,6 +25,7 @@ namespace RetailClassLibrary
             SqlParameter outputParam = DBParameterHelper.OutputParameter("@tempatureControlID", SqlDbType.Int, 8);
             sqlCommand.Parameters.Add(outputParam);
 
+            dbConnect.DoUpdate(sqlCommand);
             return (int)outputParam.Value;
         }
     }

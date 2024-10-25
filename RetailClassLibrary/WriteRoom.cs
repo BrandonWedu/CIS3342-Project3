@@ -26,6 +26,7 @@ namespace RetailClassLibrary
             SqlParameter outputParam = DBParameterHelper.OutputParameter("@roomID", SqlDbType.Int, 8);
             sqlCommand.Parameters.Add(outputParam);
 
+            dbConnect.DoUpdate(sqlCommand);
             return (int)outputParam.Value;
         }
     }

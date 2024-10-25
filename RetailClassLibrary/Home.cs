@@ -111,7 +111,7 @@ namespace RetailClassLibrary
         }
         public int HomeSize
         {
-            get { return HomeSize; }
+            get { return CalculateHomeSize(); }
             set { homeSize = value; }
         } 
         public int YearConstructed
@@ -172,13 +172,14 @@ namespace RetailClassLibrary
         }
 
     //Calculate homesize
-    private void CalculateHomeSize()
+    private int CalculateHomeSize()
         {
             homeSize = 0; 
             foreach (Room room in rooms.List)
             {
                 homeSize += room.Width * room.Height;
             }
+            return homeSize;
         }
 
         public Home DeepCopy()

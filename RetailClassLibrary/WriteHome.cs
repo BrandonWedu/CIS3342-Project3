@@ -23,10 +23,10 @@ namespace RetailClassLibrary
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@propertyType", home.PropertyType.ToString(), SqlDbType.VarChar, 50));
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<int>("@homeSize", home.HomeSize, SqlDbType.Int, 8));
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<int>("@constructionYear", home.YearConstructed, SqlDbType.Int, 8));
-            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@garageType", home.GarageType.ToString(), SqlDbType.VarChar, 50));
+            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@garage", home.GarageType.ToString(), SqlDbType.VarChar, 50));
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@homeDescription", home.Description, SqlDbType.VarChar, 0));
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<DateTime>("@dateListed", home.DateListed, SqlDbType.DateTime));
-            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@homeStatus", home.SaleStatus.ToString(), SqlDbType.VarChar, 50));
+            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@saleStatus", home.SaleStatus.ToString(), SqlDbType.VarChar, 50));
 
             //add Output Param
             SqlParameter outputParam = DBParameterHelper.OutputParameter("@homeID", SqlDbType.Int, 8);
