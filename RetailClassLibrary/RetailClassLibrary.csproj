@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
+    <Compile Include="Homes.cs" />
+    <Compile Include="ReadHome.cs" />
     <Compile Include="WriteAmenity.cs" />
     <Compile Include="WriteHomeImage.cs" />
     <Compile Include="Serializer.cs" />

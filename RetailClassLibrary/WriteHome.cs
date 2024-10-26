@@ -19,6 +19,7 @@ namespace RetailClassLibrary
             sqlCommand.CommandText = "CreateNewHome";
 
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<int>("@agentID", (int)home.Agent.AgentID, SqlDbType.Int, 8));
+            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<int>("@cost", home.Cost, SqlDbType.Int, 8));
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<byte[]>("@homeAddress", Serializer.SerializeData<Address>(home.Address), SqlDbType.VarBinary, 0));
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@propertyType", home.PropertyType.ToString(), SqlDbType.VarChar, 50));
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<int>("@homeSize", home.HomeSize, SqlDbType.Int, 8));

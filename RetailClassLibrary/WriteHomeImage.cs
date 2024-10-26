@@ -22,6 +22,7 @@ namespace RetailClassLibrary
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@imageURL", homeImage.Url, SqlDbType.VarChar, 50));
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@imageLocation", homeImage.Type.ToString(), SqlDbType.VarChar, 50));
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@imageDescription", homeImage.Description, SqlDbType.VarChar));
+            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<int>("@homeID", Convert.ToInt32(homeImage.MainImage), SqlDbType.Bit, 1));
 
             SqlParameter outputParam = DBParameterHelper.OutputParameter("@imageID", SqlDbType.Int, 8);
             sqlCommand.Parameters.Add(outputParam);

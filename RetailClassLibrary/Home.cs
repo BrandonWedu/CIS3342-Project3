@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,6 +38,7 @@ namespace RetailClassLibrary
         //Fields
         private int? homeID;
         private Agent agent;
+        private int cost;
         private Address address;
         private PropertyType propertyType;
         private int homeSize;
@@ -52,9 +54,10 @@ namespace RetailClassLibrary
         private HomeUtilities utilities;
 
         //Constructor without id
-        public Home(Agent agent, Address address, PropertyType type, int yearConstructed, GarageType garageType, string description, DateTime dateListed, SaleStatus saleStatus, HomeImages images, HomeAmenities amenities, TemperatureControl temperatureControl, HomeRooms rooms, HomeUtilities utilities) {
+        public Home(Agent agent, int cost, Address address, PropertyType type, int yearConstructed, GarageType garageType, string description, DateTime dateListed, SaleStatus saleStatus, HomeImages images, HomeAmenities amenities, TemperatureControl temperatureControl, HomeRooms rooms, HomeUtilities utilities) {
             this.homeID = null;
             this.agent = agent.DeepCopy();
+            this.cost = cost;
             this.address = address.DeepCopy();
             this.propertyType = type;
             this.yearConstructed = yearConstructed;
@@ -70,9 +73,10 @@ namespace RetailClassLibrary
             CalculateHomeSize();
         }
         //Constructor with id
-        public Home(int? houseID, Agent agent, Address address, PropertyType type, int yearConstructed, GarageType garageType, string description, DateTime dateListed, SaleStatus saleStatus, HomeImages images, HomeAmenities amenities, TemperatureControl temperatureControl, HomeRooms rooms, HomeUtilities utilities) {
+        public Home(int? houseID, Agent agent, int cost, Address address, PropertyType type, int yearConstructed, GarageType garageType, string description, DateTime dateListed, SaleStatus saleStatus, HomeImages images, HomeAmenities amenities, TemperatureControl temperatureControl, HomeRooms rooms, HomeUtilities utilities) {
             this.homeID = houseID;
             this.agent = agent.DeepCopy();
+            this.cost = cost;
             this.address = address.DeepCopy();
             this.propertyType = type;
             this.yearConstructed = yearConstructed;
@@ -98,6 +102,11 @@ namespace RetailClassLibrary
         {
             get { return agent.DeepCopy(); }
             set { agent = value.DeepCopy(); }
+        }
+        public int Cost
+        {
+            get { return cost; }
+            set { cost = value; }
         }
         public Address Address
         {
@@ -184,7 +193,7 @@ namespace RetailClassLibrary
 
         public Home DeepCopy()
         {
-            return new Home(HomeID, Agent, Address, PropertyType, YearConstructed, GarageType, Description, DateListed, SaleStatus, Images, Amenities, TemperatureControl, Rooms, Utilities);
+            return new Home(HomeID, Agent, cost, Address, PropertyType, YearConstructed, GarageType, Description, DateListed, SaleStatus, Images, Amenities, TemperatureControl, Rooms, Utilities);
         }
     }
 }

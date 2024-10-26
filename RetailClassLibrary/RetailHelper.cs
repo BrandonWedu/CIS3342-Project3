@@ -78,5 +78,9 @@ namespace RetailClassLibrary
             }
             return false;
         }
+        public static Homes GetHomes()
+        {
+            return ReadHome.GetHomes();
+        }
     }
 }
