@@ -37,13 +37,13 @@ namespace RetailClassLibrary
                         (SaleStatus)Enum.Parse(typeof(SaleStatus), (string)row["SaleStatus"]),
                         ReadImages.GetByHomeID(homeID),
                         ReadAmenities.GetByHomeID(homeID),
-                        ReadTempatureControl.GetByHomeID(homeID),
+                        ReadTemperatureControl.GetByHomeID(homeID),
                         ReadRooms.GetByHomeID(homeID),
                         ReadUtilities.GetByHomeID(homeID)
                     ));
                 }
             }
-            return new Homes();
+            return homes;
         }
     }
 }
