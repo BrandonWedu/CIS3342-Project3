@@ -44,7 +44,13 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="Homes.cs" />
+    <Compile Include="ReadAmenities.cs" />
     <Compile Include="ReadHome.cs" />
+    <Compile Include="ReadImages.cs" />
+    <Compile Include="ReadRooms.cs" />
+    <Compile Include="ReadTempatureControl.cs" />
+    <Compile Include="ReadUtilities.cs" />
+    <Compile Include="SqlCommand.cs" />
     <Compile Include="WriteAmenity.cs" />
     <Compile Include="WriteHomeImage.cs" />
     <Compile Include="Serializer.cs" />
