@@ -69,7 +69,7 @@ namespace RetailClassLibrary
                         amenity.AmenityID = amenityID;
                     }
                 }
-                int tempatureControlID = WriteTempatureControl.CreateNew(homeID, home.TemperatureControl);
+                int tempatureControlID = WriteTemperatureControl.CreateNew(homeID, home.TemperatureControl);
                 if (tempatureControlID > -1)
                 {
                     home.TemperatureControl.TempatureControlID = tempatureControlID;

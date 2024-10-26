@@ -9,20 +9,20 @@ using Utilities;
 
 namespace RetailClassLibrary
 {
-    internal static class WriteTempatureControl
+    internal static class WriteTemperatureControl
     {
         internal static int CreateNew(int homeID, TemperatureControl temperatureControl)
         {
             DBConnect dbConnect = new DBConnect();
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.CommandText = "CreateNewTempatureControl";
+            sqlCommand.CommandText = "CreateNewTemperatureControl";
 
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<int>("@homeID", (int)homeID, SqlDbType.Int, 8));
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@cool", temperatureControl.Cooling.ToString(), SqlDbType.VarChar, 50));
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@heat", temperatureControl.Heating.ToString(), SqlDbType.VarChar, 50));
 
-            SqlParameter outputParam = DBParameterHelper.OutputParameter("@tempatureControlID", SqlDbType.Int, 8);
+            SqlParameter outputParam = DBParameterHelper.OutputParameter("@temperatureControlID", SqlDbType.Int, 8);
             sqlCommand.Parameters.Add(outputParam);
 
             dbConnect.DoUpdate(sqlCommand);

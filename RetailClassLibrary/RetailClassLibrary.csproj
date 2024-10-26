@@ -48,9 +48,8 @@
     <Compile Include="ReadHome.cs" />
     <Compile Include="ReadImages.cs" />
     <Compile Include="ReadRooms.cs" />
-    <Compile Include="ReadTempatureControl.cs" />
+    <Compile Include="ReadTemperatureControl.cs" />
     <Compile Include="ReadUtilities.cs" />
-    <Compile Include="SqlCommand.cs" />
     <Compile Include="WriteAmenity.cs" />
     <Compile Include="WriteHomeImage.cs" />
     <Compile Include="Serializer.cs" />
@@ -83,7 +82,7 @@
     <Compile Include="WriteAgent.cs" />
     <Compile Include="WriteHome.cs" />
     <Compile Include="WriteRoom.cs" />
-    <Compile Include="WriteTempatureControl.cs" />
+    <Compile Include="WriteTemperatureControl.cs" />
     <Compile Include="WriteUtility.cs" />
   </ItemGroup>
   <ItemGroup>
