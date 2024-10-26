@@ -47,6 +47,11 @@ namespace RetailClassLibrary
             set { this.zipCode = value; }
         }
 
+        public override string ToString()
+        {
+            return $"{street}, {city}, {state} {ZipCode}";
+        }
+
         public Address DeepCopy()
         {
             return new Address(Street, City, State, ZipCode);
