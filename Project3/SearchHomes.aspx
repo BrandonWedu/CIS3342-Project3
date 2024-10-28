@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomeSearch.aspx.cs" Inherits="Project3.HomeSearch" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SearchHomes.aspx.cs" Inherits="Project3.SearchHomes" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Home Browse</title>
+    <title></title>
 </head>
 <body>
     <form id="form1" runat="server">

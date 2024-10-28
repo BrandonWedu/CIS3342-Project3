@@ -11,7 +11,7 @@ namespace Project3
 {
 
 
-    public partial class EditHome
+    public partial class HomeEdit
     {
 
         /// <summary>

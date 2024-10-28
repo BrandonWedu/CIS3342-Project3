@@ -74,10 +74,10 @@
     <Content Include="AccountLogin.aspx" />
     <Content Include="OfferCreate.aspx" />
     <Content Include="OfferView.aspx" />
-    <Content Include="HomeSearch.aspx" />
     <Content Include="ShowingSchedule.aspx" />
     <Content Include="ShowingView.aspx" />
     <Content Include="Web.config" />
+    <Content Include="SearchHomes.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountRegistration.aspx.cs">
@@ -130,13 +130,6 @@
       <DependentUpon>OfferView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="HomeSearch.aspx.cs">
-      <DependentUpon>HomeSearch.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="HomeSearch.aspx.designer.cs">
-      <DependentUpon>HomeSearch.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ShowingSchedule.aspx.cs">
       <DependentUpon>ShowingSchedule.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -150,6 +143,13 @@
     </Compile>
     <Compile Include="ShowingView.aspx.designer.cs">
       <DependentUpon>ShowingView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchHomes.aspx.cs">
+      <DependentUpon>SearchHomes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchHomes.aspx.designer.cs">
+      <DependentUpon>SearchHomes.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

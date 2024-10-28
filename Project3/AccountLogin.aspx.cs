@@ -23,7 +23,7 @@ namespace Project3
             if (login > -1)
             {
                 agent = RetailHelper.GetAgentByID(login);
-                Session["agent"] = agent;
+                Session["Agent"] = agent;
                 Response.Redirect("Index.aspx");
             }
         }

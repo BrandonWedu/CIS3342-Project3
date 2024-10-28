@@ -1,17 +1,14 @@
 ﻿using RetailClassLibrary;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Image = RetailClassLibrary.Image;
 
 namespace Project3
 {
-    public partial class HomeSearch : System.Web.UI.Page
+    public partial class SearchHomes : System.Web.UI.Page
     {
         Agent agent;
         Homes homes;
@@ -43,7 +40,7 @@ namespace Project3
             {
                 if (image.MainImage)
                 {
-                    imgHome.ImageUrl= image.Url;
+                    imgHome.ImageUrl = image.Url;
                 }
             }
             panel.Controls.Add(imgHome);
@@ -99,7 +96,7 @@ namespace Project3
             //Redirect to home and save in session 
             foreach (Home home in homes.List)
             {
-                if(home.HomeID == int.Parse(homeID))
+                if (home.HomeID == int.Parse(homeID))
                 {
                     Session["Home"] = home;
                     Response.Redirect("HomeEdit.aspx");

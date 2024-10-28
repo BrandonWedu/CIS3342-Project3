@@ -11,7 +11,7 @@ namespace Project3
 {
 
 
-    public partial class AddHome
+    public partial class HomeAdd
     {
 
         /// <summary>
@@ -103,6 +103,24 @@ namespace Project3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtHomeZipCode;
+
+        /// <summary>
+        /// lblHomeCost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHomeCost;
+
+        /// <summary>
+        /// txtHomeCost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtHomeCost;
 
         /// <summary>
         /// lblPropertyType control.

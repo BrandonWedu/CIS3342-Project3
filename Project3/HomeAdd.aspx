@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomeAdd.aspx.cs" Inherits="Project3.AddHome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomeAdd.aspx.cs" Inherits="Project3.HomeAdd" %>
 
 <!DOCTYPE html>
 
@@ -22,6 +22,9 @@
             <asp:Label ID="lblHomeZipCode" Text="Zip Code" runat="server" />
             <asp:TextBox ID="txtHomeZipCode" placeholder="Enter Zip Code" runat="server" />
             <br/>
+        <asp:Label ID="lblHomeCost" Text="Cost" runat="server"></asp:Label>
+        <asp:TextBox ID="txtHomeCost" Placeholder="Enter Cost" runat="server"></asp:TextBox>
+        <br />
 
         <asp:Label ID="lblPropertyType" Text="Property Type" runat="server" />
         <asp:DropDownList ID="ddlPropertyType" runat="server" />

@@ -9,7 +9,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Project3
 {
-    public partial class AddHome : System.Web.UI.Page
+    public partial class HomeAdd : System.Web.UI.Page
     {
         Agent agent;
         protected void Page_Load(object sender, EventArgs e)
@@ -170,6 +170,14 @@ namespace Project3
             panel.ID = $"imageContainer{count}";
             panel.CssClass = "add-item-container";
 
+            if (count == 0)
+            {
+                Label lblMainImage = new Label();
+                lblMainImage.ID = $"lblImageType{count}";
+                lblMainImage.Text = "Main Image";
+                panel.Controls.Add(lblMainImage);
+            }
+
             Label lblImageDescription = new Label();
             lblImageDescription.ID = $"lblImageDescription{count}";
             lblImageDescription.Text = "Description: ";
@@ -240,7 +248,8 @@ namespace Project3
                     TextBox txtImageDescription = (TextBox)phImages.FindControl($"txtImageDescription{i}");
                     DropDownList ddlImageRoomType = (DropDownList)phImages.FindControl($"ddlImageRoomType{i}");
                     FileUpload fuImage = (FileUpload)phImages.FindControl($"fuImage{i}");
-                    homeImages.Add(new RetailClassLibrary.Image((RoomType)Enum.Parse(typeof(RoomType), ddlImageRoomType.SelectedValue), txtImageDescription.Text));
+                    bool isMainImage = (Label)phImages.FindControl($"lblImageType{i}") != null;
+                    homeImages.Add(new RetailClassLibrary.Image((RoomType)Enum.Parse(typeof(RoomType), ddlImageRoomType.SelectedValue), txtImageDescription.Text, isMainImage));
                 }
                 HomeAmenities homeAmenities = new HomeAmenities();
                 for (int i = 0; i < (int)ViewState["AmenitiesCount"]; i++)
@@ -268,6 +277,7 @@ namespace Project3
                 Home home = new Home
                 (
                     agent,
+                    int.Parse(txtHomeCost.Text),
                     new Address(txtHomeState.Text, txtHomeCity.Text, txtHomeStreet.Text, txtHomeZipCode.Text),
                     (PropertyType)Enum.Parse(typeof(PropertyType), ddlPropertyType.SelectedValue),
                     int.Parse(txtYearConstructed.Text),

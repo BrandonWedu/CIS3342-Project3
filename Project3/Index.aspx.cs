@@ -14,9 +14,9 @@ namespace Project3
         Agent agent;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["agent"] != null)
+            if (Session["Agent"] != null)
             {
-                agent = (Agent)Session["agent"];
+                agent = (Agent)Session["Agent"];
                 loginTest.Text = agent.LoginData.Username;
             }
         }
@@ -35,9 +35,18 @@ namespace Project3
         {
             if (agent != null)
             {
-                Session["agent"] = agent;
+                Session["Agent"] = agent;
                 Response.Redirect("HomeAdd.aspx");
             }
+        }
+
+        protected void btnViewHomes_Click(object sender, EventArgs e)
+        {
+            if (agent != null)
+            {
+                Session["Agent"] = agent;
+            }
+            Response.Redirect("SearchHomes.aspx");
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Project3
 {
 
 
-    public partial class HomeSearch
+    public partial class SearchHomes
     {
 
         /// <summary>
