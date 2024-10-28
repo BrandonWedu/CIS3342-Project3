@@ -46,7 +46,7 @@ namespace Project3
             {
                 Session["Agent"] = agent;
             }
-            Response.Redirect("SearchHomes.aspx");
+            Response.Redirect("SearchHome.aspx");
         }
     }
 }

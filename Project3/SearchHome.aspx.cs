@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace Project3
 {
-    public partial class SearchHomes : System.Web.UI.Page
+    public partial class SearchHome : System.Web.UI.Page
     {
         Agent agent;
         Homes homes;
@@ -18,13 +18,10 @@ namespace Project3
             {
                 agent = (Agent)Session["Agent"];
             }
-            if (!IsPostBack)
+            homes = RetailHelper.GetHomes();
+            foreach (Home home in homes.List)
             {
-                homes = RetailHelper.GetHomes();
-                foreach (Home home in homes.List)
-                {
-                    GenerateHome(home);
-                }
+                GenerateHome(home);
             }
         }
         protected void GenerateHome(Home home)
@@ -103,5 +100,6 @@ namespace Project3
                 }
             }
         }
+
     }
 }

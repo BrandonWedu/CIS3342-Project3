@@ -35,7 +35,7 @@ namespace RetailClassLibrary
                             (string)row["ImageURL"],
                             (RoomType)Enum.Parse(typeof(RoomType), (string)row["ImageLocation"]),
                             (string)row["ImageDescription"],
-                            (int)row["MainImage"] != 0
+                            (bool)row["MainImage"]
                         ));
             }
             return homeImages;
