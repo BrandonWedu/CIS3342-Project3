@@ -84,12 +84,18 @@ namespace Project3
             lblAddress.Text = home.Address.ToString();
             panel.Controls.Add(lblAddress);
 
+            //Add View Home Button
+            Button btnViewHome = new Button();
+            btnViewHome.ID = $"btnViewHome_{home.HomeID}";
+            btnViewHome.Text = "View Home";
+            btnViewHome.Click += new EventHandler(ViewHome);
+            panel.Controls.Add(btnViewHome);
+
             phHomes.Controls.Add(panel);
         }
         protected void EditHome(object sender, EventArgs e)
         {
-            string buttonID = ((Button)sender).ID;
-            string homeID = buttonID.Split('_').Last();
+            string homeID = ((Button)sender).ID.Split('_').Last();
             //Redirect to home and save in session 
             foreach (Home home in homes.List)
             {
@@ -100,6 +106,18 @@ namespace Project3
                 }
             }
         }
+        protected void ViewHome(object sender, EventArgs e)
+        {
+            string homeID = ((Button)sender).ID.Split('_').Last();
+            foreach (Home home in homes.List)
+            {
+                if (home.HomeID == int.Parse(homeID))
+                {
+                    Session["Home"] = home;
+                    Response.Redirect("HomeProfile.aspx");
+                }
+            }
 
+        }
     }
 }

@@ -70,6 +70,7 @@
     <Content Include="AccountRegistration.aspx" />
     <Content Include="HomeAdd.aspx" />
     <Content Include="HomeEdit.aspx" />
+    <Content Include="HomeProfile.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="AccountLogin.aspx" />
     <Content Include="OfferCreate.aspx" />
@@ -100,6 +101,13 @@
     </Compile>
     <Compile Include="HomeEdit.aspx.designer.cs">
       <DependentUpon>HomeEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomeProfile.aspx.cs">
+      <DependentUpon>HomeProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeProfile.aspx.designer.cs">
+      <DependentUpon>HomeProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
