@@ -10,6 +10,14 @@
     <form id="form1" runat="server">
         <div>
            <asp:Label ID="lblHomes" Text="<h1>Homes</h1>" runat="server"></asp:Label>
+            <div>
+                location pricerange
+                location type pricerange
+                location pricerange criteria
+                pricerange criteria
+
+                location pricerange type criteria
+            </div>
            <asp:PlaceHolder ID="phHomes" runat="server"> </asp:PlaceHolder> 
         </div>
     </form>
