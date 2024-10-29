@@ -33,7 +33,6 @@ namespace RetailClassLibrary
                     (CoolingTypes)Enum.Parse(typeof(CoolingTypes), (string)row["Cool"])
                 );
             }
-
             return null;
         }
     }

@@ -51,6 +51,7 @@
     <Compile Include="ReadTemperatureControl.cs" />
     <Compile Include="ReadUtilities.cs" />
     <Compile Include="WriteAmenity.cs" />
+    <Compile Include="WriteContingency.cs" />
     <Compile Include="WriteHomeImage.cs" />
     <Compile Include="Serializer.cs" />
     <Compile Include="Agent.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Utility.cs" />
     <Compile Include="WriteAgent.cs" />
     <Compile Include="WriteHome.cs" />
+    <Compile Include="WriteOffer.cs" />
     <Compile Include="WriteRoom.cs" />
     <Compile Include="WriteShowing.cs" />
     <Compile Include="WriteTemperatureControl.cs" />

@@ -86,5 +86,19 @@ namespace RetailClassLibrary
         {
             return WriteShowing.CreateNew(showing) > -1;
         }
+        public static bool CreateOffer(Offer offer)
+        {
+            if (WriteOffer.CreateNew(offer) > -1)
+            {
+                foreach (Contingency contingency in offer.Contingencies.List)
+                {
+                   WriteContingency.CreateNew(contingency);
+                }
+            }else
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

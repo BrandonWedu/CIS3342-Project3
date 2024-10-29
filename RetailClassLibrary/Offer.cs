@@ -21,12 +21,13 @@ namespace RetailClassLibrary
     }
 
     //Contains data for an Offer
-    internal class Offer
+    public class Offer 
     {
         //Fields
         private int? offerID;
         private Home home;
         private Client client;
+        private DateTime offerCreated;
         private double amount;
         private TypeOfSale type;
         private bool sellPriorHomeFirst;
@@ -35,11 +36,12 @@ namespace RetailClassLibrary
         private OfferContingencies contingencies;
 
         // Constructor with no ID
-        public Offer(Home home, Client client, double amount, TypeOfSale type, bool sellPriorHomeFirst, DateTime moveInByDate, OfferStatus status, OfferContingencies contingencies)
+        public Offer(Home home, Client client, DateTime offerCreated, double amount, TypeOfSale type, bool sellPriorHomeFirst, DateTime moveInByDate, OfferStatus status, OfferContingencies contingencies)
         {
             offerID = null;
             this.home = home.DeepCopy();
             this.client = client.DeepCopy();
+            this.offerCreated = offerCreated;
             this.amount = amount;
             this.type = type;
             this.sellPriorHomeFirst = sellPriorHomeFirst;
@@ -49,11 +51,12 @@ namespace RetailClassLibrary
         }
 
         // Constructor with ID
-        public Offer(int offerID, Home home, Client client, double amount, TypeOfSale type, bool sellPriorHomeFirst, DateTime moveInByDate, OfferStatus status, OfferContingencies contingencies)
+        public Offer(int offerID, Home home, Client client, DateTime offerCreated, double amount, TypeOfSale type, bool sellPriorHomeFirst, DateTime moveInByDate, OfferStatus status, OfferContingencies contingencies)
         {
             this.offerID = offerID;
             this.home = home.DeepCopy();
             this.client = client.DeepCopy();
+            this.offerCreated = offerCreated;
             this.amount = amount;
             this.type = type;
             this.sellPriorHomeFirst = sellPriorHomeFirst;
@@ -79,6 +82,12 @@ namespace RetailClassLibrary
         {
             get { return client.DeepCopy(); }
             set { client = value.DeepCopy(); }
+        }
+
+        public DateTime OfferCreated
+        {
+            get { return new DateTime(offerCreated.Ticks); }
+            set { offerCreated = new DateTime(value.Ticks); }
         }
 
         public double Amount

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace RetailClassLibrary
 {
     //Contains a list of Contingency
-    internal class OfferContingencies : ListOfObjects<Contingency>, ICloneable<OfferContingencies>
+    public class OfferContingencies : ListOfObjects<Contingency>, ICloneable<OfferContingencies>
     {
         //Constructor without list
         public OfferContingencies() { } 
