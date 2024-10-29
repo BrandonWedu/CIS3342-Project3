@@ -82,5 +82,9 @@ namespace RetailClassLibrary
         {
             return ReadHome.GetHomes();
         }
+        public static bool ScheduleShowing(Showing showing)
+        {
+            return WriteShowing.CreateNew(showing) > -1;
+        }
     }
 }

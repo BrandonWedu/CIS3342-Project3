@@ -82,6 +82,7 @@
     <Compile Include="WriteAgent.cs" />
     <Compile Include="WriteHome.cs" />
     <Compile Include="WriteRoom.cs" />
+    <Compile Include="WriteShowing.cs" />
     <Compile Include="WriteTemperatureControl.cs" />
     <Compile Include="WriteUtility.cs" />
   </ItemGroup>

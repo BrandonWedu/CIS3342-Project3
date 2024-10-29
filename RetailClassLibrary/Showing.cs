@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,34 +10,39 @@ namespace RetailClassLibrary
     //Showing Status Enum
     public enum ShowingStatus
     {
-
+        Pending,
+        Rejected,
+        Accepted
     }
     //Contains data for showing
-    internal class Showing : ICloneable<Showing>
+    public class Showing : ICloneable<Showing>
     {
         //Fields
         private int? showingID;
         private Home home;
         private Client client;
+        private DateTime timeRequestCreated;
         private DateTime showingTime;
         private ShowingStatus status;
 
         // Constructor with no ID
-        public Showing(Home home, Client client, DateTime showingTime, ShowingStatus status)
+        public Showing(Home home, Client client, DateTime timeRequestCreated, DateTime showingTime, ShowingStatus status)
         {
             showingID = null;
             this.home = home.DeepCopy();
             this.client = client.DeepCopy();
+            this.timeRequestCreated = new DateTime(timeRequestCreated.Ticks);
             this.showingTime = new DateTime(showingTime.Ticks);
             this.status = status;
         }
 
         // Constructor with ID
-        public Showing(int? showingID, Home home, Client client, DateTime showingTime, ShowingStatus status)
+        public Showing(int? showingID, Home home, Client client, DateTime timeRequestCreated,DateTime showingTime, ShowingStatus status)
         {
             this.showingID = showingID;
             this.home = home.DeepCopy();
             this.client = client.DeepCopy();
+            this.timeRequestCreated = new DateTime(timeRequestCreated.Ticks);
             this.showingTime = new DateTime(showingTime.Ticks);
             this.status = status;
         }
@@ -60,6 +66,12 @@ namespace RetailClassLibrary
             set { client = value.DeepCopy(); }
         }
 
+        public DateTime TimeRequestCreated
+        {
+            get { return new DateTime(timeRequestCreated.Ticks); }
+            set { timeRequestCreated = new DateTime(value.Ticks); }
+        }
+
         public DateTime ShowingTime
         {
             get { return new DateTime(showingTime.Ticks); }
@@ -75,7 +87,7 @@ namespace RetailClassLibrary
         //Implement Interface
         public Showing DeepCopy()
         {
-            return new Showing(showingID, home.DeepCopy(), client.DeepCopy(), new DateTime(showingTime.Ticks), status);
+            return new Showing(showingID, home.DeepCopy(), client.DeepCopy(), TimeRequestCreated, ShowingTime, status);
         }
     }
 }
