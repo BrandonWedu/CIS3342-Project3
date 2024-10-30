@@ -20,6 +20,8 @@
             <asp:Label ID="loginTest" runat="server"></asp:Label>
             <asp:Button ID="btnAddHome" Text="Add Home" runat="server" OnClick="btnAddHome_Click" />
             <asp:Button ID="btnViewHomes" Text="View Home" runat="server" OnClick="btnViewHomes_Click" />
+            <asp:Button ID="btnViewShowings" Text="View Showings" runat="server" OnClick="btnViewShowings_Click" />
+            <asp:Button ID="btnViewOffers" Text="View Offers" runat="server" OnClick="btnViewOffers_Click" />
         </div>
     </form>
 </body>

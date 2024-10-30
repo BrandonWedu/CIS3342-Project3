@@ -48,5 +48,23 @@ namespace Project3
             }
             Response.Redirect("SearchHome.aspx");
         }
+
+        protected void btnViewShowings_Click(object sender, EventArgs e)
+        {
+            if (agent != null)
+            {
+                Session["Agent"] = agent;
+            Response.Redirect("ShowingView.aspx");
+            }
+        }
+
+        protected void btnViewOffers_Click(object sender, EventArgs e)
+        {
+            if (agent != null)
+            {
+                Session["Agent"] = agent;
+                Response.Redirect("OfferView.aspx");
+            }
+        }
     }
 }
