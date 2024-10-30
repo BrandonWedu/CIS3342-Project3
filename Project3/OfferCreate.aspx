@@ -38,11 +38,24 @@
             <asp:TextBox ID="txtEmail" placeholder="Enter Email" runat="server" />
         </div>
         <div>
-            <asp:Label ID="lblOfferInformation" Text="Schedule Showing Time" runat="server"></asp:Label>
+            <asp:Label ID="lblOfferInformation" Text="Offer Information" runat="server"></asp:Label>
             <br/>
-
+            <asp:Label ID="lblAmount" Text="Offer Amount" runat="server"></asp:Label>
+            <asp:TextBox ID="txtAmount" Placeholder="Enter Offer Amount" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="ddlTypeOfSale" runat="server"></asp:DropDownList>
+            <asp:Label ID="lblSellPriorHomeFirst" Text="Sell Prior Home First" runat="server"></asp:Label>
+            <asp:RadioButtonList ID="rdSellPriorHomeFirst" runat="server">
+                <asp:ListItem ID="rdTrue" Text="Required" runat="server" />
+                <asp:ListItem ID="rdFalse" Text="Not Required" runat="server" />
+            </asp:RadioButtonList>
+            <asp:Calendar ID="calMoveInByDate" runat="server"></asp:Calendar>
         </div>
-        <asp:Button ID="btnSubmitShowing" Text="Submit Showing Request" runat="server" onClick="btnSubmitShowing_Click"/>
+        <div>
+            <asp:Label ID="lblContingencies" Text="<h1>Contingencies</h1>" runat="server"></asp:Label>
+            <asp:PlaceHolder ID="phContingencies" runat="server"></asp:PlaceHolder>
+            <asp:Button ID="btnAddContingency" Text="Add Contingency" runat="server" OnClick="btnAddContingency_Click" />
+        </div>
+        <asp:Button ID="btnSubmitOffer" Text="Submit Offer" runat="server" onclick="btnSubmitOffer_Click"/>
     </form>
 </body>
 </html>

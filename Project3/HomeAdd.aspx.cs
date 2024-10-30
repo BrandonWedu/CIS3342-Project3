@@ -105,7 +105,6 @@ namespace Project3
             {
                 ddlRoomType.Items.Add(type.ToString());
             }
-
             panel.Controls.Add(lblHeight);
             panel.Controls.Add(txtHeight);
             panel.Controls.Add(lblWidth);

@@ -88,11 +88,12 @@ namespace RetailClassLibrary
         }
         public static bool CreateOffer(Offer offer)
         {
-            if (WriteOffer.CreateNew(offer) > -1)
+            int offerID = WriteOffer.CreateNew(offer);
+            if (offerID > -1)
             {
                 foreach (Contingency contingency in offer.Contingencies.List)
                 {
-                   WriteContingency.CreateNew(contingency);
+                   WriteContingency.CreateNew(offerID, contingency);
                 }
             }else
             {

@@ -25,6 +25,7 @@ namespace RetailClassLibrary
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@clientEmail", offer.Client.Email, SqlDbType.VarChar, 50));
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<int>("@homeID", (int)offer.Home.HomeID, SqlDbType.Int, 8));
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<DateTime>("@offerCreated", offer.OfferCreated, SqlDbType.DateTime));
+            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<int>("@amount", (int)offer.Amount, SqlDbType.Int, 8));
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@offerType", offer.Type.ToString(), SqlDbType.VarChar, 50));
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<bool>("@sellPriorHomeFirst", offer.SellPriorHomeFirst, SqlDbType.Bit));
             sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<DateTime>("@moveInByDate", offer.MoveInByDate, SqlDbType.DateTime));
