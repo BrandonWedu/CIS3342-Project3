@@ -47,6 +47,7 @@
     <Compile Include="Offers.cs" />
     <Compile Include="ReadAmenities.cs" />
     <Compile Include="ReadClient.cs" />
+    <Compile Include="ReadContingency.cs" />
     <Compile Include="ReadHome.cs" />
     <Compile Include="ReadImages.cs" />
     <Compile Include="ReadOffer.cs" />

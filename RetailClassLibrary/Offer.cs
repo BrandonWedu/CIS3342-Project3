@@ -21,7 +21,7 @@ namespace RetailClassLibrary
     }
 
     //Contains data for an Offer
-    public class Offer 
+    public class Offer : ICloneable<Offer>
     {
         //Fields
         private int? offerID;
@@ -124,6 +124,11 @@ namespace RetailClassLibrary
         {
             get { return contingencies.DeepCopy(); }
             set { contingencies = value.DeepCopy(); }
+        }
+
+        public Offer DeepCopy()
+        {
+            return new Offer(Home, Client, OfferCreated, Amount, Type, SellPriorHomeFirst, MoveInByDate, Status, Contingencies);
         }
     }
 }

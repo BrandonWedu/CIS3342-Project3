@@ -109,5 +109,9 @@ namespace RetailClassLibrary
         {
             return WriteShowing.UpdateStatus(showing);
         }
+        public static bool UpdateOffer(Offer offer)
+        {
+            return WriteOffer.UpdateStatus(offer);
+        }
     }
 }
