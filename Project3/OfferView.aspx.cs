@@ -15,5 +15,8 @@ namespace Project3
         {
             agent = (Agent)Session["Agent"];
         }
+        //show list of homes with number of offers 
+        //on click make a new page with all the hoes offers and contingencies for each offer 
+        // amke a button for accept and change the status accordingly with button not ddl
     }
 }

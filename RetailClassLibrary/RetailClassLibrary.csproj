@@ -44,10 +44,12 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="Homes.cs" />
+    <Compile Include="Offers.cs" />
     <Compile Include="ReadAmenities.cs" />
     <Compile Include="ReadClient.cs" />
     <Compile Include="ReadHome.cs" />
     <Compile Include="ReadImages.cs" />
+    <Compile Include="ReadOffer.cs" />
     <Compile Include="ReadRooms.cs" />
     <Compile Include="ReadShowing.cs" />
     <Compile Include="ReadTemperatureControl.cs" />

@@ -37,5 +37,25 @@ namespace RetailClassLibrary
             dbConnect.DoUpdate(sqlCommand);
             return (int)outputParam.Value;
         }
+        internal static bool UpdateStatus(Offer offer)
+        {
+            DBConnect dbConnect = new DBConnect();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.CommandText = "UpdateOfferStatus";
+
+
+            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<int>("@offerID", (int)offer.OfferID, SqlDbType.Int, 8));
+            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@offerStatus", offer.Status.ToString(), SqlDbType.VarChar, 50));
+
+            //add Output Param
+            SqlParameter outputParam = DBParameterHelper.OutputParameter("@statusCode", SqlDbType.Int, 8);
+            sqlCommand.Parameters.Add(outputParam);
+            //Excecute sql
+            dbConnect.DoUpdate(sqlCommand);
+            //return -1 if unsuccessful
+            return (int)outputParam.Value > -1;
+        }
+
     }
 }
