@@ -9,6 +9,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="lblShowing" Text="<h1>Showings</h1>" runat="server"></asp:Label>
+            <asp:PlaceHolder ID="phShowing" runat="server"></asp:PlaceHolder>
         </div>
     </form>
 </body>

@@ -45,11 +45,14 @@
     <Compile Include="Address.cs" />
     <Compile Include="Homes.cs" />
     <Compile Include="ReadAmenities.cs" />
+    <Compile Include="ReadClient.cs" />
     <Compile Include="ReadHome.cs" />
     <Compile Include="ReadImages.cs" />
     <Compile Include="ReadRooms.cs" />
+    <Compile Include="ReadShowing.cs" />
     <Compile Include="ReadTemperatureControl.cs" />
     <Compile Include="ReadUtilities.cs" />
+    <Compile Include="Showings.cs" />
     <Compile Include="WriteAmenity.cs" />
     <Compile Include="WriteContingency.cs" />
     <Compile Include="WriteHomeImage.cs" />

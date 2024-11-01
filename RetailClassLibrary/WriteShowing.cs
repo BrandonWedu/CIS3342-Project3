@@ -37,5 +37,24 @@ namespace RetailClassLibrary
             //return -1 if unsuccessful
             return (int)outputParam.Value;
         }
+        internal static bool UpdateStatus(Showing showing)
+        {
+            DBConnect dbConnect = new DBConnect();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.CommandText = "UpdateShowingStatus";
+
+
+            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<int>("@showingID", (int)showing.ShowingID, SqlDbType.Int, 8));
+            sqlCommand.Parameters.Add(DBParameterHelper.InputParameter<string>("@showingStatus", showing.Status.ToString(), SqlDbType.VarChar, 50));
+
+            //add Output Param
+            SqlParameter outputParam = DBParameterHelper.OutputParameter("@statusCode", SqlDbType.Int, 8);
+            sqlCommand.Parameters.Add(outputParam);
+            //Excecute sql
+            dbConnect.DoUpdate(sqlCommand);
+            //return -1 if unsuccessful
+            return (int)outputParam.Value > -1;
+        }
     }
 }

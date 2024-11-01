@@ -101,5 +101,13 @@ namespace RetailClassLibrary
             }
             return true;
         }
+        public static Showings GetShowings()
+        {
+            return ReadShowing.GetShowings();
+        }
+        public static bool UpdateShowingStatus(Showing showing)
+        {
+            return WriteShowing.UpdateStatus(showing);
+        }
     }
 }
