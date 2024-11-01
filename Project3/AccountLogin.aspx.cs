@@ -13,7 +13,6 @@ namespace Project3
         Agent agent;
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnSubmitLogin_Click(object sender, EventArgs e)
