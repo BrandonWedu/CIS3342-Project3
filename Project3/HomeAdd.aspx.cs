@@ -1,6 +1,8 @@
 ﻿using RetailClassLibrary;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -248,6 +250,7 @@ namespace Project3
                     DropDownList ddlImageRoomType = (DropDownList)phImages.FindControl($"ddlImageRoomType{i}");
                     FileUpload fuImage = (FileUpload)phImages.FindControl($"fuImage{i}");
                     bool isMainImage = (Label)phImages.FindControl($"lblImageType{i}") != null;
+                    //===========================================STORE IMAGE============================================================
                     homeImages.Add(new RetailClassLibrary.Image((RoomType)Enum.Parse(typeof(RoomType), ddlImageRoomType.SelectedValue), txtImageDescription.Text, isMainImage));
                 }
                 HomeAmenities homeAmenities = new HomeAmenities();

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DBConnect.cs" />
     <Compile Include="DBParameterHelper.cs" />
+    <Compile Include="ImageHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
