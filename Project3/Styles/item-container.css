@@ -1,0 +1,32 @@
+﻿.item-container {
+    background-color: #80ed99;
+    padding: 1em;
+    margin: 1em;
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1em; 
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
+    text-align: center;
+}
+
+    .item-container input[type="text"],
+    .item-container input[type="password"]{
+        border: none;
+        background-color: #57cc99;
+        padding: 0.5em; 
+        width: 100%; 
+        border-radius: 3px 4px;
+    }
+
+    .item-container input[type="text"]:focus,
+    .item-container input[type="password"]:focus{
+        outline:none;
+        outline: 2px solid #38a3a5; 
+    }
+    
+    .item-container input[type=submit],
+    .item-container .error,
+    .item-container h2{
+        grid-column: 1 / -1;
+        justify-self:center;
+    }

@@ -1,4 +1,5 @@
 ﻿/*--text: #050315;
+--border: #38a3a5
 --background: #c7f9cc;
 --primary: #22577a;
 --secondary: #57cc99;
@@ -9,7 +10,7 @@ body {
     background: #c7f9cc;
     padding: 0;
     margin: 0;
-
+    font-family: 'Montserrat', sans-serif;
 }
 
 header{
@@ -37,4 +38,9 @@ input[type=submit] {
 
 input[type=submit]:hover {
     transform: scale(1.1);
+}
+
+.error{
+    color: red;
+    font-style:italic;
 }

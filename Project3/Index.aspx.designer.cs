@@ -33,6 +33,15 @@ namespace Project3
         protected global::System.Web.UI.WebControls.Literal litTitle;
 
         /// <summary>
+        /// btnLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLogin;
+
+        /// <summary>
         /// btnSignUp control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace Project3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSignUp;
+
+        /// <summary>
+        /// btnSignOut control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSignOut;
 
         /// <summary>
         /// loginTest control.

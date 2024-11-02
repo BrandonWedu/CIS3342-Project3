@@ -24,6 +24,42 @@ namespace Project3
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// litTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litTitle;
+
+        /// <summary>
+        /// btnDashboard control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDashboard;
+
+        /// <summary>
+        /// btnLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLogin;
+
+        /// <summary>
+        /// litLoginInformation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litLoginInformation;
+
+        /// <summary>
         /// lblUsername control.
         /// </summary>
         /// <remarks>
@@ -96,13 +132,13 @@ namespace Project3
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
 
         /// <summary>
-        /// lblPersonalAddress control.
+        /// litPersonalAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPersonalAddress;
+        protected global::System.Web.UI.WebControls.Literal litPersonalAddress;
 
         /// <summary>
         /// lblPersonalStreet control.
@@ -177,6 +213,15 @@ namespace Project3
         protected global::System.Web.UI.WebControls.TextBox txtPersonalZipCode;
 
         /// <summary>
+        /// litPesonalContactInformation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litPesonalContactInformation;
+
+        /// <summary>
         /// lblPersonalPhoneNumber control.
         /// </summary>
         /// <remarks>
@@ -213,13 +258,13 @@ namespace Project3
         protected global::System.Web.UI.WebControls.TextBox txtPersonalEmail;
 
         /// <summary>
-        /// lblWorkAddress control.
+        /// litWorkAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWorkAddress;
+        protected global::System.Web.UI.WebControls.Literal litWorkAddress;
 
         /// <summary>
         /// lblWorkStreet control.
@@ -294,6 +339,15 @@ namespace Project3
         protected global::System.Web.UI.WebControls.TextBox txtWorkZipCode;
 
         /// <summary>
+        /// litWorkContactInformation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litWorkContactInformation;
+
+        /// <summary>
         /// lblWorkPhoneNumber control.
         /// </summary>
         /// <remarks>
@@ -330,22 +384,211 @@ namespace Project3
         protected global::System.Web.UI.WebControls.TextBox txtWorkEmail;
 
         /// <summary>
-        /// lblCompanyID control.
+        /// pnlCompany control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCompanyID;
+        protected global::System.Web.UI.WebControls.Panel pnlCompany;
 
         /// <summary>
-        /// txtCompanyID control.
+        /// litCompanySelection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCompanyID;
+        protected global::System.Web.UI.WebControls.Literal litCompanySelection;
+
+        /// <summary>
+        /// ddlCompany control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCompany;
+
+        /// <summary>
+        /// btnAddNewCompany control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddNewCompany;
+
+        /// <summary>
+        /// pnlAddCompany control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlAddCompany;
+
+        /// <summary>
+        /// litCompanyInformation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litCompanyInformation;
+
+        /// <summary>
+        /// lblCompanyName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCompanyName;
+
+        /// <summary>
+        /// txtCompanyName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCompanyName;
+
+        /// <summary>
+        /// btnExistingCompany control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExistingCompany;
+
+        /// <summary>
+        /// litCompanyAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litCompanyAddress;
+
+        /// <summary>
+        /// lblCompanyStreet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCompanyStreet;
+
+        /// <summary>
+        /// txtCompanyStreet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCompanyStreet;
+
+        /// <summary>
+        /// lblCompanyCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCompanyCity;
+
+        /// <summary>
+        /// txtCompanyCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCompanyCity;
+
+        /// <summary>
+        /// lblCompanyState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCompanyState;
+
+        /// <summary>
+        /// txtCompanyState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCompanyState;
+
+        /// <summary>
+        /// lblCompanyZipCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCompanyZipCode;
+
+        /// <summary>
+        /// txtCompanyZipCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCompanyZipCode;
+
+        /// <summary>
+        /// litCompanyContactInformation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litCompanyContactInformation;
+
+        /// <summary>
+        /// lblCompanyPhoneNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCompanyPhoneNumber;
+
+        /// <summary>
+        /// txtCompanyPhoneNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCompanyPhoneNumber;
+
+        /// <summary>
+        /// lblCompanyEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCompanyEmail;
+
+        /// <summary>
+        /// txtCompanyEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCompanyEmail;
 
         /// <summary>
         /// btnSubmitAccountRegistration control.
@@ -355,5 +598,14 @@ namespace Project3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmitAccountRegistration;
+
+        /// <summary>
+        /// lblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
     }
 }

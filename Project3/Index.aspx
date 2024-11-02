@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>sillow - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
@@ -14,6 +15,7 @@
             <div>
                 <asp:Button ID="btnLogin" Text="Login" runat="server" OnClick="btnLogin_Click" />
                 <asp:Button ID="btnSignUp" Text="Sign Up" runat="server" OnClick="btnSignUp_Click" />
+                <asp:Button ID="btnSignOut" Text="Sign Out" runat="server" Visible="false" OnClick="btnSignOut_Click"/>
             </div>
         </header>
         <div>

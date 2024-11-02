@@ -78,6 +78,8 @@
     <Content Include="SearchHome.aspx" />
     <Content Include="ShowingSchedule.aspx" />
     <Content Include="ShowingView.aspx" />
+    <Content Include="Styles\item-container.css" />
+    <Content Include="Styles\main-item-container.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Web.config" />
   </ItemGroup>

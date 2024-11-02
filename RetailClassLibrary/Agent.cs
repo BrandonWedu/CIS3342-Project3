@@ -68,7 +68,7 @@ namespace RetailClassLibrary
         }
         public Company Company
         {
-            get { return company.DeepCopy(); }
+            get { return company; }
             set { company = value.DeepCopy(); }
         }
 

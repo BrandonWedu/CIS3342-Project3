@@ -18,6 +18,14 @@ namespace Project3
             {
                 agent = (Agent)Session["Agent"];
                 loginTest.Text = agent.LoginData.Username;
+                btnLogin.Visible = false;
+                btnSignUp.Visible = false;
+                btnSignOut.Visible = true;
+            } else
+            {
+                btnLogin.Visible = true;
+                btnSignUp.Visible = true;
+                btnSignOut.Visible = false;
             }
         }
 
@@ -65,6 +73,12 @@ namespace Project3
                 Session["Agent"] = agent;
                 Response.Redirect("OfferView.aspx");
             }
+        }
+
+        protected void btnSignOut_Click(object sender, EventArgs e)
+        {
+            Session["Agent"] = null;
+            Response.Redirect("Index.aspx");
         }
     }
 }

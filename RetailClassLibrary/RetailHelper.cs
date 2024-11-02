@@ -19,7 +19,26 @@ namespace RetailClassLibrary
         //Account Registration
         public static bool AccountRegistration(Agent agent)
         {
-            return WriteAgent.CreateNew(agent) > -1;     
+            if (agent.Company.CompanyID != null)
+            {
+                return WriteAgent.CreateNew(agent) > -1;     
+            }
+            int companyID = WriteCompany.CreateNew(agent.Company);
+            if(companyID > -1) 
+            {
+                agent.Company.CompanyID = companyID;
+                return WriteAgent.CreateNew(agent) > -1;     
+            }
+            return false;
+        }
+
+        public static Companies GetCompanies()
+        {
+            return ReadCompany.GetCompanies();
+        }
+        public static Company GetCompanyByID(int companyID)
+        {
+            return ReadCompany.GetByCompanyID(companyID);
         }
 
         //Get Agent by ID
