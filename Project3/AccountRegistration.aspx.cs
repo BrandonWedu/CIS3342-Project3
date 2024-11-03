@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RetailClassLibrary;
+using Utilities;
 
 namespace Project3
 {
@@ -19,8 +20,60 @@ namespace Project3
             }
         }
 
+        protected string ValidateInput()
+        {
+            string errorString = "";
+            if(!Validation.IsAlphaNumeric(txtUsername.Text) && !Validation.IsUnder51Characters(txtUsername.Text))
+            {
+                errorString = "Enter a valid Username<br/>";
+
+            } else
+            {
+                errorString += RetailHelper.GetAgentByUsername(txtUsername.Text) == null ? string.Empty : "Username Taken<br/>";
+            }
+            errorString += (Validation.IsPassword(txtPassword.Text) && Validation.IsUnder51Characters(txtPassword.Text)) ? string.Empty : "Enter a valid Password</br>";
+            errorString += (Validation.IsAlphaNumeric(txtFirstName.Text) && Validation.IsUnder51Characters(txtFirstName.Text)) ? string.Empty : "Enter a valid First Name</br>";
+            errorString += (Validation.IsAlphaNumeric(txtLastName.Text) && Validation.IsUnder51Characters(txtLastName.Text)) ? string.Empty : "Enter a valid Last Name</br>";
+            errorString += (Validation.IsAlphaNumeric(txtPersonalStreet.Text) && Validation.IsUnder51Characters(txtPersonalStreet.Text)) ? string.Empty : "Enter a valid Personal Street</br>";
+            errorString += (Validation.IsAlphaNumeric(txtPersonalCity.Text) && Validation.IsUnder51Characters(txtPersonalCity.Text)) ? string.Empty : "Enter a valid Personal City</br>";
+            errorString += (Validation.IsAlphaNumeric(txtPersonalState.Text) && Validation.IsUnder51Characters(txtPersonalState.Text)) ? string.Empty : "Enter a valid Personal State</br>";
+            errorString += (Validation.IsAlphaNumericWithDash(txtPersonalZipCode.Text) && Validation.IsUnder51Characters(txtPersonalZipCode.Text)) ? string.Empty : "Enter a valid Personal Zip Code</br>";
+            errorString += (Validation.IsAlphaNumeric(txtPersonalPhoneNumber.Text) && Validation.IsUnder51Characters(txtPersonalPhoneNumber.Text)) ? string.Empty : "Enter a valid Personal Phone Number</br>";
+            errorString += (Validation.IsAlphaNumeric(txtPersonalEmail.Text) && Validation.IsUnder51Characters(txtPersonalEmail.Text)) ? string.Empty : "Enter a valid Personal Email</br>";
+            errorString += (Validation.IsAlphaNumeric(txtWorkStreet.Text) && Validation.IsUnder51Characters(txtWorkStreet.Text)) ? string.Empty : "Enter a valid Work Street</br>";
+            errorString += (Validation.IsAlphaNumeric(txtWorkCity.Text) && Validation.IsUnder51Characters(txtWorkCity.Text)) ? string.Empty : "Enter a valid Work City</br>";
+            errorString += (Validation.IsAlphaNumeric(txtWorkState.Text) && Validation.IsUnder51Characters(txtWorkState.Text)) ? string.Empty : "Enter a valid Work State</br>";
+            errorString += (Validation.IsAlphaNumericWithDash(txtWorkZipCode.Text) && Validation.IsUnder51Characters(txtWorkZipCode.Text)) ? string.Empty : "Enter a valid Work Zip Code</br>";
+            errorString += (Validation.IsAlphaNumeric(txtWorkPhoneNumber.Text) && Validation.IsUnder51Characters(txtWorkPhoneNumber.Text)) ? string.Empty : "Enter a valid Work Phone Number</br>";
+            errorString += (Validation.IsAlphaNumeric(txtWorkEmail.Text) && Validation.IsUnder51Characters(txtWorkEmail.Text)) ? string.Empty : "Enter a valid Work Email</br>";
+
+            if (pnlAddCompany.Visible)
+            {
+                if(!Validation.IsAlphaNumeric(txtCompanyName.Text) && !Validation.IsUnder51Characters(txtCompanyName.Text))
+                {
+                    errorString += "Enter a valid Company Name";
+                } else
+                {
+                    errorString += RetailHelper.GetCompanyByName(txtCompanyName.Text) == null ? string.Empty : "Company Already Exists</br>";
+                }
+                errorString += (Validation.IsAlphaNumeric(txtCompanyStreet.Text) && Validation.IsUnder51Characters(txtCompanyStreet.Text)) ? string.Empty : "Enter a valid Company Street</br>";
+                errorString += (Validation.IsAlphaNumeric(txtCompanyCity.Text) && Validation.IsUnder51Characters(txtCompanyCity.Text)) ? string.Empty : "Enter a valid Company City</br>";
+                errorString += (Validation.IsAlphaNumeric(txtCompanyState.Text) && Validation.IsUnder51Characters(txtCompanyState.Text)) ? string.Empty : "Enter a valid Company State</br>";
+                errorString += (Validation.IsAlphaNumericWithDash(txtCompanyZipCode.Text) && Validation.IsUnder51Characters(txtCompanyZipCode.Text)) ? string.Empty : "Enter a valid Company Zip Code</br>";
+                errorString += (Validation.IsAlphaNumeric(txtCompanyPhoneNumber.Text) && Validation.IsUnder51Characters(txtCompanyPhoneNumber.Text)) ? string.Empty : "Enter a valid Company Phone Number</br>";
+                errorString += (Validation.IsAlphaNumeric(txtCompanyEmail.Text) && Validation.IsUnder51Characters(txtCompanyEmail.Text)) ? string.Empty : "Enter a valid Company Email</br>";
+            }
+            return errorString;
+        }
+
         protected void btnSubmitAccountRegistration_Click(object sender, EventArgs e)
         {
+            string err = ValidateInput();
+            if (err.Length > 0)
+            {
+                lblError.Text = err;
+                return;
+            }
             if (RetailHelper.AccountRegistration(
                 new Agent
                     (

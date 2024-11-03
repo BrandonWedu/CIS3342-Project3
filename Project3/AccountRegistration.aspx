@@ -97,7 +97,7 @@
                     <asp:Literal ID="litCompanyContactInformation" Text="<h2>Company Contact Information</h2>" runat="server" />
                     <asp:Label ID="lblCompanyPhoneNumber" Text="Company Phone Number" runat="server" />
                     <asp:TextBox ID="txtCompanyPhoneNumber" placeholder="Enter Phone Number" runat="server" />
-                    <asp:Label ID="lblCompanyEmail" Text="Work Email" runat="server" />
+                    <asp:Label ID="lblCompanyEmail" Text="Company Email" runat="server" />
                     <asp:TextBox ID="txtCompanyEmail" placeholder="Enter Email" runat="server" />
                 </div>
             </asp:Panel>

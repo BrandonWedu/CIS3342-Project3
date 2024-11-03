@@ -32,6 +32,11 @@ namespace RetailClassLibrary
             return false;
         }
 
+        public static Agent GetAgentByUsername(string username)
+        {
+            return ReadAgent.GetAgentByUsername(username);
+        }
+
         public static Companies GetCompanies()
         {
             return ReadCompany.GetCompanies();
@@ -39,6 +44,10 @@ namespace RetailClassLibrary
         public static Company GetCompanyByID(int companyID)
         {
             return ReadCompany.GetByCompanyID(companyID);
+        }
+        public static Company GetCompanyByName(string name)
+        {
+            return ReadCompany.GetByCompanyName(name);
         }
 
         //Get Agent by ID

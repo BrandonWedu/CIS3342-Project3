@@ -14,6 +14,12 @@ namespace Utilities
         {
             string pattern = @"^[a-zA-Z0-9]+$";
             return Regex.IsMatch(stringValue, pattern);
+        }
+        // Only alphanumeric characters, no spaces
+        public static bool IsAlphaNumericWithDash(string stringValue)
+        {
+            string pattern = @"^[a-zA-Z0-9-]+$";
+            return Regex.IsMatch(stringValue, pattern);
         } 
         // Only alphanumeric characters, with spaces
         public static bool IsAlphaNumericWithSpace(string stringValue)
@@ -26,6 +32,10 @@ namespace Utilities
         {
             string pattern = @"^[a-zA-Z0-9@$!%*?&]{8,}$";
             return Regex.IsMatch(stringValue, pattern); 
+        }
+        public static bool IsUnder51Characters(string stringValue)
+        {
+            return stringValue.Length > 51;
         }
         // Try Parses string to int
         public static bool IsInteger(string stringValue)
