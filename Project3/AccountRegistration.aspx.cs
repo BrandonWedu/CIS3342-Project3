@@ -23,7 +23,7 @@ namespace Project3
         protected string ValidateInput()
         {
             string errorString = "";
-            if(!Validation.IsAlphaNumeric(txtUsername.Text) && !Validation.IsUnder51Characters(txtUsername.Text))
+            if(!Validation.IsAlphaNumeric(txtUsername.Text) || !Validation.IsUnder51Characters(txtUsername.Text))
             {
                 errorString = "Enter a valid Username<br/>";
 
@@ -49,7 +49,7 @@ namespace Project3
 
             if (pnlAddCompany.Visible)
             {
-                if(!Validation.IsAlphaNumeric(txtCompanyName.Text) && !Validation.IsUnder51Characters(txtCompanyName.Text))
+                if(!Validation.IsAlphaNumeric(txtCompanyName.Text) || !Validation.IsUnder51Characters(txtCompanyName.Text))
                 {
                     errorString += "Enter a valid Company Name";
                 } else

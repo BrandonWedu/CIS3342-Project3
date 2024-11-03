@@ -35,7 +35,7 @@ namespace Utilities
         }
         public static bool IsUnder51Characters(string stringValue)
         {
-            return stringValue.Length > 51;
+            return stringValue.Length < 51;
         }
         // Try Parses string to int
         public static bool IsInteger(string stringValue)

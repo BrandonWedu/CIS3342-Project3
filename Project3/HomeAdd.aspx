@@ -4,10 +4,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Add Home Listing</title>
+    <title>Sillow - Create Home Listing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/item-container.css" />
+    <link rel="stylesheet" href="styles/main-item-container.css" />
 </head>
 <body>
     <form id="frmAddHome" runat="server">
+        <header>
+            <asp:Literal ID="litTitle" Text="<h1>Sillow: Create Home Listing</h1>" runat="server"></asp:Literal>
+            <div>
+                <asp:Button ID="btnDashboard" Text="Dashboard" runat="server" OnClick="btnDashboard_Click" />
+            </div>
+        </header>
+
         <asp:Label ID="lblHomeInformation" Text="<h1>Add Home Information</h1>"  runat="server" />
         <br />
             <asp:Label ID="lblHomeStreet" Text="Street" runat="server" />

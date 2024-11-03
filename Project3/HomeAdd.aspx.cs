@@ -81,6 +81,11 @@ namespace Project3
                 }
             }
         }
+        protected void btnDashboard_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("index.aspx");
+        }
+
         protected void GenerateRoom (int count)
         {
             Panel panel = new Panel();

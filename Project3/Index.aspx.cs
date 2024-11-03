@@ -21,11 +21,17 @@ namespace Project3
                 btnLogin.Visible = false;
                 btnSignUp.Visible = false;
                 btnSignOut.Visible = true;
+                btnAddHome.Visible = true;
+                btnViewOffers.Visible = true;
+                btnViewShowings.Visible = true;
             } else
             {
                 btnLogin.Visible = true;
                 btnSignUp.Visible = true;
                 btnSignOut.Visible = false;
+                btnAddHome.Visible = false;
+                btnViewOffers.Visible = false;
+                btnViewShowings.Visible = false;
             }
         }
 
