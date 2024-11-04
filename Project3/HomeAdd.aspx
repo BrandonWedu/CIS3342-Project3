@@ -19,66 +19,69 @@
             </div>
         </header>
 
-        <asp:Label ID="lblHomeInformation" Text="<h1>Add Home Information</h1>"  runat="server" />
-        <br />
-            <asp:Label ID="lblHomeStreet" Text="Street" runat="server" />
-            <asp:TextBox ID="txtHomeStreet" placeholder="Enter Street" runat="server" />
-            <br/>
-            <asp:Label ID="lblHomeCity" Text="City" runat="server" />
-            <asp:TextBox ID="txtHomeCity" placeholder="Enter City" runat="server" />
-            <br/>
-            <asp:Label ID="lblHomeState" Text="State" runat="server" />
-            <asp:TextBox ID="txtHomeState" placeholder="Enter State" runat="server" />
-            <br/>
-            <asp:Label ID="lblHomeZipCode" Text="Zip Code" runat="server" />
-            <asp:TextBox ID="txtHomeZipCode" placeholder="Enter Zip Code" runat="server" />
-            <br/>
-        <asp:Label ID="lblHomeCost" Text="Cost" runat="server"></asp:Label>
-        <asp:TextBox ID="txtHomeCost" Placeholder="Enter Cost" runat="server"></asp:TextBox>
-        <br />
+        <div class="main-item-container">
+            <div class="item-container">
+                <asp:Literal ID="litHomeAddress" Text="<h2>Home Address</h2>"  runat="server" />
+                <asp:Label ID="lblHomeStreet" Text="Street" runat="server" />
+                <asp:TextBox ID="txtHomeStreet" placeholder="Enter Street" runat="server" />
+                <asp:Label ID="lblHomeCity" Text="City" runat="server" />
+                <asp:TextBox ID="txtHomeCity" placeholder="Enter City" runat="server" />
+                <asp:Label ID="lblHomeState" Text="State" runat="server" />
+                <asp:TextBox ID="txtHomeState" placeholder="Enter State" runat="server" />
+                <asp:Label ID="lblHomeZipCode" Text="Zip Code" runat="server" />
+                <asp:TextBox ID="txtHomeZipCode" placeholder="Enter Zip Code" runat="server" />
+            </div>
 
-        <asp:Label ID="lblPropertyType" Text="Property Type" runat="server" />
-        <asp:DropDownList ID="ddlPropertyType" runat="server" />
-            <br/>
-        <asp:Label ID="lblYearConstructed" Text="Year Constructed" runat="server" />
-        <asp:TextBox ID="txtYearConstructed" Placeholder="Enter Year Constructed" runat="server" />
+            <div class="item-container">
+                <asp:Literal ID="litHomeInformation" Text="<h2>Home Information</h2>" runat="server"></asp:Literal>
+                <asp:Label ID="lblHomeCost" Text="Cost" runat="server"></asp:Label>
+                <asp:TextBox ID="txtHomeCost" Placeholder="Enter Cost" runat="server"></asp:TextBox>
+                <asp:Label ID="lblPropertyType" Text="Property Type" runat="server" />
+                <asp:DropDownList ID="ddlPropertyType" runat="server" />
+                <asp:Label ID="lblYearConstructed" Text="Year Constructed" runat="server" />
+                <asp:TextBox ID="txtYearConstructed" Placeholder="Enter Year Constructed" runat="server" />
+                <asp:Label ID="lblGarageType" Text="Garage Type" runat="server" />
+                <asp:DropDownList ID="ddlGarageType" runat="server" />
+                <asp:Label ID="lblHomeDescription" Text="Home Description" runat="server" />
+                <asp:TextBox ID="txtHomeDescription" Placeholder="Enter Home Description" runat="server" />
+                <asp:Label ID="lblSaleStatus" Text="SaleStatus" runat="server" />
+                <asp:DropDownList ID="ddlSaleStatus" runat="server" />
+            </div>
 
-            <br/>
-        <asp:Label ID="lblGarageType" Text="Garage Type" runat="server" />
-        <asp:DropDownList ID="ddlGarageType" runat="server" />
-            <br/>
-        <asp:Label ID="lblHomeDescription" Text="Home Description" runat="server" />
-        <asp:TextBox ID="txtHomeDescription" Placeholder="Enter Home Description" runat="server" />
-            <br/>
-        <asp:Label ID="lblSaleStatus" Text="SaleStatus" runat="server" />
-        <asp:DropDownList ID="ddlSaleStatus" runat="server" />
-            <br/>
+            <div class="item-container">
+                <asp:Literal ID="litTempatureControlInformation" Text="<h2>Add Tempature Control Information</h2>"  runat="server" />
+                <asp:Label ID="lblCooling" Text="Cooling" runat="server" />
+                <asp:DropDownList ID="ddlCooling" runat="server" />
+                <asp:Label ID="lblHeating" Text="Heating" runat="server" />
+                <asp:DropDownList ID="ddlHeating" runat="server" />
+            </div>
 
-        <asp:Label ID="lblRoomInformation" Text="<h1>Add Room Information</h1>"  runat="server" />
-        <asp:PlaceHolder ID="phRooms" runat="server"> </asp:PlaceHolder>
-        <asp:Button ID="btnGenerateRoom" Text="Add Room" runat="server" OnClick="btnGenerateRoom_Click" />
-        <br />
-        <asp:Label ID="lblUtilityInformation" Text="<h1>Add Utility Information</h1>"  runat="server" />
-        <asp:PlaceHolder ID="phUtilities" runat="server"> </asp:PlaceHolder>
-        <asp:Button ID="btnGenerateUtility" Text="Add Utility" runat="server" OnClick="btnGenerateUtility_Click" />
-        <br />
-        <asp:Label ID="lblAmenityInformation" Text="<h1>Add Amenity Information</h1>"  runat="server" />
-        <asp:PlaceHolder ID="phAmenities" runat="server"> </asp:PlaceHolder>
-        <asp:Button ID="btnGenerateAmenity" Text="Add Amenity" runat="server" OnClick="btnGenerateAmenity_Click"/>
-        <br />
-        <asp:Label ID="lblTempatureControlInformation" Text="<h1>Add Tempature Control Information</h1>"  runat="server" />
-        <br />
-        <asp:Label ID="lblCooling" Text="Cooling" runat="server" />
-        <asp:DropDownList ID="ddlCooling" runat="server" />
-            <br/>
-        <asp:Label ID="lblHeating" Text="Heating" runat="server" />
-        <asp:DropDownList ID="ddlHeating" runat="server" />
-            <br/>
-        <asp:Label ID="lblImageInformation" Text="<h1>Add Image</h1>"  runat="server" />
-        <asp:PlaceHolder ID="phImages" runat="server"> </asp:PlaceHolder>
-        <asp:Button ID="btnGenerateImage" Text="Add Image" runat="server" OnClick="btnGenerateImage_Click"/>
-        <br />
-        <asp:Button ID="btnSubmitHomeListing" Text="Submit Home Listing" runat="server" OnClick="btnSubmitHomeListing_Click" />
+            <div class="item-container">
+                <asp:Literal ID="litRoomInformation" Text="<h2>Add Room Information</h2>"  runat="server" />
+                <asp:PlaceHolder ID="phRooms" runat="server"> </asp:PlaceHolder>
+                <asp:Button ID="btnGenerateRoom" Text="Add Room" runat="server" OnClick="btnGenerateRoom_Click" />
+            </div>
+
+            <div class="item-container">
+                <asp:Literal ID="litUtilityInformation" Text="<h2>Add Utility Information</h2>"  runat="server" />
+                <asp:PlaceHolder ID="phUtilities" runat="server"> </asp:PlaceHolder>
+                <asp:Button ID="btnGenerateUtility" Text="Add Utility" runat="server" OnClick="btnGenerateUtility_Click" />
+            </div>
+
+            <div class="item-container">
+                <asp:Literal ID="litAmenityInformation" Text="<h2>Add Amenity Information</h2>"  runat="server" />
+                <asp:PlaceHolder ID="phAmenities" runat="server"> </asp:PlaceHolder>
+                <asp:Button ID="btnGenerateAmenity" Text="Add Amenity" runat="server" OnClick="btnGenerateAmenity_Click"/>
+            </div>
+
+            <div class="item-container">
+                <asp:Literal ID="litImageInformation" Text="<h2>Add Image</h2>"  runat="server" />
+                <asp:PlaceHolder ID="phImages" runat="server"> </asp:PlaceHolder>
+                <asp:Button ID="btnGenerateImage" Text="Add Image" runat="server" OnClick="btnGenerateImage_Click"/>
+            </div>
+            <asp:Button ID="btnSubmitHomeListing" Text="Submit Home Listing" runat="server" OnClick="btnSubmitHomeListing_Click" />
+            <asp:Label ID="lblError" runat="server"></asp:Label>
+        </div>
     </form>
 </body>
 </html>

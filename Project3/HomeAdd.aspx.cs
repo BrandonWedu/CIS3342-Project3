@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -22,10 +23,10 @@ namespace Project3
 
                 if (!IsPostBack)
                 {
-                    ViewState["RoomsCount"] = 0;
-                    ViewState["UtilitiesCount"] = 0;
-                    ViewState["AmenitiesCount"] = 0;
-                    ViewState["ImagesCount"] = 0;
+                    ViewState["RoomsCount"] = 1;
+                    ViewState["UtilitiesCount"] = 1;
+                    ViewState["AmenitiesCount"] = 1;
+                    ViewState["ImagesCount"] = 1;
                     foreach(PropertyType type in Enum.GetValues(typeof(PropertyType)))
                     {
                         ddlPropertyType.Items.Add(type.ToString());
@@ -90,7 +91,7 @@ namespace Project3
         {
             Panel panel = new Panel();
             panel.ID = $"roomContainer{count}";
-            panel.CssClass = "add-item-container";
+            panel.CssClass = "item-container";
 
             Label lblHeight = new Label();
             lblHeight.ID = $"lblHeight{count}";
@@ -106,24 +107,41 @@ namespace Project3
             txtWidth .ID = $"txtWidth{count}";
             txtWidth.Attributes["Placeholder"] = "Enter Width";
 
+            Label lblRoomType = new Label();
+            lblRoomType.ID = $"lblRoomType{count}";
+            lblRoomType.Text = "RoomType: ";
             DropDownList ddlRoomType = new DropDownList();
             ddlRoomType.ID = $"ddlRoomType{count}"; 
             foreach(RoomType type in Enum.GetValues(typeof(RoomType)))
             {
                 ddlRoomType.Items.Add(type.ToString());
             }
+            
+            Button btnDelete = new Button();
+            btnDelete.ID = $"btnRoomDelete_{count}";
+            btnDelete.Text = "Delete";
+            btnDelete.Click += new EventHandler(btnDeleteRoom_Click);
+
             panel.Controls.Add(lblHeight);
             panel.Controls.Add(txtHeight);
             panel.Controls.Add(lblWidth);
             panel.Controls.Add(txtWidth);
+            panel.Controls.Add(lblRoomType);
             panel.Controls.Add(ddlRoomType);
+            panel.Controls.Add(btnDelete);
             phRooms.Controls.Add(panel);
         }
+        protected void btnDeleteRoom_Click(object sender, EventArgs e)
+        {
+            string roomDivID = ((Button)sender).ID.Split('_').Last();
+            phRooms.FindControl($"roomContainer{roomDivID}").Visible = false;
+        }
+
         protected void GenerateUtility (int count)
         {
             Panel panel = new Panel();
             panel.ID = $"utilityContainer{count}";
-            panel.CssClass = "add-item-container";
+            panel.CssClass = "item-container";
 
             Label lblInformation = new Label();
             lblInformation.ID = $"lblInformation{count}";
@@ -148,7 +166,7 @@ namespace Project3
         {
             Panel panel = new Panel();
             panel.ID = $"amenityContainer{count}";
-            panel.CssClass = "add-item-container";
+            panel.CssClass = "item-container";
 
             Label lblDescription = new Label();
             lblDescription.ID = $"lblDescription{count}";
@@ -174,7 +192,7 @@ namespace Project3
         {
             Panel panel = new Panel();
             panel.ID = $"imageContainer{count}";
-            panel.CssClass = "add-item-container";
+            panel.CssClass = "item-container";
 
             if (count == 0)
             {
@@ -244,6 +262,7 @@ namespace Project3
             ViewState["ImagesCount"] = count + 1;
         }
 
+        //ONLY ADD WHERE VISIBILITY IS TRUE 
         protected void btnSubmitHomeListing_Click(object sender, EventArgs e)
         {
             if(AddHomeValidate())
@@ -256,6 +275,7 @@ namespace Project3
                     FileUpload fuImage = (FileUpload)phImages.FindControl($"fuImage{i}");
                     bool isMainImage = (Label)phImages.FindControl($"lblImageType{i}") != null;
                     //===========================================STORE IMAGE============================================================
+                   
                     homeImages.Add(new RetailClassLibrary.Image((RoomType)Enum.Parse(typeof(RoomType), ddlImageRoomType.SelectedValue), txtImageDescription.Text, isMainImage));
                 }
                 HomeAmenities homeAmenities = new HomeAmenities();
