@@ -110,9 +110,17 @@ namespace RetailClassLibrary
         {
             return ReadHome.GetHomes();
         }
+        public static Home GetHomeByID(int homeID)
+        {
+            return ReadHome.GetHomeByID(homeID);
+        }
         public static bool ScheduleShowing(Showing showing)
         {
             return WriteShowing.CreateNew(showing) > -1;
+        }
+        public static Showings GetShowingsByAgentID(int agentID)
+        {
+            return ReadShowing.GetShowingsByAgentID(agentID);
         }
         public static bool CreateOffer(Offer offer)
         {
