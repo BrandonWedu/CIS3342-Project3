@@ -36,6 +36,14 @@ namespace Project3
                 }
             }
         }
+        protected void btnDashboard_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("index.aspx");
+        }
+        protected void btnHomeProfile_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HomeProfile.aspx");
+        }
 
         protected void GenerateContingency(int count)
         {
@@ -87,7 +95,7 @@ namespace Project3
             errorString += (Validation.IsAlphaNumeric(txtState.Text) && Validation.IsUnder51Characters(txtState.Text)) ? string.Empty : "Enter a valid State</br>";
             errorString += (Validation.IsAlphaNumericWithDash(txtZipCode.Text) && Validation.IsUnder51Characters(txtZipCode.Text)) ? string.Empty : "Enter a valid Zip Code</br>";
 
-            errorString += (Validation.IsInteger(txtAmount.Text) && Validation.IsUnder51Characters(txtAmount.Text)) ? string.Empty : "Enter a valid Offer Amount (integer)</br>";
+            errorString += (Validation.IsInteger(txtAmount.Text)) ? string.Empty : "Enter a valid Offer Amount (integer)</br>";
             errorString += ddlTypeOfSale.SelectedIndex>-1 ? string.Empty : "Select a Type Of Sale</br>";
             errorString += rdSellPriorHomeFirst.SelectedIndex > -1 ? string.Empty : "Select a Type Of Sale</br>";
             errorString += calMoveInByDate.SelectedDate > DateTime.Now ? string.Empty : "Select A Valid Move In By Date</br>";
@@ -112,8 +120,7 @@ namespace Project3
                 lblError.Visible = true;
                 return;
             } 
-            
-            //validate
+
             OfferContingencies contingencies = new OfferContingencies();
             for (int i = 0; i < (int)ViewState["ContingencyCount"]; i++)
             {
@@ -144,9 +151,6 @@ namespace Project3
                 contingencies
                 );
             RetailHelper.CreateOffer( offer );
-        }
-        protected void btnDashboard_Click(object sender, EventArgs e)
-        {
             Response.Redirect("index.aspx");
         }
     }

@@ -16,6 +16,7 @@
             <asp:Literal ID="litTitle" Text="<h1>Sillow: Create an Offer</h1>" runat="server"></asp:Literal>
             <div>
                 <asp:Button ID="btnDashboard" Text="Dashboard" runat="server" OnClick="btnDashboard_Click" />
+                <asp:Button ID="btnHomeProfile" Text="Home Profile" runat="server" OnClick="btnHomeProfile_Click" />
             </div>
         </header>
         <div class="main-item-container">
