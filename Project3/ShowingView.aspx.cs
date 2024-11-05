@@ -143,7 +143,7 @@ namespace Project3
         protected void btnHome_Click(object sender, EventArgs e)
         {
             int buttonID = int.Parse(((Button)sender).ID.Split('_').Last());
-            Session["Home"] = RetailHelper.GetHomeByID((int)showings.List[buttonID].Home.HomeID);
+            Session["Home"] = showings.List[buttonID].Home;
             Response.Redirect("HomeProfile.aspx");
         }
 

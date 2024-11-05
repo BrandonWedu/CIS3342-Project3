@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="styles/main-item-container.css" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="frmShowingManager" runat="server">
         <header>
             <asp:Literal ID="litTitle" Text="<h1>Sillow: Showing Manager</h1>" runat="server"></asp:Literal>
             <div>
