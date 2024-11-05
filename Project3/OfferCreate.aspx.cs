@@ -16,7 +16,7 @@ namespace Project3
             home = (Home)Session["Home"];
             if (!IsPostBack)
             {
-                ViewState["ContingencyCount"] = 0;
+                ViewState["ContingencyCount"] = 1;
                 foreach (TypeOfSale typeOfSale in Enum.GetValues(typeof(TypeOfSale)))
                 {
                     ddlTypeOfSale.Items.Add(typeOfSale.ToString());
@@ -35,17 +35,24 @@ namespace Project3
         protected void GenerateContingency(int count)
         {
             Panel panel = new Panel();
-            panel.ID = $"Contingency{count}";
-            panel.CssClass = "add-item-container";
+            panel.ID = $"pnlContingency{count}";
+            panel.CssClass = "item-container";
 
             Label lblDescription = new Label();
             lblDescription.ID = $"lblDescription{count}";
             lblDescription.Text = "Contengency Description: ";
             panel.Controls.Add(lblDescription);
+
             TextBox txtDescription = new TextBox();
             txtDescription.ID = $"txtDescription{count}";
             txtDescription.Attributes["Placeholder"] = "Enter Contingency Description";
             panel.Controls.Add(txtDescription);
+
+            Button btnDelete = new Button();
+            btnDelete.ID = $"btnContingencyDelete_{count}";
+            btnDelete.Text = "Delete";
+            btnDelete.Click += new EventHandler(btnDeleteContingency_Click);
+            panel.Controls.Add(btnDelete);
 
             phContingencies.Controls.Add(panel);
         }
@@ -55,14 +62,23 @@ namespace Project3
             GenerateContingency(count);
             ViewState["ContingencyCount"] = count + 1;
         }
+        protected void btnDeleteContingency_Click(object sender, EventArgs e)
+        {
+            string divID = ((Button)sender).ID.Split('_').Last();
+            phContingencies.FindControl($"pnlContingency{divID}").Visible = false;
+        }
 
         protected void btnSubmitOffer_Click(object sender, EventArgs e)
         {
+            //validate
             OfferContingencies contingencies = new OfferContingencies();
             for (int i = 0; i < (int)ViewState["ContingencyCount"]; i++)
             {
-                TextBox txtDescription = (TextBox)phContingencies.FindControl($"txtDescription{i}");
-                contingencies.Add(new Contingency(txtDescription.Text));
+                if (phContingencies.FindControl($"pnlContingencies{i}").Visible == true)
+                {
+                    TextBox txtDescription = (TextBox)phContingencies.FindControl($"txtDescription{i}");
+                    contingencies.Add(new Contingency(txtDescription.Text));
+                }
             }
 
             Offer offer = new Offer(
@@ -86,6 +102,9 @@ namespace Project3
                 );
             RetailHelper.CreateOffer( offer );
         }
-
+        protected void btnDashboard_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("index.aspx");
+        }
     }
 }

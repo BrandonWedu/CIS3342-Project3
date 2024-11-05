@@ -24,13 +24,31 @@ namespace Project3
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lblClientInformation control.
+        /// litTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblClientInformation;
+        protected global::System.Web.UI.WebControls.Literal litTitle;
+
+        /// <summary>
+        /// btnDashboard control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDashboard;
+
+        /// <summary>
+        /// litClientInformation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litClientInformation;
 
         /// <summary>
         /// lblFirstName control.
@@ -69,13 +87,49 @@ namespace Project3
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
 
         /// <summary>
-        /// lblAddress control.
+        /// lblPhoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddress;
+        protected global::System.Web.UI.WebControls.Label lblPhoneNumber;
+
+        /// <summary>
+        /// txtPhoneNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPhoneNumber;
+
+        /// <summary>
+        /// lblEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmail;
+
+        /// <summary>
+        /// txtEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+
+        /// <summary>
+        /// litAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litAddress;
 
         /// <summary>
         /// lblStreet control.
@@ -150,49 +204,13 @@ namespace Project3
         protected global::System.Web.UI.WebControls.TextBox txtZipCode;
 
         /// <summary>
-        /// lblPhoneNumber control.
+        /// litOfferInformation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPhoneNumber;
-
-        /// <summary>
-        /// txtPhoneNumber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPhoneNumber;
-
-        /// <summary>
-        /// lblEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
-
-        /// <summary>
-        /// txtEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
-
-        /// <summary>
-        /// lblOfferInformation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOfferInformation;
+        protected global::System.Web.UI.WebControls.Literal litOfferInformation;
 
         /// <summary>
         /// lblAmount control.
@@ -211,6 +229,15 @@ namespace Project3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAmount;
+
+        /// <summary>
+        /// lblTypeOfSale control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTypeOfSale;
 
         /// <summary>
         /// ddlTypeOfSale control.
@@ -258,6 +285,15 @@ namespace Project3
         protected global::System.Web.UI.WebControls.ListItem rdFalse;
 
         /// <summary>
+        /// lblMoveInByDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMoveInByDate;
+
+        /// <summary>
         /// calMoveInByDate control.
         /// </summary>
         /// <remarks>
@@ -267,13 +303,13 @@ namespace Project3
         protected global::System.Web.UI.WebControls.Calendar calMoveInByDate;
 
         /// <summary>
-        /// lblContingencies control.
+        /// litContingencies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblContingencies;
+        protected global::System.Web.UI.WebControls.Literal litContingencies;
 
         /// <summary>
         /// phContingencies control.
