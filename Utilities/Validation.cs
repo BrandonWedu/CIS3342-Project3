@@ -33,6 +33,11 @@ namespace Utilities
             string pattern = @"^[a-zA-Z0-9@$!%*?&]{8,}$";
             return Regex.IsMatch(stringValue, pattern); 
         }
+        public static bool IsEmail(string stringValue)
+        {
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            return Regex.IsMatch(stringValue, pattern);
+        }
         public static bool IsUnder51Characters(string stringValue)
         {
             return stringValue.Length < 51;

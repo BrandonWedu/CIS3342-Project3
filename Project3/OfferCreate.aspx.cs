@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RetailClassLibrary;
+using Utilities;
 
 namespace Project3
 {
@@ -13,10 +14,14 @@ namespace Project3
         Home home;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((Home)Session["Home"] == null)
+            {
+                Response.Redirect("Index.aspx");
+            }
             home = (Home)Session["Home"];
             if (!IsPostBack)
             {
-                ViewState["ContingencyCount"] = 1;
+                ViewState["ContingencyCount"] = 0;
                 foreach (TypeOfSale typeOfSale in Enum.GetValues(typeof(TypeOfSale)))
                 {
                     ddlTypeOfSale.Items.Add(typeOfSale.ToString());
@@ -68,13 +73,51 @@ namespace Project3
             phContingencies.FindControl($"pnlContingency{divID}").Visible = false;
         }
 
+        protected string Validator()
+        {
+            string errorString = "";
+
+            errorString += (Validation.IsAlphaNumeric(txtFirstName.Text) && Validation.IsUnder51Characters(txtFirstName.Text)) ? string.Empty : "Enter a valid First Name</br>";
+            errorString += (Validation.IsAlphaNumeric(txtLastName.Text) && Validation.IsUnder51Characters(txtLastName.Text)) ? string.Empty : "Enter a valid Last Name</br>";
+            errorString += (Validation.IsAlphaNumeric(txtPhoneNumber.Text) && Validation.IsUnder51Characters(txtPhoneNumber.Text)) ? string.Empty : "Enter a valid Phone Number</br>";
+            errorString += (Validation.IsEmail(txtEmail.Text) && Validation.IsUnder51Characters(txtEmail.Text)) ? string.Empty : "Enter a valid Email</br>";
+
+            errorString += (Validation.IsAlphaNumeric(txtStreet.Text) && Validation.IsUnder51Characters(txtStreet.Text)) ? string.Empty : "Enter a valid Street</br>";
+            errorString += (Validation.IsAlphaNumeric(txtCity.Text) && Validation.IsUnder51Characters(txtCity.Text)) ? string.Empty : "Enter a valid City</br>";
+            errorString += (Validation.IsAlphaNumeric(txtState.Text) && Validation.IsUnder51Characters(txtState.Text)) ? string.Empty : "Enter a valid State</br>";
+            errorString += (Validation.IsAlphaNumericWithDash(txtZipCode.Text) && Validation.IsUnder51Characters(txtZipCode.Text)) ? string.Empty : "Enter a valid Zip Code</br>";
+
+            errorString += (Validation.IsInteger(txtAmount.Text) && Validation.IsUnder51Characters(txtAmount.Text)) ? string.Empty : "Enter a valid Offer Amount (integer)</br>";
+            errorString += ddlTypeOfSale.SelectedIndex>-1 ? string.Empty : "Select a Type Of Sale</br>";
+            errorString += rdSellPriorHomeFirst.SelectedIndex > -1 ? string.Empty : "Select a Type Of Sale</br>";
+            errorString += calMoveInByDate.SelectedDate > DateTime.Now ? string.Empty : "Select A Valid Move In By Date</br>";
+
+            for (int i = 0; i < (int)ViewState["ContingencyCount"]; i++)
+            {
+                if (phContingencies.FindControl($"pnlContingency{i}").Visible == true)
+                {
+                    TextBox txtDescription = (TextBox)phContingencies.FindControl($"txtDescription{i}");
+                    errorString += (Validation.IsAlphaNumeric(txtDescription.Text) ? string.Empty : "Enter valid Contingencies</br>");
+                    return errorString;
+                }
+            }
+            return errorString;
+        }
         protected void btnSubmitOffer_Click(object sender, EventArgs e)
         {
+            string err = Validator();
+            if(err.Length > 0)
+            {
+                lblError.Text = err;
+                lblError.Visible = true;
+                return;
+            } 
+            
             //validate
             OfferContingencies contingencies = new OfferContingencies();
             for (int i = 0; i < (int)ViewState["ContingencyCount"]; i++)
             {
-                if (phContingencies.FindControl($"pnlContingencies{i}").Visible == true)
+                if (phContingencies.FindControl($"pnlContingency{i}").Visible == true)
                 {
                     TextBox txtDescription = (TextBox)phContingencies.FindControl($"txtDescription{i}");
                     contingencies.Add(new Contingency(txtDescription.Text));

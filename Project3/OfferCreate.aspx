@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="styles/main-item-container.css" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="frmOfferCreate" runat="server">
         <header>
             <asp:Literal ID="litTitle" Text="<h1>Sillow: Create an Offer</h1>" runat="server"></asp:Literal>
             <div>
@@ -65,6 +65,7 @@
 
         <div class="item-container">
             <asp:Button ID="btnSubmitOffer" Text="Submit Offer" runat="server" onclick="btnSubmitOffer_Click"/>
+            <asp:Label ID="lblError" cssClass="error" runat="server" Visible="false"></asp:Label>
         </div>
     </div>
     </form>
