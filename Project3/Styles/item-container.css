@@ -25,9 +25,10 @@
     outline: 2px solid #38a3a5; 
 }
 
-.item-container input[type=submit],
+.item-container input[type="submit"],
 .item-container .error,
 .item-container h2{
     grid-column: 1 / -1;
     justify-self:center;
 }
+

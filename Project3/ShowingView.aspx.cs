@@ -28,10 +28,6 @@ namespace Project3
         {
             Response.Redirect("index.aspx");
         }
-        protected void btnHomeProfile_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("HomeProfile.aspx");
-        }
 
         protected void GenerateShowing(int count)
         {
@@ -39,26 +35,92 @@ namespace Project3
             panel.ID = $"pnlShowingContainer{count}";
             panel.CssClass = "item-container";
             
+            Literal litClientInformation = new Literal();
+            litClientInformation.Text = "<h2>Client Information</h2>";
+            litClientInformation.ID = $"litClientInformation{count}";
+            panel.Controls.Add(litClientInformation);
+
+
+            Label lblClientName = new Label();
+            lblClientName.Text = "Client Name:";
+            lblClientName.ID = $"lblClientName{count}";
+            panel.Controls.Add(lblClientName);
+            
+            Label lblClientNameData = new Label();
+            lblClientNameData.Text = showings.List[count].Client.FirstName + " " + showings.List[count].Client.LastName;
+            lblClientNameData.ID = $"lblClientNameData{count}";
+            panel.Controls.Add(lblClientNameData);
+            
+            Label lblClientAddress = new Label();
+            lblClientAddress.Text = "Client Address";
+            lblClientAddress.ID = $"lblClientAddress{count}";
+            panel.Controls.Add(lblClientAddress);
+
+            Label lblClientAddressData  = new Label();
+            lblClientAddressData.Text = showings.List[count].Client.Address.ToString();
+            lblClientAddressData.ID = $"lblClientAddressData{count}";
+            panel.Controls.Add(lblClientAddressData);
+
+            Label lblClientPhoneNumber = new Label();
+            lblClientPhoneNumber.Text = "Client PhoneNumber:";
+            lblClientPhoneNumber.ID = $"lblClientPhoneNumber{count}";
+            panel.Controls.Add(lblClientPhoneNumber);
+
+            Label lblClientPhoneNumberData = new Label();
+            lblClientPhoneNumberData.Text = showings.List[count].Client.PhoneNumber;
+            lblClientPhoneNumberData.ID = $"lblClientPhoneNumberData{count}";
+            panel.Controls.Add(lblClientPhoneNumberData);
+
+            Label lblClientEmail = new Label();
+            lblClientEmail.Text = "Client Email:";
+            lblClientEmail.ID = $"lblClientEmail{count}";
+            panel.Controls.Add(lblClientEmail);
+
+            Label lblClientEmailData = new Label();
+            lblClientEmailData.Text = showings.List[count].Client.Email;
+            lblClientEmailData.ID = $"lblClientEmailData{count}";
+            panel.Controls.Add(lblClientEmailData);
+
             Button btnHome = new Button();
             btnHome.ID = $"btnHome_{count}";
-            btnHome.Text = "Home";
+            btnHome.Text = "Home Listing";
             btnHome.Click += new EventHandler(btnHome_Click);
             panel.Controls.Add(btnHome);
 
-            Label lblHomeID = new Label();
-            lblHomeID.Text = $"Home ID: {showings.List[count].Home.HomeID}";
-            lblHomeID.ID = $"lblHomeID{count}";
-            panel.Controls.Add(lblHomeID);
+            Label lblHomeAddress = new Label();
+            lblHomeAddress.Text = "Home Address:";
+            lblHomeAddress.ID = $"lblHomeAddress{count}";
+            panel.Controls.Add(lblHomeAddress);
+
+            Label lblHomeAddressData  = new Label();
+            lblHomeAddressData .Text = showings.List[count].Home.Address.ToString();
+            lblHomeAddressData .ID = $"lblHomeAddressData {count}";
+            panel.Controls.Add(lblHomeAddressData );
 
             Label lblShowingTime = new Label();
-            lblShowingTime.Text = $"Showing Time: {showings.List[count].ShowingTime}";
+            lblShowingTime.Text = "Showing Time:";
             lblShowingTime.ID = $"lblShowingTime{count}";
             panel.Controls.Add(lblShowingTime);
             
+            Label lblShowingTimeData = new Label();
+            lblShowingTimeData.Text = $"{showings.List[count].ShowingTime}";
+            lblShowingTimeData.ID = $"lblShowingTimeData{count}";
+            panel.Controls.Add(lblShowingTimeData);
+
             Label lblShowingRequestCreated = new Label();
-            lblShowingRequestCreated.Text = $"Showing Request Created: {showings.List[count].TimeRequestCreated}";
+            lblShowingRequestCreated.Text = $"Showing Request Created:";
             lblShowingRequestCreated.ID = $"lblShowingRequestCreated{count}";
             panel.Controls.Add(lblShowingRequestCreated);
+
+            Label lblShowingRequestCreatedData = new Label();
+            lblShowingRequestCreatedData.Text = $"{showings.List[count].TimeRequestCreated}";
+            lblShowingRequestCreatedData.ID = $"lblShowingRequestCreatedData{count}";
+            panel.Controls.Add(lblShowingRequestCreatedData);
+
+            Label lblShowingStatus = new Label();
+            lblShowingStatus.Text = $"Showing Status:";
+            lblShowingStatus.ID = $"lblShowingStatus{count}";
+            panel.Controls.Add(lblShowingStatus);
 
             DropDownList ddlShowingStatus = new DropDownList();
             ddlShowingStatus.ID = $"ddlShowingStatus{count}";

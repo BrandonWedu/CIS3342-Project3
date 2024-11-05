@@ -16,12 +16,11 @@
             <asp:Literal ID="litTitle" Text="<h1>Sillow: Showing Manager</h1>" runat="server"></asp:Literal>
             <div>
                 <asp:Button ID="btnDashboard" Text="Dashboard" runat="server" OnClick="btnDashboard_Click" />
-                <asp:Button ID="btnHomeProfile" Text="Home Profile" runat="server" OnClick="btnHomeProfile_Click" />
             </div>
         </header>
 
-        <div class="item-container">
-            <asp:Literal ID="litShowing" Text="<h2>Showings</h2>" runat="server"></asp:Literal>
+        <div class="main-item-container">
+            <asp:Literal ID="litShowing" Text="<h1>Showings</h1>" runat="server"></asp:Literal>
             <asp:PlaceHolder ID="phShowing" runat="server"></asp:PlaceHolder>
         </div>
     </form>

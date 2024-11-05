@@ -81,7 +81,6 @@
     <Compile Include="Offer.cs" />
     <Compile Include="OfferContingencies.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Mail.cs" />
     <Compile Include="ReadAgent.cs" />
     <Compile Include="RetailHelper.cs" />
     <Compile Include="Room.cs" />

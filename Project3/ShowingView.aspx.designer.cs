@@ -42,15 +42,6 @@ namespace Project3
         protected global::System.Web.UI.WebControls.Button btnDashboard;
 
         /// <summary>
-        /// btnHomeProfile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnHomeProfile;
-
-        /// <summary>
         /// litShowing control.
         /// </summary>
         /// <remarks>
