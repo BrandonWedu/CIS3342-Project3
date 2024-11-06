@@ -52,5 +52,13 @@ namespace Utilities
         {
             return double.TryParse(stringValue, out double temp) && stringValue.Length > 0;
         }
+        public static bool IsValidYear(string stringValue)
+        {
+            if (int.TryParse(stringValue, out int year))
+            {
+                return year >= 1700 && year <= DateTime.Now.Year;
+            }
+            return false;
+        }
     }
 }

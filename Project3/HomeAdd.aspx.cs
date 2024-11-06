@@ -8,6 +8,7 @@ using System.Runtime.Remoting.Channels;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Utilities;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Project3
@@ -157,6 +158,9 @@ namespace Project3
             txtInformation.ID = $"txtInformation{count}";
             txtInformation.Attributes["Placeholder"] = "Enter Information";
 
+            Label lblUtilityType = new Label();
+            lblUtilityType.ID = $"lblUtilityType{count}";
+            lblUtilityType.Text = "Utility Type: ";
             DropDownList ddlUtilityType = new DropDownList();
             ddlUtilityType.ID = $"ddlUtilityType{count}";
             foreach (UtilityTypes type in Enum.GetValues(typeof(UtilityTypes)))
@@ -171,6 +175,7 @@ namespace Project3
 
             panel.Controls.Add(lblInformation);
             panel.Controls.Add(txtInformation);
+            panel.Controls.Add(lblUtilityType);
             panel.Controls.Add(ddlUtilityType);
             panel.Controls.Add(btnDelete);
             phUtilities.Controls.Add(panel);
@@ -200,6 +205,10 @@ namespace Project3
             txtDescription.ID = $"txtDescription{count}";
             txtDescription.Attributes["Placeholder"] = "Enter Description";
 
+            Label lblAmenityType = new Label();
+            lblAmenityType.ID = $"lblAmenityType{count}";
+            lblAmenityType.Text = "Amenity Type: ";
+
             DropDownList ddlAmenityType = new DropDownList();
             ddlAmenityType.ID = $"ddlAmenityType{count}";
             foreach (AmenityType type in Enum.GetValues(typeof(AmenityType)))
@@ -214,6 +223,7 @@ namespace Project3
 
             panel.Controls.Add(lblDescription);
             panel.Controls.Add(txtDescription);
+            panel.Controls.Add(lblAmenityType);
             panel.Controls.Add(ddlAmenityType);
             panel.Controls.Add(btnDelete);
             phAmenities.Controls.Add(panel);
@@ -261,9 +271,21 @@ namespace Project3
             {
                 ddlImageRoomType.Items.Add(type.ToString());
             }
+            Label lblImageUpload = new Label();
+            lblImageUpload.ID = $"lblImageUpload{count}";
+            lblImageUpload.Text = "Image Upload: ";
 
             FileUpload fuImage = new FileUpload();
-            fuImage.ID = $"fuImage{count}";
+            List<FileUpload> images = (List<FileUpload>)ViewState["Images"] != null? (List<FileUpload>)ViewState["Images"] : new List<FileUpload>();
+            if (images.Count <= count && images.Count != 0)
+            {
+                fuImage = images[count];
+            }
+            else
+            {
+                fuImage = new FileUpload();
+                fuImage.ID = $"fuImage{count}";
+            }
 
             Button btnDelete = new Button();
             btnDelete.ID = $"btnImageDelete_{count}";
@@ -293,17 +315,102 @@ namespace Project3
         }
 
         //ONLY ADD WHERE VISIBILITY IS TRUE
-        protected bool AddHomeValidate()
+        protected string Validator()
         {
-            return true;
+            string errorString = "";
+
+            errorString += Validation.IsAlphaNumeric(txtHomeStreet.Text) && Validation.IsUnder51Characters(txtHomeStreet.Text) ? string.Empty : "Enter a valid Personal Street</br>";
+            errorString += Validation.IsAlphaNumeric(txtHomeCity.Text) && Validation.IsUnder51Characters(txtHomeCity.Text) ? string.Empty : "Enter a valid Personal City</br>";
+            errorString += Validation.IsAlphaNumeric(txtHomeState.Text) && Validation.IsUnder51Characters(txtHomeState.Text) ? string.Empty : "Enter a valid Personal State</br>";
+            errorString += Validation.IsAlphaNumericWithDash(txtHomeZipCode.Text) && Validation.IsUnder51Characters(txtHomeZipCode.Text) ? string.Empty : "Enter a valid Personal Zip Code</br>";
+            errorString += Validation.IsInteger(txtHomeCost.Text) ? string.Empty : "Enter a Valid Home Cost (integer)</br>";
+            errorString += Validation.IsValidYear(txtYearConstructed.Text)? string.Empty : $"Enter a Valid Year constructed (1700-{DateTime.Now.Year})</br>";
+            errorString += txtHomeDescription.Text.Length > 0 ? string.Empty : "Enter a valid Home Description</br>";
+
+            for(int i=0; i < phRooms.Controls.Count; i++)
+            {
+                if (phRooms.FindControl($"pnlRoomContainer{i}").Visible)
+                {
+                    TextBox height = (TextBox)phRooms.FindControl($"txtHeight{i}");
+                    TextBox width = (TextBox)phRooms.FindControl($"txtWidth{i}");
+                    if (!Validation.IsInteger(height.Text)|| !Validation.IsInteger(width.Text))
+                    {
+                        errorString += "Enter valid dimentions for rooms</br>";
+                        break;
+                    }
+                }
+            }
+
+            for(int i=0; i < phUtilities.Controls.Count; i++)
+            {
+                if (phRooms.FindControl($"pnlUtilityContainer{i}").Visible)
+                {
+                    TextBox information = (TextBox)phRooms.FindControl($"txtInformation{i}");
+                    if (!Validation.IsAlphaNumeric(information.Text))
+                    {
+                        errorString += "Enter valid information in Utilities</br>";
+                        break;
+                    }
+                }
+            }
+
+            for(int i=0; i < phAmenities.Controls.Count; i++)
+            {
+                if (phRooms.FindControl($"pnlAmenityContainer{i}").Visible)
+                {
+                    TextBox description = (TextBox)phRooms.FindControl($"txtDescription{i}");
+                    if (!Validation.IsAlphaNumeric(description.Text))
+                    {
+                        errorString += "Enter valid description in Amenities</br>";
+                        break;
+                    }
+                }
+            }
+
+            for(int i=0; i < phImages.Controls.Count; i++)
+            {
+                if (phRooms.FindControl($"pnlImageContainer{i}").Visible)
+                {
+                    TextBox description = (TextBox)phRooms.FindControl($"txtImageDescription{i}");
+                    if (!Validation.IsAlphaNumeric(description.Text))
+                    {
+                        errorString += "Enter valid image description</br>";
+                    }
+                    
+                }
+            }
+
+            bool imgErr = false;
+            for(int i=0; i < phImages.Controls.Count; i++)
+            {
+                FileUpload fuImage = (FileUpload)phImages.FindControl($"fuImage{i}");
+                string imageName = fuImage.FileName;
+                string fileExtension = imageName.Length>0 ? imageName.Substring(imageName.LastIndexOf(".")).ToLower() : null;
+                if (fileExtension != ".jpg" || fileExtension != ".jpeg" || fileExtension != ".bmp" || fileExtension != ".gif")
+                {
+                    errorString += imgErr ? "" : "Select a Valid Image (.jpg .jpeg .bmp .gif)</br>";
+                    imgErr = true;
+                }
+                else
+                {
+                    List<FileUpload> images = (List<FileUpload>)ViewState["Images"];
+                    images.Add(fuImage);
+                    ViewState["Images"] = images;
+                }
+            }
+
+            return errorString;
         }
 
         protected void btnSubmitHomeListing_Click(object sender, EventArgs e)
         {
-            //if (!AddHomeValidate())
-            //{
-                //error
-            //}
+            string err = Validator();
+            if (err.Length > 0)
+            {
+                lblError.Text = err;
+                lblError.Visible = true;
+                return;
+            } 
             HomeImages homeImages = new HomeImages();
             for (int i = 0; i < (int)ViewState["ImagesCount"]; i++)
             {
@@ -321,19 +428,12 @@ namespace Project3
 
                 string fileExtension = imageName.Substring(imageName.LastIndexOf(".")).ToLower();
 
-                if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension == ".bmp" || fileExtension == ".gif")
-                {
-                    string fileName = $"{ddlImageRoomType.SelectedValue}_{DateTime.Now.Ticks}{fileExtension}";
-                    string sourceFile = Server.MapPath("FileStorage/");
-                    string destinationFile = Server.MapPath($"FileStorage/{fileName}");
-                    string url = $"https://cis-iis2.temple.edu/Fall2024/CIS3342_tui78495/Project3/FileStorage/{destinationFile}";
-                    fuImage.SaveAs(sourceFile + fileName);
-                    homeImages.Add(new RetailClassLibrary.Image(url, (RoomType)Enum.Parse(typeof(RoomType), ddlImageRoomType.SelectedValue), txtImageDescription.Text, isMainImage));
-                }
-                else
-                {
-                    //error
-                }
+                string fileName = $"{ddlImageRoomType.SelectedValue}_{DateTime.Now.Ticks}{fileExtension}";
+                string sourceFile = Server.MapPath("FileStorage/");
+                string destinationFile = Server.MapPath($"FileStorage/{fileName}");
+                string url = $"https://cis-iis2.temple.edu/Fall2024/CIS3342_tui78495/Project3/FileStorage/{destinationFile}";
+                fuImage.SaveAs(sourceFile + fileName);
+                homeImages.Add(new RetailClassLibrary.Image(url, (RoomType)Enum.Parse(typeof(RoomType), ddlImageRoomType.SelectedValue), txtImageDescription.Text, isMainImage));
             }
             HomeAmenities homeAmenities = new HomeAmenities();
             for (int i = 0; i < (int)ViewState["AmenitiesCount"]; i++)
