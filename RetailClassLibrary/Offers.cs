@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RetailClassLibrary
 {
-    internal class Offers : ListOfObjects<Offer>, ICloneable<Offers>
+    public class Offers : ListOfObjects<Offer>, ICloneable<Offers>
     {
         public Offers() { }
         public Offers(List<Offer> list)

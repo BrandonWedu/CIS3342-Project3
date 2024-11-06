@@ -149,5 +149,9 @@ namespace RetailClassLibrary
         {
             return WriteOffer.UpdateStatus(offer);
         }
+        public static Offers GetOffersByAgentID(int agentID)
+        {
+            return ReadOffer.GetOffersByAgentID(agentID);
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace RetailClassLibrary
                     contingencies.Add (new Contingency
                         (
                             (int?)row["ContingencyID"],
-                            (string)row["ContingencyDescription"]
+                            (string)row["Description"]
                         ));
             }
             return contingencies;

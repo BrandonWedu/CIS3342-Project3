@@ -51,18 +51,18 @@ namespace RetailClassLibrary
         }
 
         // Constructor with ID
-        public Offer(int offerID, Home home, Client client, DateTime offerCreated, double amount, TypeOfSale type, bool sellPriorHomeFirst, DateTime moveInByDate, OfferStatus status, OfferContingencies contingencies)
+        public Offer(int? offerID, Home home, Client client, DateTime offerCreated, double amount, TypeOfSale type, bool sellPriorHomeFirst, DateTime moveInByDate, OfferStatus status, OfferContingencies contingencies)
         {
             this.offerID = offerID;
-            this.home = home.DeepCopy();
-            this.client = client.DeepCopy();
+            this.home = home;
+            this.client = client;
             this.offerCreated = offerCreated;
             this.amount = amount;
             this.type = type;
             this.sellPriorHomeFirst = sellPriorHomeFirst;
             this.moveInByDate = new DateTime(moveInByDate.Ticks);
             this.status = status;
-            this.contingencies = contingencies.DeepCopy();
+            this.contingencies = contingencies;
         }
 
         //Get Set
@@ -128,7 +128,7 @@ namespace RetailClassLibrary
 
         public Offer DeepCopy()
         {
-            return new Offer(Home, Client, OfferCreated, Amount, Type, SellPriorHomeFirst, MoveInByDate, Status, Contingencies);
+            return new Offer(OfferID, Home, Client, OfferCreated, Amount, Type, SellPriorHomeFirst, MoveInByDate, Status, Contingencies);
         }
     }
 }

@@ -129,12 +129,12 @@ namespace Project3
             Label lblMoveInByDate = new Label();
             lblMoveInByDate.Text = "Move in by Date:";
             lblMoveInByDate.ID = $"lblMoveInByDate{count}";
-            panel.Controls.Add(lblMoveInByDate );
+            panel.Controls.Add(lblMoveInByDate);
             
             Label lblMoveInByDateData = new Label();
             lblMoveInByDateData.Text = offers.List[count].MoveInByDate.ToString();
             lblMoveInByDateData.ID = $"lblMoveInByDateData{count}";
-            panel.Controls.Add(lblMoveInByDateData );
+            panel.Controls.Add(lblMoveInByDateData);
 
             Label lblOfferCreated = new Label();
             lblOfferCreated.Text = $"Offer Date Created:";
@@ -160,9 +160,17 @@ namespace Project3
             ddlOfferStatus.SelectedIndex = (int)offers.List[count].Status;
             panel.Controls.Add(ddlOfferStatus);
 
-            foreach(Contingency contingency in offers.List[count].Contingencies.List)
+            for(int i = 0; i < offers.List[count].Contingencies.List.Count; i++)
             {
+                Label lblContingency = new Label(); 
+                lblContingency.ID = $"lblContingency{count}{i}";
+                lblContingency.Text = $"Contingency {i + 1}:";
+                panel.Controls.Add(lblContingency);
 
+                Label lblContingencyData = new Label(); 
+                lblContingencyData.ID = $"lblContingencyData{count}{i}";
+                lblContingencyData.Text = offers.List[count].Contingencies.List[i].Description;
+                panel.Controls.Add(lblContingencyData);
             }
 
             Button btnUpdate = new Button();
@@ -188,7 +196,7 @@ namespace Project3
             Offer offer = offers.List[buttonID];
             DropDownList ddlOfferStatus = (DropDownList)phOffer.FindControl($"ddlOfferStatus{buttonID}");
             offer.Status = (OfferStatus)ddlOfferStatus.SelectedIndex;
-            RetailHelper.UpdateOfferStatus(offer);
+            RetailHelper.UpdateOffer(offer);
         }
     }
 }
