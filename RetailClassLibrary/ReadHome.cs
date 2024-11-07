@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 
 
-namespace RetailClassLibrary
+namespace RealEstateClassLibrary
 {
     internal static class ReadHome
     {

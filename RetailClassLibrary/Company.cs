@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace RetailClassLibrary
+namespace RealEstateClassLibrary
 {
     //Contains Company Information
     public class Company : ICloneable<Company>

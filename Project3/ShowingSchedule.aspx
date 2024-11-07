@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShowingSchedule.aspx.cs" Inherits="Project3.ShowingSchedule" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback = "True" CodeBehind="ShowingSchedule.aspx.cs" Inherits="Project3.ShowingSchedule" %>
 
 <!DOCTYPE html>
 

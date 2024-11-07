@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using RetailClassLibrary;
+using RealEstateClassLibrary;
 using Utilities;
 
 namespace Project3
@@ -71,7 +71,7 @@ namespace Project3
             }
             Client client = new Client(txtFirstName.Text, txtLastName.Text, new Address(txtStreet.Text, txtCity.Text, txtState.Text, txtZipCode.Text), txtPhoneNumber.Text, txtEmail.Text);
             DateTime timeRequested = new DateTime(calShowingTime.SelectedDate.Year, calShowingTime.SelectedDate.Month, calShowingTime.SelectedDate.Day, int.Parse(ddlHour.Text), int.Parse(ddlMinute.Text), 0);
-            RetailHelper.ScheduleShowing(new Showing(
+            RealEstateHelper.ScheduleShowing(new Showing(
                 home,
                 client,
                 DateTime.Now,

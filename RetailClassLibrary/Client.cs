@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RetailClassLibrary
+namespace RealEstateClassLibrary
 {
     //Contains Client data and extends user
     public class Client : User, ICloneable<Client>

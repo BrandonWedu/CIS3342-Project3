@@ -1,4 +1,4 @@
-﻿using RetailClassLibrary;
+﻿using RealEstateClassLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace Project3
                 Response.Redirect("Index.aspx");
             }
             agent = (Agent)Session["Agent"];
-            offers = RetailHelper.GetOffersByAgentID((int)agent.AgentID);
+            offers = RealEstateHelper.GetOffersByAgentID((int)agent.AgentID);
             for (int i = 0; i < offers.List.Count; i++)
             {
                 GenerateOffer(i);
@@ -196,7 +196,7 @@ namespace Project3
             Offer offer = offers.List[buttonID];
             DropDownList ddlOfferStatus = (DropDownList)phOffer.FindControl($"ddlOfferStatus{buttonID}");
             offer.Status = (OfferStatus)ddlOfferStatus.SelectedIndex;
-            RetailHelper.UpdateOffer(offer);
+            RealEstateHelper.UpdateOffer(offer);
         }
     }
 }

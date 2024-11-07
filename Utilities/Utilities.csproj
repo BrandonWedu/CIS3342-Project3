@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="DBConnect.cs" />
     <Compile Include="DBParameterHelper.cs" />
-    <Compile Include="ImageHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation.cs" />
   </ItemGroup>

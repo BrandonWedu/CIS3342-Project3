@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OfferCreate.aspx.cs" Inherits="Project3.OfferCreate" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback = "True" CodeBehind="OfferCreate.aspx.cs" Inherits="Project3.OfferCreate" %>
 
 <!DOCTYPE html>
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RetailClassLibrary
+namespace RealEstateClassLibrary
 {
     //Holds User Login information
     public class LoginData : ICloneable<LoginData>

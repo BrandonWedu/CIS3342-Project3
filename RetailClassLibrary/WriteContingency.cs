@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Utilities;
 
-namespace RetailClassLibrary
+namespace RealEstateClassLibrary
 {
     internal static class WriteContingency
     {

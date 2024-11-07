@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomeProfile.aspx.cs" Inherits="Project3.HomeProfile" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback = "True" CodeBehind="HomeProfile.aspx.cs" Inherits="Project3.HomeProfile" %>
 
 <!DOCTYPE html>
 

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RetailClassLibrary
+namespace RealEstateClassLibrary
 {
     //Enum for types of rooms
     public enum RoomType

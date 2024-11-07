@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RetailClassLibrary
+namespace RealEstateClassLibrary
 {
     //Contains Agent data and extends User
     public class Agent : User, ICloneable<Agent>

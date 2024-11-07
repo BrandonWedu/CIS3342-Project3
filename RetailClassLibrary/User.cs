@@ -5,7 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RetailClassLibrary
+namespace RealEstateClassLibrary
 {
     //Implements basic information for users of the application
     public abstract class User

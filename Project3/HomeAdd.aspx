@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomeAdd.aspx.cs" Inherits="Project3.HomeAdd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback = "True" CodeBehind="HomeAdd.aspx.cs" Inherits="Project3.HomeAdd" %>
 
 <!DOCTYPE html>
 
@@ -80,7 +80,7 @@
                 <asp:Button ID="btnGenerateImage" Text="Add Image" runat="server" OnClick="btnGenerateImage_Click"/>
             </div>
             <asp:Button ID="btnSubmitHomeListing" Text="Submit Home Listing" runat="server" OnClick="btnSubmitHomeListing_Click" />
-            <asp:Label ID="lblError" runat="server"></asp:Label>
+            <asp:Label ID="lblError" CssClass="error" runat="server"></asp:Label>
         </div>
     </form>
 </body>

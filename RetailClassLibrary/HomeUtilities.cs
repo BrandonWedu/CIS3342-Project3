@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RetailClassLibrary
+namespace RealEstateClassLibrary
 {
     //Contains a list of Utility
     public class HomeUtilities : ListOfObjects<Utility>, ICloneable<HomeUtilities>

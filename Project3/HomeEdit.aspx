@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomeEdit.aspx.cs" Inherits="Project3.HomeEdit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback = "True" CodeBehind="HomeEdit.aspx.cs" Inherits="Project3.HomeEdit" %>
 
 <!DOCTYPE html>
 

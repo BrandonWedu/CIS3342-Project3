@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RetailClassLibrary
+namespace RealEstateClassLibrary
 {
     //Contains a list of Contingency
     public class OfferContingencies : ListOfObjects<Contingency>, ICloneable<OfferContingencies>

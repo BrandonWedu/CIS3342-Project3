@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AccountRegistration.aspx.cs" Inherits="Project3.AccountRegistration" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback = "True" CodeBehind="AccountRegistration.aspx.cs" Inherits="Project3.AccountRegistration" %>
 
 <!DOCTYPE html>
 

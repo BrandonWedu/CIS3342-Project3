@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using RetailClassLibrary;
+using RealEstateClassLibrary;
 using Utilities;
 
 namespace Project3
@@ -150,7 +150,7 @@ namespace Project3
                 OfferStatus.review,
                 contingencies
                 );
-            RetailHelper.CreateOffer( offer );
+            RealEstateHelper.CreateOffer( offer );
             Response.Redirect("index.aspx");
         }
     }

@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RetailClassLibrary
+namespace RealEstateClassLibrary
 {
     //Enum for sale types
     public enum TypeOfSale 
     {
-        ConventionalMorgage,
+        ConventionalMortgage,
         Cash
     }
     //Enum for OfferStatus

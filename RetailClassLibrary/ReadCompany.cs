@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 using System.Threading.Tasks;
 using Utilities;
 
-namespace RetailClassLibrary
+namespace RealEstateClassLibrary
 {
     internal static class ReadCompany
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using RetailClassLibrary;
+using RealEstateClassLibrary;
 using Utilities;
 
 namespace Project3
@@ -23,10 +23,10 @@ namespace Project3
                 lblError.Text = "You must enter a proper username and password.";
                 return;
             }
-            int login = RetailHelper.Login(txtUsername.Text, txtPassword.Text);
+            int login = RealEstateHelper.Login(txtUsername.Text, txtPassword.Text);
             if (login > -1)
             {
-                agent = RetailHelper.GetAgentByID(login);
+                agent = RealEstateHelper.GetAgentByID(login);
                 Session["Agent"] = agent;
                 Response.Redirect("Index.aspx");
             } else

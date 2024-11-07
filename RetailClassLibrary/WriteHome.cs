@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Utilities;
 using System.Data;
 
-namespace RetailClassLibrary
+namespace RealEstateClassLibrary
 {
     internal static class WriteHome
     {

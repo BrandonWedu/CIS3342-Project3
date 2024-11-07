@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Data;
 using Utilities;
 
-namespace RetailClassLibrary
+namespace RealEstateClassLibrary
 {
     internal static class ReadAgent 
     {

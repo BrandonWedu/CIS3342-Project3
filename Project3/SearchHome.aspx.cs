@@ -1,4 +1,4 @@
-﻿using RetailClassLibrary;
+﻿using RealEstateClassLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace Project3
             {
                 agent = (Agent)Session["Agent"];
             }
-            homes = RetailHelper.GetHomes();
+            homes = RealEstateHelper.GetHomes();
             foreach (Home home in homes.List)
             {
                 GenerateHome(home);
@@ -33,7 +33,7 @@ namespace Project3
 
             //Display Main Image
             System.Web.UI.WebControls.Image imgHome = new System.Web.UI.WebControls.Image();
-            foreach (RetailClassLibrary.Image image in home.Images.List)
+            foreach (RealEstateClassLibrary.Image image in home.Images.List)
             {
                 if (image.MainImage)
                 {

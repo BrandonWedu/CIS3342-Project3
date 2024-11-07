@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project3", "Project3.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "..\Utilities\Utilities.csproj", "{AE43AF09-6DEB-4A63-AE87-7934014ED581}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetailClassLibrary", "..\RetailClassLibrary\RetailClassLibrary.csproj", "{89DF9997-8C6E-488B-991D-CFFA087C5D74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateClassLibrary", "..\RetailClassLibrary\RealEstateClassLibrary.csproj", "{89DF9997-8C6E-488B-991D-CFFA087C5D74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

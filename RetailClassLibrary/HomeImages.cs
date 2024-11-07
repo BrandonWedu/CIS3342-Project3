@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RetailClassLibrary
+namespace RealEstateClassLibrary
 {
     //Contains a list of Image
     public class HomeImages : ListOfObjects<Image>, ICloneable<HomeImages>

@@ -1,4 +1,4 @@
-﻿using RetailClassLibrary;
+﻿using RealEstateClassLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace Project3
                 Response.Redirect("Index.aspx");
             }
             agent = (Agent)Session["Agent"];
-            showings = RetailHelper.GetShowingsByAgentID((int)agent.AgentID);
+            showings = RealEstateHelper.GetShowingsByAgentID((int)agent.AgentID);
             for (int i = 0; i < showings.List.Count; i++)
             {
                 GenerateShowing(i);
@@ -154,7 +154,7 @@ namespace Project3
             Showing showing = showings.List[buttonID];
             DropDownList ddlShowingStatus = (DropDownList)phShowing.FindControl($"ddlShowingStatus{buttonID}");
             showing.Status = (ShowingStatus)ddlShowingStatus.SelectedIndex;
-            RetailHelper.UpdateShowingStatus(showing);
+            RealEstateHelper.UpdateShowingStatus(showing);
         }
     }
 }

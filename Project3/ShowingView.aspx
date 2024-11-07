@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShowingView.aspx.cs" Inherits="Project3.ShowingView" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback = "True" CodeBehind="ShowingView.aspx.cs" Inherits="Project3.ShowingView" %>
 
 <!DOCTYPE html>
 

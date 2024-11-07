@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RetailClassLibrary
+namespace RealEstateClassLibrary
 {
     public abstract class ListOfObjects<T> : IListOfObjects<T> where T : ICloneable<T>
     {

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SearchHome.aspx.cs" Inherits="Project3.SearchHome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback = "True" CodeBehind="SearchHome.aspx.cs" Inherits="Project3.SearchHome" %>
 
 <!DOCTYPE html>
 
