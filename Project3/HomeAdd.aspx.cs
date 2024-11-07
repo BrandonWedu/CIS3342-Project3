@@ -20,6 +20,10 @@ namespace Project3
             if (Session["agent"] != null)
             {
                 agent = (Agent)Session["agent"];
+                lblAgentResponsibleData.Text = $"{agent.FirstName} {agent.LastName}";   
+                lblCompanyData.Text= $"{agent.Company.Name}";
+                lblAgentPhoneNumberData.Text = agent.PhoneNumber;
+                lblAgentEmailData.Text = agent.Email;
                 if (ViewState["HomeImages"] != null)
                 {
                     homeImages.List = (List<RealEstateClassLibrary.Image>)ViewState["HomeImages"];
@@ -374,6 +378,7 @@ namespace Project3
             errorString += Validation.IsValidYear(txtYearConstructed.Text)? string.Empty : $"Enter a Valid Year constructed (1700-{DateTime.Now.Year})</br>";
             errorString += txtHomeDescription.Text.Length > 0 ? string.Empty : "Enter a valid Home Description</br>";
 
+            bool hasRoom = false;
             for(int i=0; i < phRooms.Controls.Count; i++)
             {
                 if (phRooms.FindControl($"pnlRoomContainer{i}").Visible)
@@ -382,12 +387,15 @@ namespace Project3
                     TextBox width = (TextBox)phRooms.FindControl($"txtWidth{i}");
                     if (!Validation.IsInteger(height.Text)|| !Validation.IsInteger(width.Text))
                     {
-                        errorString += "Enter valid dimentions for rooms</br>";
+                        errorString += "Enter valid dimensions for rooms</br>";
                         break;
                     }
+                    hasRoom = true;
                 }
             }
+            errorString += hasRoom ? string.Empty : "You must create at least one room<br/>";
 
+            bool hasUtility = false;
             for(int i=0; i < phUtilities.Controls.Count; i++)
             {
                 if (phRooms.FindControl($"pnlUtilityContainer{i}").Visible)
@@ -398,9 +406,12 @@ namespace Project3
                         errorString += "Enter valid information in Utilities</br>";
                         break;
                     }
+                    hasUtility = true;
                 }
             }
+            errorString += hasUtility ? string.Empty : "You must create at least one room<br/>";
 
+            bool hasAmenities = false;
             for(int i=0; i < phAmenities.Controls.Count; i++)
             {
                 if (phRooms.FindControl($"pnlAmenityContainer{i}").Visible)
@@ -411,9 +422,12 @@ namespace Project3
                         errorString += "Enter valid description in Amenities</br>";
                         break;
                     }
+                    hasAmenities = true;
                 }
             }
+            errorString += hasAmenities ? string.Empty : "You must create at least one room<br/>";
 
+            bool hasImages = false;
             for(int i=0; i < phImages.Controls.Count; i++)
             {
                 if (phRooms.FindControl($"pnlImageContainer{i}").Visible)
@@ -423,12 +437,14 @@ namespace Project3
                     {
                         errorString += "Enter valid image description</br>";
                     }
-                    
+                    hasImages = true;
                 }
             }
+            errorString += hasImages ? string.Empty : "You must create at least one room<br/>";
 
             homeImages.List = (List<RealEstateClassLibrary.Image>)ViewState["HomeImages"];
             errorString += homeImages.List.Count <= 0 ? "You must have at least one image</br>" : string.Empty;
+
             return errorString;
         }
 

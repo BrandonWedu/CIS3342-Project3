@@ -21,6 +21,18 @@
 
         <div class="main-item-container">
             <div class="item-container">
+                <asp:Literal ID="litAgentInformation" Text="<h2>Agent Information</h2>" runat="server"></asp:Literal>
+                <asp:Label ID="lblAgentResponsible" Text="Agent Responsible" runat="server" />
+                <asp:Label ID="lblAgentResponsibleData" runat="server" />
+                <asp:Label ID="lblCompany" Text="Company" runat="server" />
+                <asp:Label ID="lblCompanyData" runat="server" />
+                <asp:Label ID="lblAgentPhoneNumber" Text="Agent PhoneNumber" runat="server" />
+                <asp:Label ID="lblAgentPhoneNumberData" runat="server" />
+                <asp:Label ID="lblAgentEmail" Text="Agent Email" runat="server" />
+                <asp:Label ID="lblAgentEmailData" runat="server" />
+            </div>
+
+            <div class="item-container">
                 <asp:Literal ID="litHomeAddress" Text="<h2>Home Address</h2>"  runat="server" />
                 <asp:Label ID="lblHomeStreet" Text="Street" runat="server" />
                 <asp:TextBox ID="txtHomeStreet" placeholder="Enter Street" runat="server" />
@@ -34,8 +46,8 @@
 
             <div class="item-container">
                 <asp:Literal ID="litHomeInformation" Text="<h2>Home Information</h2>" runat="server"></asp:Literal>
-                <asp:Label ID="lblHomeCost" Text="Cost" runat="server"></asp:Label>
-                <asp:TextBox ID="txtHomeCost" Placeholder="Enter Cost" runat="server"></asp:TextBox>
+                <asp:Label ID="lblHomeCost" Text="Asking Price" runat="server"></asp:Label>
+                <asp:TextBox ID="txtHomeCost" Placeholder="Enter Asking Price" runat="server"></asp:TextBox>
                 <asp:Label ID="lblPropertyType" Text="Property Type" runat="server" />
                 <asp:DropDownList ID="ddlPropertyType" runat="server" />
                 <asp:Label ID="lblYearConstructed" Text="Year Constructed" runat="server" />
@@ -43,7 +55,7 @@
                 <asp:Label ID="lblGarageType" Text="Garage Type" runat="server" />
                 <asp:DropDownList ID="ddlGarageType" runat="server" />
                 <asp:Label ID="lblHomeDescription" Text="Home Description" runat="server" />
-                <asp:TextBox ID="txtHomeDescription" Placeholder="Enter Home Description" runat="server" />
+                <asp:TextBox ID="txtHomeDescription" TextMode="MultiLine" Rows="4" Placeholder="Home Description" runat="server" />
                 <asp:Label ID="lblSaleStatus" Text="SaleStatus" runat="server" />
                 <asp:DropDownList ID="ddlSaleStatus" runat="server" />
             </div>

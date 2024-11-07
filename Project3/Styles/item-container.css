@@ -11,7 +11,8 @@
 }
 
 .item-container input[type="text"],
-.item-container input[type="password"]{
+.item-container input[type="password"],
+textarea{
     border: none;
     background-color: #57cc99;
     padding: 0.5em; 
@@ -20,7 +21,8 @@
 }
 
 .item-container input[type="text"]:focus,
-.item-container input[type="password"]:focus{
+.item-container input[type="password"]:focus,
+textarea{
     outline:none;
     outline: 2px solid #38a3a5; 
 }
@@ -31,4 +33,5 @@
     grid-column: 1 / -1;
     justify-self:center;
 }
+
 
