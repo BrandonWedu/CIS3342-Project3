@@ -14,7 +14,8 @@ namespace RealEstateClassLibrary
         Multifamily,
         Condo,
         Duplex,
-        Tinyhome
+        Tinyhome,
+        SingleFamily
     }
     //House status Enum
     public enum SaleStatus

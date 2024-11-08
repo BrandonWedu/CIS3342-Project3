@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RetailClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -97,10 +98,10 @@ namespace RealEstateClassLibrary
                         amenity.AmenityID = amenityID;
                     }
                 }
-                int tempatureControlID = WriteTemperatureControl.CreateNew(homeID, home.TemperatureControl);
-                if (tempatureControlID > -1)
+                int temperatureControlID = WriteTemperatureControl.CreateNew(homeID, home.TemperatureControl);
+                if (temperatureControlID > -1)
                 {
-                    home.TemperatureControl.TempatureControlID = tempatureControlID;
+                    home.TemperatureControl.TempatureControlID = temperatureControlID;
                 }
                 return true;
             }
@@ -147,6 +148,24 @@ namespace RealEstateClassLibrary
         }
         public static bool UpdateOffer(Offer offer)
         {
+            if (offer.Status.Equals(OfferStatus.accepted)) 
+            {
+                offer.Home.SaleStatus = SaleStatus.Sold;
+                if (!WriteHome.UpdateSaleStatus(offer.Home)) { return false; }
+            }
+            
+             if (offer.Status.Equals(OfferStatus.rejected)) 
+            {
+                offer.Home.SaleStatus = SaleStatus.ForSale;
+                if (!WriteHome.UpdateSaleStatus(offer.Home)) { return false; }
+            }
+
+            if(offer.Status.Equals(OfferStatus.accepted) || offer.Status.Equals(OfferStatus.rejected))
+            {
+                //email the user
+                Email email = new Email();
+                email.SendMail(offer);
+            }
             return WriteOffer.UpdateStatus(offer);
         }
         public static Offers GetOffersByAgentID(int agentID)

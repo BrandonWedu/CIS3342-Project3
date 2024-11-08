@@ -90,9 +90,9 @@ namespace Project3
             errorString += (Validation.IsAlphaNumeric(txtPhoneNumber.Text) && Validation.IsUnder51Characters(txtPhoneNumber.Text)) ? string.Empty : "Enter a valid Phone Number</br>";
             errorString += (Validation.IsEmail(txtEmail.Text) && Validation.IsUnder51Characters(txtEmail.Text)) ? string.Empty : "Enter a valid Email</br>";
 
-            errorString += (Validation.IsAlphaNumeric(txtStreet.Text) && Validation.IsUnder51Characters(txtStreet.Text)) ? string.Empty : "Enter a valid Street</br>";
-            errorString += (Validation.IsAlphaNumeric(txtCity.Text) && Validation.IsUnder51Characters(txtCity.Text)) ? string.Empty : "Enter a valid City</br>";
-            errorString += (Validation.IsAlphaNumeric(txtState.Text) && Validation.IsUnder51Characters(txtState.Text)) ? string.Empty : "Enter a valid State</br>";
+            errorString += (Validation.IsAlphaNumericWithSpace(txtStreet.Text) && Validation.IsUnder51Characters(txtStreet.Text)) ? string.Empty : "Enter a valid Street</br>";
+            errorString += (Validation.IsAlphaNumericWithSpace(txtCity.Text) && Validation.IsUnder51Characters(txtCity.Text)) ? string.Empty : "Enter a valid City</br>";
+            errorString += (Validation.IsAlphaNumericWithSpace(txtState.Text) && Validation.IsUnder51Characters(txtState.Text)) ? string.Empty : "Enter a valid State</br>";
             errorString += (Validation.IsAlphaNumericWithDash(txtZipCode.Text) && Validation.IsUnder51Characters(txtZipCode.Text)) ? string.Empty : "Enter a valid Zip Code</br>";
 
             errorString += (Validation.IsInteger(txtAmount.Text)) ? string.Empty : "Enter a valid Offer Amount (integer)</br>";
@@ -105,7 +105,7 @@ namespace Project3
                 if (phContingencies.FindControl($"pnlContingency{i}").Visible == true)
                 {
                     TextBox txtDescription = (TextBox)phContingencies.FindControl($"txtDescription{i}");
-                    errorString += (Validation.IsAlphaNumeric(txtDescription.Text) ? string.Empty : "Enter valid Contingencies</br>");
+                    errorString += ((txtDescription.Text).Length > 0 ? string.Empty : "Enter valid Contingencies</br>");
                     return errorString;
                 }
             }

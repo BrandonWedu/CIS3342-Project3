@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback = "True" CodeBehind="HomeAdd.aspx.cs" Inherits="Project3.HomeAdd" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Sillow - Create Home Listing</title>
@@ -87,7 +86,7 @@
             </div>
 
             <div class="item-container">
-                <asp:Literal ID="litImageInformation" Text="<h2>Add Image</h2>"  runat="server" />
+                <asp:Literal ID="litImageInformation" Text="<h2>Add Image (upload images individually before submitting listing)</h2>"  runat="server" />
                 <asp:PlaceHolder ID="phImages" runat="server"> </asp:PlaceHolder>
                 <asp:Button ID="btnGenerateImage" Text="Add Image" runat="server" OnClick="btnGenerateImage_Click"/>
             </div>

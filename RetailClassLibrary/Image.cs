@@ -8,6 +8,7 @@ namespace RealEstateClassLibrary
 {
     //Enum for room types in Room.cs
     //Contains data for a home image
+    [Serializable]
     public class Image : ICloneable<Image>
     {
         //Fields

@@ -26,7 +26,8 @@ namespace RealEstateClassLibrary
         Library,
         Sunroom,
         Workshop,
-        Storage
+        Storage,
+        Outside
     }
 
     //Contains Room Data

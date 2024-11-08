@@ -14,7 +14,7 @@ namespace Project3
     public partial class HomeAdd : System.Web.UI.Page
     {
         Agent agent;
-        HomeImages homeImages;
+        HomeImages homeImages = new HomeImages();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["agent"] != null)
@@ -27,6 +27,9 @@ namespace Project3
                 if (ViewState["HomeImages"] != null)
                 {
                     homeImages.List = (List<RealEstateClassLibrary.Image>)ViewState["HomeImages"];
+                } else
+                {
+                    ViewState["HomeImages"] = new List<RealEstateClassLibrary.Image>();
                 }
 
                 if (!IsPostBack)
@@ -285,10 +288,20 @@ namespace Project3
             FileUpload fuImage = new FileUpload();
             fuImage.ID = $"fuImage{count}";
 
+            Label lblImageUploadURL = new Label();
+            lblImageUploadURL.ID = $"lblImageUploadURL{count}";
+            lblImageUploadURL.Visible = false;
+
             Button btnUpload = new Button();
             btnUpload.ID = $"btnUpload_{count}";
             btnUpload.Text = "Upload";
             btnUpload.Click += new EventHandler(btnUploadImage_Click);
+
+            Button btnDelete = new Button();
+            btnDelete.ID = $"btnDelete_{count}";
+            btnDelete.Text = "Delete";
+            btnDelete.Visible = false;
+            btnDelete.Click += new EventHandler(btnDeleteImage_Click);
 
             Label lblImageError = new Label();
             lblImageError.ID = $"lblImageError{count}";
@@ -299,8 +312,11 @@ namespace Project3
             panel.Controls.Add(txtImageDescription);
             panel.Controls.Add(lblImageRoomType);
             panel.Controls.Add(ddlImageRoomType);
+            panel.Controls.Add(lblImageUpload);
             panel.Controls.Add(fuImage);
+            panel.Controls.Add(lblImageUploadURL);
             panel.Controls.Add(btnUpload);
+            panel.Controls.Add(btnDelete);
             panel.Controls.Add(lblImageError);
 
             phImages.Controls.Add(panel);
@@ -316,7 +332,11 @@ namespace Project3
         {
             string divID = ((Button)sender).ID.Split('_').Last();
             FileUpload fuImage = (FileUpload)phImages.FindControl($"fuImage{divID}");
-            if (((TextBox)phImages.FindControl($"txtImageDescription{divID}")).Text.Length <= 0)
+            TextBox txtImageDescription = (TextBox)phImages.FindControl($"txtImageDescription{divID}");
+            DropDownList ddlImageRoomType = (DropDownList)phImages.FindControl($"ddlImageRoomType{divID}");
+            bool isMainImage = (Literal)phImages.FindControl($"lblImageType{divID}") != null;
+
+            if (txtImageDescription.Text.Length <= 0)
             {
                 Label error = (Label)phImages.FindControl($"lblImageError{divID}");
                 error.Visible = true;
@@ -334,9 +354,6 @@ namespace Project3
             string fileExtension = imageName.Substring(imageName.LastIndexOf(".")).ToLower();
             if (fileExtension == ".jpg" || fileExtension == ".jpeg")
             {
-                TextBox txtImageDescription = (TextBox)phImages.FindControl($"txtImageDescription{divID}");
-                DropDownList ddlImageRoomType = (DropDownList)phImages.FindControl($"ddlImageRoomType{divID}");
-                bool isMainImage = (Literal)phImages.FindControl($"lblImageType{divID}") != null;
                 int imageSize = fuImage.PostedFile.ContentLength;
                 byte[] imageData = new byte[imageSize];
                 fuImage.PostedFile.InputStream.Read(imageData, 0, imageSize);
@@ -345,11 +362,34 @@ namespace Project3
                 string destinationFile = Server.MapPath($"FileStorage/{fileName}");
                 string url = $"https://cis-iis2.temple.edu/Fall2024/CIS3342_tui78495/Project3/FileStorage/{destinationFile}";
                 fuImage.SaveAs(sourceFile + fileName);
-                //add image to list 
-                //change button to delete
-                // change txt to lbl ect
 
-                ViewState["HomeImages"] = homeImages;
+                if (isMainImage)
+                {
+                    if (((List<RealEstateClassLibrary.Image>)ViewState["HomeImages"]).Count > 0)
+                    {
+                        ((List<RealEstateClassLibrary.Image>)ViewState["HomeImages"]).RemoveAt(0);
+                        ((List<RealEstateClassLibrary.Image>)ViewState["HomeImages"]).Insert(0, new RealEstateClassLibrary.Image(url, (RoomType)ddlImageRoomType.SelectedIndex, txtImageDescription.Text, isMainImage));
+                    }
+                    else
+                    {
+                        ((List<RealEstateClassLibrary.Image>)ViewState["HomeImages"]).Add(new RealEstateClassLibrary.Image(url, (RoomType)ddlImageRoomType.SelectedIndex, txtImageDescription.Text, isMainImage));
+                    }
+                }
+                else
+                {
+                    ((List<RealEstateClassLibrary.Image>)ViewState["HomeImages"]).Add(new RealEstateClassLibrary.Image(url, (RoomType)ddlImageRoomType.SelectedIndex, txtImageDescription.Text, isMainImage));
+                }
+                //change display
+                phImages.FindControl($"btnUpload_{divID}").Visible = false;
+                phImages.FindControl($"btnDelete_{divID}").Visible = true;
+                phImages.FindControl($"fuImage{divID}").Visible = false;
+                phImages.FindControl($"lblImageUploadURL{divID}").Visible = true;
+                ((Label)phImages.FindControl($"lblImageUploadURL{divID}")).Text = "Images uploaded to server.";
+                phImages.FindControl($"lblImageDescription{divID}").Visible = false;
+                phImages.FindControl($"txtImageDescription{divID}").Visible = false;
+                phImages.FindControl($"lblImageRoomType{divID}").Visible = false;
+                phImages.FindControl($"ddlImageRoomType{divID}").Visible = false;
+
             } else
             {
                 Label error = (Label)phImages.FindControl($"lblImageError{divID}");
@@ -357,12 +397,26 @@ namespace Project3
                 error.Text = "You must choose a valid image type (.jpg .jpeg)";
                 return; 
             }
-            fuImage.Visible = false;
         }
         protected void btnDeleteImage_Click(object sender, EventArgs e)
         {
             string divID = ((Button)sender).ID.Split('_').Last();
-            phRooms.FindControl($"pnlImageContainer{divID}").Visible = false;
+            if((Literal)phImages.FindControl($"lblImageType{divID}") != null)
+            {
+                phImages.FindControl($"btnUpload_{divID}").Visible = true;
+                phImages.FindControl($"btnDelete_{divID}").Visible = false;
+                phImages.FindControl($"fuImage{divID}").Visible = true;
+                phImages.FindControl($"lblImageUploadURL{divID}").Visible = false;
+                ((Label)phImages.FindControl($"lblImageDescription{divID}")).Text = "";
+                phImages.FindControl($"lblImageDescription{divID}").Visible = true;
+                phImages.FindControl($"txtImageDescription{divID}").Visible = true;
+                phImages.FindControl($"lblImageRoomType{divID}").Visible = true;
+                phImages.FindControl($"ddlImageRoomType{divID}").Visible = true;
+            }
+            else
+            {
+                phRooms.FindControl($"pnlImageContainer{divID}").Visible = false;
+            }
         }
 
         //ONLY ADD WHERE VISIBILITY IS TRUE
@@ -370,9 +424,9 @@ namespace Project3
         {
             string errorString = "";
 
-            errorString += Validation.IsAlphaNumeric(txtHomeStreet.Text) && Validation.IsUnder51Characters(txtHomeStreet.Text) ? string.Empty : "Enter a valid Personal Street</br>";
-            errorString += Validation.IsAlphaNumeric(txtHomeCity.Text) && Validation.IsUnder51Characters(txtHomeCity.Text) ? string.Empty : "Enter a valid Personal City</br>";
-            errorString += Validation.IsAlphaNumeric(txtHomeState.Text) && Validation.IsUnder51Characters(txtHomeState.Text) ? string.Empty : "Enter a valid Personal State</br>";
+            errorString += Validation.IsAlphaNumericWithSpace(txtHomeStreet.Text) && Validation.IsUnder51Characters(txtHomeStreet.Text) ? string.Empty : "Enter a valid Street</br>";
+            errorString += Validation.IsAlphaNumericWithSpace(txtHomeCity.Text) && Validation.IsUnder51Characters(txtHomeCity.Text) ? string.Empty : "Enter a valid City</br>";
+            errorString += Validation.IsAlphaNumericWithSpace(txtHomeState.Text) && Validation.IsUnder51Characters(txtHomeState.Text) ? string.Empty : "Enter a valid State</br>"; 
             errorString += Validation.IsAlphaNumericWithDash(txtHomeZipCode.Text) && Validation.IsUnder51Characters(txtHomeZipCode.Text) ? string.Empty : "Enter a valid Personal Zip Code</br>";
             errorString += Validation.IsInteger(txtHomeCost.Text) ? string.Empty : "Enter a Valid Home Cost (integer)</br>";
             errorString += Validation.IsValidYear(txtYearConstructed.Text)? string.Empty : $"Enter a Valid Year constructed (1700-{DateTime.Now.Year})</br>";
@@ -401,7 +455,7 @@ namespace Project3
                 if (phRooms.FindControl($"pnlUtilityContainer{i}").Visible)
                 {
                     TextBox information = (TextBox)phRooms.FindControl($"txtInformation{i}");
-                    if (!Validation.IsAlphaNumeric(information.Text))
+                    if (!(information.Text.Length > 0))
                     {
                         errorString += "Enter valid information in Utilities</br>";
                         break;
@@ -417,7 +471,7 @@ namespace Project3
                 if (phRooms.FindControl($"pnlAmenityContainer{i}").Visible)
                 {
                     TextBox description = (TextBox)phRooms.FindControl($"txtDescription{i}");
-                    if (!Validation.IsAlphaNumeric(description.Text))
+                    if (!(description.Text.Length > 0))
                     {
                         errorString += "Enter valid description in Amenities</br>";
                         break;
@@ -427,23 +481,9 @@ namespace Project3
             }
             errorString += hasAmenities ? string.Empty : "You must create at least one room<br/>";
 
-            bool hasImages = false;
-            for(int i=0; i < phImages.Controls.Count; i++)
-            {
-                if (phRooms.FindControl($"pnlImageContainer{i}").Visible)
-                {
-                    TextBox description = (TextBox)phRooms.FindControl($"txtImageDescription{i}");
-                    if (!Validation.IsAlphaNumeric(description.Text))
-                    {
-                        errorString += "Enter valid image description</br>";
-                    }
-                    hasImages = true;
-                }
-            }
-            errorString += hasImages ? string.Empty : "You must create at least one room<br/>";
-
+            errorString += phImages.FindControl("btnDelete_0").Visible ? string.Empty : "You must have a main image</br>";
+            
             homeImages.List = (List<RealEstateClassLibrary.Image>)ViewState["HomeImages"];
-            errorString += homeImages.List.Count <= 0 ? "You must have at least one image</br>" : string.Empty;
 
             return errorString;
         }
@@ -457,25 +497,14 @@ namespace Project3
                 lblError.Visible = true;
                 return;
             }
-            HomeImages finalHomeImages = new HomeImages((List<RealEstateClassLibrary.Image>)ViewState["HomeImages"]);
+            HomeImages finalHomeImages = new HomeImages();
             for (int i = 0; i < (int)ViewState["ImagesCount"]; i++)
             {
-                TextBox txtImageDescription = (TextBox)phImages.FindControl($"txtImageDescription{i}");
-                DropDownList ddlImageRoomType = (DropDownList)phImages.FindControl($"ddlImageRoomType{i}");
-                bool isMainImage = (Literal)phImages.FindControl($"lblImageType{i}") != null;
-
-                FileUpload fuImage = (FileUpload)phImages.FindControl($"fuImage{i}");
-                int imageSize = fuImage.PostedFile.ContentLength;
-                byte[] imageData = new byte[imageSize];
-                fuImage.PostedFile.InputStream.Read(imageData, 0, imageSize);
-                string imageName = fuImage.FileName;
-                string fileExtension = imageName.Substring(imageName.LastIndexOf(".")).ToLower();
-                string fileName = $"{ddlImageRoomType.SelectedValue}_{DateTime.Now.Ticks}{fileExtension}";
-                string sourceFile = Server.MapPath("FileStorage/");
-                string destinationFile = Server.MapPath($"FileStorage/{fileName}");
-                string url = $"https://cis-iis2.temple.edu/Fall2024/CIS3342_tui78495/Project3/FileStorage/{destinationFile}";
-                fuImage.SaveAs(sourceFile + fileName);
-                homeImages.Add(new RealEstateClassLibrary.Image(url, (RoomType)Enum.Parse(typeof(RoomType), ddlImageRoomType.SelectedValue), txtImageDescription.Text, isMainImage));
+                //add the appropriate images to the final image list
+                if (phImages.FindControl($"pnlImageContainer{i}").Visible == true)
+                {
+                    finalHomeImages.Add(((List<RealEstateClassLibrary.Image>)ViewState["HomeImages"])[i]);
+                }
             }
             HomeAmenities homeAmenities = new HomeAmenities();
             for (int i = 0; i < (int)ViewState["AmenitiesCount"]; i++)
@@ -503,7 +532,7 @@ namespace Project3
             (
                 agent,
                 int.Parse(txtHomeCost.Text),
-                new Address(txtHomeState.Text, txtHomeCity.Text, txtHomeStreet.Text, txtHomeZipCode.Text),
+                new Address(txtHomeStreet.Text, txtHomeCity.Text, txtHomeState.Text, txtHomeZipCode.Text),
                 (PropertyType)Enum.Parse(typeof(PropertyType), ddlPropertyType.SelectedValue),
                 int.Parse(txtYearConstructed.Text),
                 (GarageType)Enum.Parse(typeof(GarageType), ddlGarageType.SelectedValue),
@@ -516,7 +545,16 @@ namespace Project3
                 homeRooms,
                 homeUtilities
             );
-            RealEstateHelper.CreateNewHome(home);
+            if (!RealEstateHelper.CreateNewHome(home))
+            {
+                lblError.Text = "Home at this address already exists.";
+                lblError.Visible = true;
+            } 
+            else
+            {
+                lblError.Visible = false;
+                Response.Redirect("Index.aspx");
+            }
         }
     }
 }

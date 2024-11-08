@@ -74,13 +74,13 @@ namespace RealEstateClassLibrary
 
         public Home Home
         {
-            get { return home.DeepCopy(); }
+            get { return home; }
             set { home = value.DeepCopy(); }
         }
 
         public Client Client
         {
-            get { return client.DeepCopy(); }
+            get { return client; }
             set { client = value.DeepCopy(); }
         }
 
@@ -122,7 +122,7 @@ namespace RealEstateClassLibrary
 
         public OfferContingencies Contingencies
         {
-            get { return contingencies.DeepCopy(); }
+            get { return contingencies; }
             set { contingencies = value.DeepCopy(); }
         }
 

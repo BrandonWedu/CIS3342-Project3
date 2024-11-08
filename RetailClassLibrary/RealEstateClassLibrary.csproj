@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="Companies.cs" />
+    <Compile Include="Email.cs" />
     <Compile Include="Homes.cs" />
     <Compile Include="Offers.cs" />
     <Compile Include="ReadAmenities.cs" />

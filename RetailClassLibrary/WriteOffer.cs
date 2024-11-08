@@ -33,7 +33,7 @@ namespace RealEstateClassLibrary
             //add Output Param
             SqlParameter outputParam = DBParameterHelper.OutputParameter("@offerID", SqlDbType.Int, 8);
             sqlCommand.Parameters.Add(outputParam);
-            //Excecute sql
+            //Execute sql
             dbConnect.DoUpdate(sqlCommand);
             return (int)outputParam.Value;
         }
@@ -51,7 +51,7 @@ namespace RealEstateClassLibrary
             //add Output Param
             SqlParameter outputParam = DBParameterHelper.OutputParameter("@statusCode", SqlDbType.Int, 8);
             sqlCommand.Parameters.Add(outputParam);
-            //Excecute sql
+            //Execute sql
             dbConnect.DoUpdate(sqlCommand);
             //return -1 if unsuccessful
             return (int)outputParam.Value > -1;
