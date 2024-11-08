@@ -181,8 +181,8 @@ namespace RealEstateClassLibrary
             set { utilities = value.DeepCopy(); }
         }
 
-    //Calculate homesize
-    private int CalculateHomeSize()
+        //Calculate homesize
+        private int CalculateHomeSize()
         {
             homeSize = 0; 
             foreach (Room room in rooms.List)
@@ -190,6 +190,11 @@ namespace RealEstateClassLibrary
                 homeSize += room.Width * room.Height;
             }
             return homeSize;
+        }
+        //Calculate time on market
+        public int TimeOnMarket()
+        {
+            return (DateListed - DateTime.Now).Days;
         }
 
         public Home DeepCopy()

@@ -18,7 +18,9 @@ namespace Project3
             if (Session["Agent"] != null)
             {
                 agent = (Agent)Session["Agent"];
-                loginTest.Text = agent.LoginData.Username;
+                lblAgentName.Text = $"Hello, {agent.FirstName} {agent.LastName}";
+                lblAgentName.Visible = true;
+                lblLoginText.Text =$"Hello {agent.FirstName} {agent.LastName} ({agent.LoginData.Username})! What would you like to do?";
                 btnLogin.Visible = false;
                 btnSignUp.Visible = false;
                 btnSignOut.Visible = true;
@@ -34,12 +36,16 @@ namespace Project3
                 btnViewOffers.Visible = false;
                 btnViewShowings.Visible = false;
             }
-            homes = RealEstateHelper.GetHomes();
-            foreach (Home home in homes.List)
+            if (!IsPostBack)
             {
-                GenerateHome(home);
+                homes = RealEstateHelper.GetHomes();
+                foreach (Home home in homes.List)
+                {
+                    GenerateHome(home);
+                }
             }
         }
+        //search button
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
@@ -104,13 +110,13 @@ namespace Project3
             //AddCost
             Label lblCost = new Label();
             lblCost.ID = $"lblCost_{home.HomeID}";
-            lblCost.Text = home.Cost.ToString();
+            lblCost.Text = $"Asking Price: {home.Cost.ToString("C2")}";
             panel.Controls.Add(lblCost);
 
             //Add beds
             Label lblBeds = new Label();
             lblBeds.ID = $"lblBeds_{home.HomeID}";
-            lblBeds.Text = home.Rooms.GetBedrooms().ToString();
+            lblBeds.Text = $"Bedrooms: {home.Rooms.GetBedrooms()}";
             panel.Controls.Add(lblBeds);
 
             //Add bath
@@ -118,19 +124,19 @@ namespace Project3
             lblBath.ID = $"lblBath_{home.HomeID}";
             int full = home.Rooms.GetFullBaths();
             int half = home.Rooms.GetHalfBaths();
-            lblBath.Text = full.ToString() + (full > 1 ? "Bedrooms" : "Bedroom") + " " + half.ToString() + (half > 1 ? "Bedrooms" : "Bedroom");
+            lblBath.Text = $"Full Bathrooms: {full} Half Bathrooms: {half}";
             panel.Controls.Add(lblBath);
 
             //Add size
             Label lblSize = new Label();
             lblSize.ID = $"lblSize_{home.HomeID}";
-            lblSize.Text = $"{home.HomeSize} Square ft";
+            lblSize.Text = $"Home Size: {home.HomeSize} Square ft";
             panel.Controls.Add(lblSize);
 
             //Add Address
             Label lblAddress = new Label();
             lblAddress.ID = $"lblAddress_{home.HomeID}";
-            lblAddress.Text = home.Address.ToString();
+            lblAddress.Text = $"Home Address: {home.Address.ToString()}";
             panel.Controls.Add(lblAddress);
 
             //Add View Home Button
@@ -153,7 +159,6 @@ namespace Project3
                     Response.Redirect("HomeProfile.aspx");
                 }
             }
-
         }
     }
 }

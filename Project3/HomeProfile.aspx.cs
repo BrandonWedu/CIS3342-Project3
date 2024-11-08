@@ -17,6 +17,7 @@ namespace Project3
             //Display Images -------------------------------------------------------------------------------
 
             //SetValues
+            lblTimeOnMarket.Text = home.TimeOnMarket().ToString() + " Days";
             lblHomeAddress.Text = home.Address.ToString();
             lblHomeCost.Text = home.Cost.ToString("C2");
             lblPropertyType.Text = home.PropertyType.ToString();

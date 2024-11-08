@@ -19,6 +19,8 @@
         <div>
             <asp:Label ID="lblHomeInformation" Text="<h1>Add Home Information</h1>"  runat="server" />
             <br />
+            <asp:Label ID="lblTimeOnMarket" runat="server" />
+            <br />
             <asp:PlaceHolder ID="phImages" runat="server"> </asp:PlaceHolder>
             <br />
             <asp:Label ID="lblHomeAddress" runat="server" />

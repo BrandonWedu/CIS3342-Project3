@@ -1,4 +1,4 @@
-﻿using RetailClassLibrary;
+using RetailClassLibrary;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -175,7 +175,7 @@ namespace RealEstateClassLibrary
         public static Homes SearchHomes()
         {
             Homes homes = ReadHome.GetHomes();
-            return HomesSearch.Search(homes);
+            //perform search
         }
     }
 }

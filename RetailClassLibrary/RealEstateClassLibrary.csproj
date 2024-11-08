@@ -58,6 +58,7 @@
     <Compile Include="ReadShowing.cs" />
     <Compile Include="ReadTemperatureControl.cs" />
     <Compile Include="ReadUtilities.cs" />
+    <Compile Include="HomesSearch.cs" />
     <Compile Include="Showings.cs" />
     <Compile Include="WriteAmenity.cs" />
     <Compile Include="WriteCompany.cs" />
