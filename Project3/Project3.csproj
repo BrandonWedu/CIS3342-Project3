@@ -80,6 +80,7 @@
     <Content Include="Styles\home-profile.css" />
     <Content Include="Styles\item-container.css" />
     <Content Include="Styles\main-item-container.css" />
+    <Content Include="Styles\search-container.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -158,7 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Styles\home-search-profile.css" />
+    <Content Include="Styles\home-search-container.css" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

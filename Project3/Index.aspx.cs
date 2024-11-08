@@ -62,10 +62,15 @@ namespace Project3
             }
             foreach(AmenityType amenity in Enum.GetValues(typeof(AmenityType)))
             {
+                Panel pnlGridItem = new Panel();
+                pnlGridItem.ID = $"pnlAmenityContainer_{(int)amenity}";
+
                 CheckBox checkBox = new CheckBox();
                 checkBox.ID = $"Amenity_{(int)amenity}";
                 checkBox.Text = amenity.ToString();
-                phAmenities.Controls.Add(checkBox);
+
+                pnlGridItem.Controls.Add(checkBox);
+                phAmenities.Controls.Add(pnlGridItem);
             }
 
             homes = RealEstateHelper.GetHomes();
@@ -222,8 +227,8 @@ namespace Project3
         {
             //Create DIV
             Panel panel = new Panel();
-            panel.ID = $"HomeContainer{home.HomeID}";
-            panel.CssClass = "home-container";
+            panel.ID = $"pnlHomeContainer{home.HomeID}";
+            panel.CssClass = "home-search-container";
 
             //Display Main Image
             System.Web.UI.WebControls.Image imgHome = new System.Web.UI.WebControls.Image();
@@ -236,45 +241,49 @@ namespace Project3
             }
             panel.Controls.Add(imgHome);
 
+            Panel pnlInfo = new Panel();
+            panel.ID = $"pnlHomeInformationContainer{home.HomeID}";
+
             //AddCost
             Label lblCost = new Label();
             lblCost.ID = $"lblCost_{home.HomeID}";
             lblCost.Text = $"Asking Price: {home.Cost.ToString("C2")}";
-            panel.Controls.Add(lblCost);
+            pnlInfo.Controls.Add(lblCost);
+
+            //Add Address
+            Label lblAddress = new Label();
+            lblAddress.ID = $"lblAddress_{home.HomeID}";
+            lblAddress.Text = $"Home Address: {home.Address.ToString()}";
+            pnlInfo.Controls.Add(lblAddress);
 
             //Add beds
             Label lblBeds = new Label();
             lblBeds.ID = $"lblBeds_{home.HomeID}";
             lblBeds.Text = $"Bedrooms: {home.Rooms.GetBedrooms()}";
-            panel.Controls.Add(lblBeds);
+            pnlInfo.Controls.Add(lblBeds);
 
             //Add bath
             Label lblBath = new Label();
             lblBath.ID = $"lblBath_{home.HomeID}";
             int full = home.Rooms.GetFullBaths();
             int half = home.Rooms.GetHalfBaths();
-            lblBath.Text = $"Full Bathrooms: {full} Half Bathrooms: {half}";
-            panel.Controls.Add(lblBath);
+            lblBath.Text = $"Full Bathrooms: {full} </br>Half Bathrooms: {half}";
+            pnlInfo.Controls.Add(lblBath);
 
             //Add size
             Label lblSize = new Label();
             lblSize.ID = $"lblSize_{home.HomeID}";
             lblSize.Text = $"Home Size: {home.HomeSize} Square ft";
-            panel.Controls.Add(lblSize);
-
-            //Add Address
-            Label lblAddress = new Label();
-            lblAddress.ID = $"lblAddress_{home.HomeID}";
-            lblAddress.Text = $"Home Address: {home.Address.ToString()}";
-            panel.Controls.Add(lblAddress);
+            pnlInfo.Controls.Add(lblSize);
 
             //Add View Home Button
             Button btnViewHome = new Button();
             btnViewHome.ID = $"btnViewHome_{home.HomeID}";
             btnViewHome.Text = "View Home";
             btnViewHome.Click += new EventHandler(btnViewHome_Click);
-            panel.Controls.Add(btnViewHome);
+            pnlInfo.Controls.Add(btnViewHome);
 
+            panel.Controls.Add(pnlInfo);
             phHomes.Controls.Add(panel);
         }
         protected void btnViewHome_Click(object sender, EventArgs e)

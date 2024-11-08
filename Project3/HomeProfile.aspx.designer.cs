@@ -42,22 +42,13 @@ namespace Project3
         protected global::System.Web.UI.WebControls.Button btnDashboard;
 
         /// <summary>
-        /// lblHomeInformation control.
+        /// litHomeInformation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHomeInformation;
-
-        /// <summary>
-        /// lblTimeOnMarket control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTimeOnMarket;
+        protected global::System.Web.UI.WebControls.Literal litHomeInformation;
 
         /// <summary>
         /// phImages control.
@@ -67,15 +58,6 @@ namespace Project3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder phImages;
-
-        /// <summary>
-        /// lblHomeAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHomeAddress;
 
         /// <summary>
         /// btnScheduleShowing control.
@@ -96,49 +78,13 @@ namespace Project3
         protected global::System.Web.UI.WebControls.Button btnMakeOffer;
 
         /// <summary>
-        /// lblHomeCost control.
+        /// litSaleStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHomeCost;
-
-        /// <summary>
-        /// lblPropertyType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPropertyType;
-
-        /// <summary>
-        /// lblYearConstructed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblYearConstructed;
-
-        /// <summary>
-        /// lblGarageType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGarageType;
-
-        /// <summary>
-        /// lblHomeDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHomeDescription;
+        protected global::System.Web.UI.WebControls.Literal litSaleStatus;
 
         /// <summary>
         /// lblSaleStatus control.
@@ -150,6 +96,141 @@ namespace Project3
         protected global::System.Web.UI.WebControls.Label lblSaleStatus;
 
         /// <summary>
+        /// litHomeCost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litHomeCost;
+
+        /// <summary>
+        /// lblHomeCost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHomeCost;
+
+        /// <summary>
+        /// litTimeOnMarket control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litTimeOnMarket;
+
+        /// <summary>
+        /// lblTimeOnMarket control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTimeOnMarket;
+
+        /// <summary>
+        /// litHomeAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litHomeAddress;
+
+        /// <summary>
+        /// lblHomeAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHomeAddress;
+
+        /// <summary>
+        /// litHomeDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litHomeDescription;
+
+        /// <summary>
+        /// lblHomeDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHomeDescription;
+
+        /// <summary>
+        /// litPropertyType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litPropertyType;
+
+        /// <summary>
+        /// lblPropertyType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPropertyType;
+
+        /// <summary>
+        /// litYearConstructed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litYearConstructed;
+
+        /// <summary>
+        /// lblYearConstructed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblYearConstructed;
+
+        /// <summary>
+        /// litDarageType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litDarageType;
+
+        /// <summary>
+        /// lblGarageType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGarageType;
+
+        /// <summary>
+        /// litTempatureControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litTempatureControl;
+
+        /// <summary>
         /// lblTempatureControlInformation control.
         /// </summary>
         /// <remarks>
@@ -159,13 +240,13 @@ namespace Project3
         protected global::System.Web.UI.WebControls.Label lblTempatureControlInformation;
 
         /// <summary>
-        /// lblUtilityInformation control.
+        /// litUtility control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUtilityInformation;
+        protected global::System.Web.UI.WebControls.Literal litUtility;
 
         /// <summary>
         /// phUtilities control.
@@ -177,13 +258,13 @@ namespace Project3
         protected global::System.Web.UI.WebControls.PlaceHolder phUtilities;
 
         /// <summary>
-        /// lblRoomInformation control.
+        /// litRoom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRoomInformation;
+        protected global::System.Web.UI.WebControls.Literal litRoom;
 
         /// <summary>
         /// phRooms control.
@@ -195,13 +276,13 @@ namespace Project3
         protected global::System.Web.UI.WebControls.PlaceHolder phRooms;
 
         /// <summary>
-        /// lblAmenityInformation control.
+        /// litAmenity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAmenityInformation;
+        protected global::System.Web.UI.WebControls.Literal litAmenity;
 
         /// <summary>
         /// phAmenities control.

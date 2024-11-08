@@ -1,1 +1,22 @@
-﻿
+﻿.image-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); 
+    grid-gap: 1em;
+    max-width: 100%;
+    width: 97%;
+    padding: 1em;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+.home-profile .image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease; 
+}
+
+.image-container img:hover {
+    transform: scale(1.1);
+}

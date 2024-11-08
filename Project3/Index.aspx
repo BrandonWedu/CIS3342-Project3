@@ -7,9 +7,12 @@
     <title>sillow - Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/home-search-container.css" />
+    <link rel="stylesheet" href="styles/search-container.css" />
+    <link rel="stylesheet" href="styles/main-item-container.css" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="frmIndex" runat="server">
         <header>
             <asp:Literal ID="litTitle" Text="<h1>Sillow: Dashboard</h1>" runat="server"></asp:Literal>
             <div>
@@ -27,8 +30,8 @@
             <asp:Button ID="btnViewOffers" Text="View Offers" runat="server" OnClick="btnViewOffers_Click" />
         </div>
         
-       <asp:Label ID="lblHomes" Text="<h1>Homes</h1>" runat="server"></asp:Label>
-        <div>
+        <div class="search-container">
+           <asp:Label ID="lblSearch" Text="<h1>Search</h1>" runat="server"></asp:Label>
             <div>
                 <asp:Label ID="lblSearchStreet" Text="Street:" runat="server"></asp:Label>
                 <asp:TextBox ID="txtSearchStreet" runat="server"></asp:TextBox>
@@ -67,16 +70,21 @@
             </div>
             <div>
                 <asp:Label ID="lblSearchAmenities" Text="Amenities:" runat="server"></asp:Label>
+            </div>
+            <div class="grid">
                 <asp:PlaceHolder ID="phAmenities" runat="server"></asp:PlaceHolder>
             </div>
             <div>
-                <asp:Label ID="lblSearchMarketStatus" Text="Status" runat="server"></asp:Label>
+                <asp:Label ID="lblSearchMarketStatus" Text="Status:" runat="server"></asp:Label>
                 <asp:DropDownList ID="ddlSearchMarketStatus" runat="server"></asp:DropDownList>
             </div>
             <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
             <asp:Label ID="lblSearchError" Visible="false" runat="server"></asp:Label>
         </div>
-       <asp:PlaceHolder ID="phHomes" runat="server"> </asp:PlaceHolder> 
+        <div class="main-item-container">
+           <asp:Label ID="lblHomes" Text="<h1>Homes</h1>" runat="server"></asp:Label>
+           <asp:PlaceHolder ID="phHomes" runat="server"> </asp:PlaceHolder> 
+        </div>
     </form>
 </body>
 </html>

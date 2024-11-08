@@ -462,7 +462,7 @@ namespace Project3
                     hasUtility = true;
                 }
             }
-            errorString += hasUtility ? string.Empty : "You must create at least one room<br/>";
+            errorString += hasUtility ? string.Empty : "You must create at least one Utility<br/>";
 
             bool hasAmenities = false;
             for(int i=0; i < phAmenities.Controls.Count; i++)
@@ -478,7 +478,7 @@ namespace Project3
                     hasAmenities = true;
                 }
             }
-            errorString += hasAmenities ? string.Empty : "You must create at least one room<br/>";
+            errorString += hasAmenities ? string.Empty : "You must create at least one Amenity<br/>";
 
             errorString += phImages.FindControl("btnDelete_0").Visible ? string.Empty : "You must have a main image</br>";
             

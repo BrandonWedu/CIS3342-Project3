@@ -15,13 +15,13 @@ namespace Project3
     {
 
         /// <summary>
-        /// form1 control.
+        /// frmIndex control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm frmIndex;
 
         /// <summary>
         /// litTitle control.
@@ -105,13 +105,13 @@ namespace Project3
         protected global::System.Web.UI.WebControls.Button btnViewOffers;
 
         /// <summary>
-        /// lblHomes control.
+        /// lblSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHomes;
+        protected global::System.Web.UI.WebControls.Label lblSearch;
 
         /// <summary>
         /// lblSearchStreet control.
@@ -382,6 +382,15 @@ namespace Project3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSearchError;
+
+        /// <summary>
+        /// lblHomes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHomes;
 
         /// <summary>
         /// phHomes control.

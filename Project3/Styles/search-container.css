@@ -1,0 +1,24 @@
+﻿.search-container {
+    background-color: #80ed99;
+    padding: 1em;
+    margin: 1em;
+    gap: 1em; 
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
+}
+.search-container
+div{
+    margin-bottom: 1em;
+}
+.search-container input[type="text"],
+.search-container input[type="password"],
+textarea{
+    border: none;
+    background-color: #57cc99;
+    padding: 0.5em; 
+    border-radius: 3px 4px;
+}
+.search-container .grid {
+    display: grid; 
+    grid-template-columns: repeat(5, 1fr);
+    gap: .5em;
+}

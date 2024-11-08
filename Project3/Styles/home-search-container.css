@@ -1,0 +1,24 @@
+﻿.home-search-container{
+    display: flex;
+    align-items: flex-start;
+    gap: 1em;
+    background-color: #80ed99;
+    padding: 1em;
+    margin: 1em;
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1em; 
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 5px;
+    align-items:center;
+}
+.home-search-container span {
+    margin-bottom: .2em;
+    display:flex;
+    flex-direction:column;
+}
+.home-search-container img {
+    width: 20em;
+    height: 20em;
+    object-fit: cover; 
+    object-position: center;
+}
