@@ -53,7 +53,7 @@ namespace Project3
 
             Label lblDescription = new Label();
             lblDescription.ID = $"lblDescription{count}";
-            lblDescription.Text = "Contengency Description: ";
+            lblDescription.Text = "Contingency Description: ";
             panel.Controls.Add(lblDescription);
 
             TextBox txtDescription = new TextBox();
@@ -97,7 +97,7 @@ namespace Project3
 
             errorString += (Validation.IsInteger(txtAmount.Text)) ? string.Empty : "Enter a valid Offer Amount (integer)</br>";
             errorString += ddlTypeOfSale.SelectedIndex>-1 ? string.Empty : "Select a Type Of Sale</br>";
-            errorString += rdSellPriorHomeFirst.SelectedIndex > -1 ? string.Empty : "Select a Type Of Sale</br>";
+            errorString += rdSellPriorHomeFirst.SelectedIndex > -1 ? string.Empty : "You must select the sell prior home requirement</br>";
             errorString += calMoveInByDate.SelectedDate > DateTime.Now ? string.Empty : "Select A Valid Move In By Date</br>";
 
             for (int i = 0; i < (int)ViewState["ContingencyCount"]; i++)

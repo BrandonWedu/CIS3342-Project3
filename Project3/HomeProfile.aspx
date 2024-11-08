@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles/item-container.css" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="frmHomeProfile" runat="server">
         <header>
         <asp:Literal ID="litTitle" Text="<h1>Sillow: Home Profile</h1>" runat="server"></asp:Literal>
         <div>
@@ -88,6 +88,7 @@
             <asp:Literal ID="litAmenity" Text="<h1>Amenities</h1>"  runat="server" />
             <asp:PlaceHolder ID="phAmenities" runat="server"> </asp:PlaceHolder>
             </div>
+        </div>
         </div>
     </form>
 </body>
