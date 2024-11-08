@@ -60,15 +60,6 @@ namespace Project3
             }
         }
 
-        protected void btnViewHomes_Click(object sender, EventArgs e)
-        {
-            if (agent != null)
-            {
-                Session["Agent"] = agent;
-            }
-            Response.Redirect("SearchHome.aspx");
-        }
-
         protected void btnViewShowings_Click(object sender, EventArgs e)
         {
             if (agent != null)

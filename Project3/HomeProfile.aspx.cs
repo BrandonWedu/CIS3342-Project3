@@ -74,5 +74,10 @@ namespace Project3
         {
             Response.Redirect("OfferCreate.aspx");
         }
+
+        protected void btnDashboard_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Index.aspx");
+        }
     }
 }

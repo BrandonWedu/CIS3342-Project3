@@ -359,8 +359,7 @@ namespace Project3
                 fuImage.PostedFile.InputStream.Read(imageData, 0, imageSize);
                 string fileName = $"{ddlImageRoomType.SelectedValue}_{DateTime.Now.Ticks}{fileExtension}";
                 string sourceFile = Server.MapPath("FileStorage/");
-                string destinationFile = Server.MapPath($"FileStorage/{fileName}");
-                string url = $"https://cis-iis2.temple.edu/Fall2024/CIS3342_tui78495/Project3/FileStorage/{destinationFile}";
+                string url = $"https://cis-iis2.temple.edu/Fall2024/CIS3342_tui78495/Project3/FileStorage/{fileName}";
                 fuImage.SaveAs(sourceFile + fileName);
 
                 if (isMainImage)

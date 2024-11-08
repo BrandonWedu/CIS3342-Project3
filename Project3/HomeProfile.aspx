@@ -4,10 +4,18 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Home Profile</title>
+    <link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
     <form id="form1" runat="server">
+        <header>
+        <asp:Literal ID="litTitle" Text="<h1>Sillow: Home Profile</h1>" runat="server"></asp:Literal>
+        <div>
+            <asp:Button ID="btnDashboard" Text="Dashboard" runat="server" OnClick="btnDashboard_Click" />
+        </div>
+        </header>
+
         <div>
             <asp:Label ID="lblHomeInformation" Text="<h1>Add Home Information</h1>"  runat="server" />
             <br />
