@@ -75,7 +75,6 @@
     <Content Include="AccountLogin.aspx" />
     <Content Include="OfferCreate.aspx" />
     <Content Include="OfferView.aspx" />
-    <Content Include="SearchHome.aspx" />
     <Content Include="ShowingSchedule.aspx" />
     <Content Include="ShowingView.aspx" />
     <Content Include="Styles\home-profile.css" />
@@ -142,13 +141,6 @@
       <DependentUpon>OfferView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchHome.aspx.cs">
-      <DependentUpon>SearchHome.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SearchHome.aspx.designer.cs">
-      <DependentUpon>SearchHome.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ShowingSchedule.aspx.cs">
       <DependentUpon>ShowingSchedule.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

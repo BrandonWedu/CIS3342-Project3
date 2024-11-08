@@ -25,6 +25,15 @@
             <asp:Button ID="btnViewShowings" Text="View Showings" runat="server" OnClick="btnViewShowings_Click" />
             <asp:Button ID="btnViewOffers" Text="View Offers" runat="server" OnClick="btnViewOffers_Click" />
         </div>
+
+
+        
+       <asp:Label ID="lblHomes" Text="<h1>Homes</h1>" runat="server"></asp:Label>
+       <asp:PlaceHolder ID="phHomes" runat="server"> </asp:PlaceHolder> 
+
+
+
+
     </form>
 </body>
 </html>
