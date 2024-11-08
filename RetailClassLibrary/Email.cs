@@ -28,8 +28,8 @@ namespace RetailClassLibrary
                 this.Subject = offer.Status == OfferStatus.accepted? 
                     "Offer Accepted" : "Offer Rejected";
                 this.Message = offer.Status == OfferStatus.accepted ?
-                    $"Your offer of {offer.Amount.ToString("C2")} was accepted for the purchase of {offer.Home.Address.ToString()}" :
-                    $"Your offer of {offer.Amount.ToString("C2")} was rejected for the purchase of {offer.Home.Address.ToString()}";
+                    $"Good Evening {offer.Client.FirstName} {offer.Client.LastName}, Your offer of {offer.Amount.ToString("C2")} was accepted for the purchase of {offer.Home.Address.ToString()}. We will be in touch soon! -{offer.Home.Agent.FirstName} {offer.Home.Agent.LastName}" :
+                    $"Good Evening {offer.Client.FirstName} {offer.Client.LastName}, Your offer of {offer.Amount.ToString("C2")} was rejected for the purchase of {offer.Home.Address.ToString()}. -{offer.Home.Agent.FirstName} {offer.Home.Agent.LastName}";
                 objMail.To.Add(this.toAddress);
                 objMail.From = this.fromAddress;
                 objMail.Subject = this.subject;

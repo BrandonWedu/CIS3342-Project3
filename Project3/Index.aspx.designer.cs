@@ -348,22 +348,40 @@ namespace Project3
         protected global::System.Web.UI.WebControls.PlaceHolder phAmenities;
 
         /// <summary>
-        /// lblSearchMarket control.
+        /// lblSearchMarketStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSearchMarket;
+        protected global::System.Web.UI.WebControls.Label lblSearchMarketStatus;
 
         /// <summary>
-        /// txtSearchMarket control.
+        /// ddlSearchMarketStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList txtSearchMarket;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSearchMarketStatus;
+
+        /// <summary>
+        /// btnSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSearch;
+
+        /// <summary>
+        /// lblSearchError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSearchError;
 
         /// <summary>
         /// phHomes control.

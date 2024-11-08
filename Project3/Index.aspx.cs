@@ -1,11 +1,13 @@
 ﻿using RealEstateClassLibrary;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Utilities;
 
 namespace Project3
 {
@@ -27,7 +29,8 @@ namespace Project3
                 btnAddHome.Visible = true;
                 btnViewOffers.Visible = true;
                 btnViewShowings.Visible = true;
-            } else
+            } 
+            else
             {
                 btnLogin.Visible = true;
                 btnSignUp.Visible = true;
@@ -38,15 +41,141 @@ namespace Project3
             }
             if (!IsPostBack)
             {
-                homes = RealEstateHelper.GetHomes();
+                ddlPropertyType.Items.Add("Empty");
+                foreach(PropertyType propertyType in Enum.GetValues(typeof(PropertyType)))
+                {
+                    ddlPropertyType.Items.Add(propertyType.ToString());
+                }
+                ddlSearchMarketStatus.Items.Add("Empty");
+                foreach(SaleStatus saleStatus in Enum.GetValues(typeof(SaleStatus)))
+                {
+                    ddlSearchMarketStatus.Items.Add(saleStatus.ToString());
+                }
+                ddlSearchBedrooms.Items.Add("Empty");
+                ddlSearchBathrooms.Items.Add("Empty");
+                for (int i = 1; i < 11; i++)
+                {
+                    ddlSearchBedrooms.Items.Add(i.ToString());
+                    ddlSearchBathrooms.Items.Add(i.ToString());
+                    ddlSearchBathrooms.Items.Add((i+0.5).ToString());
+                }
+            }
+            foreach(AmenityType amenity in Enum.GetValues(typeof(AmenityType)))
+            {
+                CheckBox checkBox = new CheckBox();
+                checkBox.ID = $"Amenity_{(int)amenity}";
+                checkBox.Text = amenity.ToString();
+                phAmenities.Controls.Add(checkBox);
+            }
+
+            homes = RealEstateHelper.GetHomes();
+            foreach (Home home in homes.List)
+            {
+                GenerateHome(home);
+            }
+        }
+        //search button
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            //Get Data
+            string street = txtSearchStreet.Text.Length == 0 ? null : txtSearchStreet.Text;
+            string city = txtSearchCity.Text.Length == 0 ? null : txtSearchCity.Text;
+            string state = txtSearchState.Text.Length == 0 ? null : txtSearchState.Text;
+            string zipCode = txtSearchZipCode.Text.Length == 0 ? null : txtSearchZipCode.Text;
+            string priceMin = txtSearchPriceRangeMin.Text.Length == 0 ? null : txtSearchPriceRangeMin.Text;
+            string priceMax = txtSearchPriceRangeMax.Text.Length == 0 ? null : txtSearchPriceRangeMax.Text;
+            string houseSizeMin = txtSearchHouseSizeMin.Text.Length == 0 ? null : txtSearchHouseSizeMin.Text;
+            string houseSizeMax = txtSearchHouseSizeMax.Text.Length == 0 ? null : txtSearchHouseSizeMax.Text;
+            int bedroomMin = ddlSearchBedrooms.SelectedIndex;
+            int bathroomMin = ddlSearchBathrooms.SelectedIndex;
+            //Amenities
+            List<AmenityType> amenities = new List<AmenityType>();
+            foreach(AmenityType amenity in Enum.GetValues(typeof(AmenityType)))
+            {
+                CheckBox checkBox = (CheckBox)phAmenities.FindControl($"Amenity_{(int)amenity}");
+                if (checkBox.Checked)
+                {
+                    amenities.Add( amenity );
+                }
+            }
+
+            PropertyType? propertyType = ddlPropertyType.SelectedIndex == 0? null : (PropertyType?)(ddlPropertyType.SelectedIndex - 1);
+            SaleStatus? saleStatus = ddlSearchMarketStatus.SelectedIndex == 0? null : (SaleStatus?)(ddlSearchMarketStatus.SelectedIndex - 1);
+
+
+            //nullable ints
+            int? priceMinData = null;
+            int? priceMaxData = null;
+            int? houseSizeMinData = null;
+            int? houseSizeMaxData = null;
+
+            int? bedroomMinData = bedroomMin == 0? null : (int?)bedroomMin;
+            double? bathroomMinData = bathroomMin == 0? null : (double?)double.Parse(ddlSearchBathrooms.SelectedValue);
+
+
+            //Error Handling
+            string searchError = "";
+            if (priceMin != null) 
+            { 
+                if(Validation.IsInteger(priceMin))
+                {
+                    priceMinData = int.Parse(priceMin);
+                }
+                else
+                {
+                    searchError += "Price Min must be an integer"; 
+                }
+            }
+            if (priceMax != null) 
+            { 
+                if(Validation.IsInteger(priceMax))
+                {
+                    priceMaxData = int.Parse(priceMax);
+                }
+                else
+                {
+                    searchError += "Price Max must be an integer"; 
+                }
+            }
+            if (houseSizeMin != null) 
+            { 
+                if(Validation.IsInteger(houseSizeMin))
+                {
+                    houseSizeMinData = int.Parse(houseSizeMin);
+                }
+                else
+                {
+                    searchError += "House Size min must be an integer"; 
+                }
+            }
+            if (houseSizeMax != null) 
+            { 
+                if(Validation.IsInteger(houseSizeMax))
+                {
+                    houseSizeMaxData = int.Parse(houseSizeMax);
+                }
+                else
+                {
+                    searchError += "House Size max must be an integer"; 
+                }
+            }
+
+            if(searchError.Length > 0)
+            {
+                lblSearchError.Text = searchError;
+                lblSearchError.Visible = true;
+                return;
+            } 
+            else
+            {
+                homes = RealEstateHelper.SearchHomes(street, city, state, zipCode, priceMinData, priceMaxData, propertyType, houseSizeMinData, houseSizeMaxData, bedroomMinData, bathroomMinData, amenities, saleStatus);
+                phHomes.Controls.Clear();
                 foreach (Home home in homes.List)
                 {
                     GenerateHome(home);
                 }
             }
         }
-        //search button
-
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             Response.Redirect("AccountLogin.aspx");
@@ -143,12 +272,12 @@ namespace Project3
             Button btnViewHome = new Button();
             btnViewHome.ID = $"btnViewHome_{home.HomeID}";
             btnViewHome.Text = "View Home";
-            btnViewHome.Click += new EventHandler(ViewHome);
+            btnViewHome.Click += new EventHandler(btnViewHome_Click);
             panel.Controls.Add(btnViewHome);
 
             phHomes.Controls.Add(panel);
         }
-        protected void ViewHome(object sender, EventArgs e)
+        protected void btnViewHome_Click(object sender, EventArgs e)
         {
             string homeID = ((Button)sender).ID.Split('_').Last();
             foreach (Home home in homes.List)

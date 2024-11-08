@@ -172,10 +172,10 @@ namespace RealEstateClassLibrary
         {
             return ReadOffer.GetOffersByAgentID(agentID);
         }
-        public static Homes SearchHomes()
+        public static Homes SearchHomes(string street, string city, string state, string zipCode, int? priceMin, int? priceMax, PropertyType? propertyType, int? houseSizeMin, int? houseSizeMax, int? bedroomMin, double? bathroomMin, List<AmenityType> amenities, SaleStatus? saleStatus)
         {
             Homes homes = ReadHome.GetHomes();
-            return HomesSearch.Search(homes);
+            return HomesSearch.Search(homes, street, city, state, zipCode, priceMin, priceMax, propertyType, houseSizeMin, houseSizeMax, bedroomMin, bathroomMin, amenities, saleStatus);
         }
     }
 }

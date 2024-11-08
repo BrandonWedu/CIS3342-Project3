@@ -27,7 +27,8 @@ namespace Project3
             {
                 errorString = "Enter a valid Username<br/>";
 
-            } else
+            } 
+            else
             {
                 errorString += RealEstateHelper.GetAgentByUsername(txtUsername.Text) == null ? string.Empty : "Username Taken<br/>";
             }

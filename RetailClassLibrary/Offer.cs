@@ -15,9 +15,9 @@ namespace RealEstateClassLibrary
     //Enum for OfferStatus
     public enum OfferStatus
     {
-        review,
         accepted,
-        rejected
+        rejected,
+        review
     }
 
     //Contains data for an Offer

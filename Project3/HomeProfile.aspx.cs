@@ -27,6 +27,13 @@ namespace Project3
             lblSaleStatus.Text = home.SaleStatus.ToString();
             lblTempatureControlInformation.Text = $"Cooling: {home.TemperatureControl.Cooling} <br/> Heating: {home.TemperatureControl.Heating}";
 
+            //Display offer and showing
+            if (home.SaleStatus == SaleStatus.ForSale)
+            {
+                btnMakeOffer.Visible = true;
+                btnScheduleShowing.Visible = true;
+            }
+
             //Add Utility
             string utilities = "";
             foreach (Utility utility in home.Utilities.List)

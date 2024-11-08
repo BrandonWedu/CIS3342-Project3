@@ -25,8 +25,8 @@
             <br />
             <asp:Label ID="lblHomeAddress" runat="server" />
             <br/>
-            <asp:Button ID="btnScheduleShowing" Text="Schedule Showing" runat="server" onclick="btnScheduleShowing_Click"/>
-            <asp:Button ID="btnMakeOffer" runat="server" Text="Make Offer" onclick="btnMakeOffer_Click"/>
+            <asp:Button ID="btnScheduleShowing" Visible="false" Text="Schedule Showing" runat="server" onclick="btnScheduleShowing_Click"/>
+            <asp:Button ID="btnMakeOffer" runat="server" Visible="false" Text="Make Offer" onclick="btnMakeOffer_Click"/>
             <br/>
             <asp:Label ID="lblHomeCost" runat="server"></asp:Label>
             <br />

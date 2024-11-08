@@ -42,7 +42,7 @@ namespace RealEstateClassLibrary
                     count++;
                 }
             }
-                return count;
+            return count;
         }
         public int GetHalfBaths()
         {
@@ -54,7 +54,7 @@ namespace RealEstateClassLibrary
                     count++;
                 }
             }
-                return count;
+            return count;
         }
         //Implement Interface
         public HomeRooms DeepCopy()

@@ -22,7 +22,6 @@ namespace RealEstateClassLibrary
     {
         OffMarket,
         ForSale,
-        Pending,
         Sold
     }
     //enum for GarageTypes
